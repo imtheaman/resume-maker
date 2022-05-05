@@ -1,0 +1,60 @@
+.switch {
+  --checked-color: #303030;
+  --unchecked-color: #ccc;
+  --width: 44px;
+  --height: 22px;
+  margin-left: 6px;
+  position: relative;
+  display: inline-block;
+  width: var(--width);
+  height: var(--height);
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: var(--height);
+  background-color: var(--unchecked-color);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+.slider:hover::before {
+  -webkit-box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.75);
+  box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.75);
+}
+input:checked + .slider:hover::before {
+  -webkit-box-shadow: 0 0 6px 2px rgba(255, 255, 255, 0.75);
+  -moz-box-shadow: 0 0 6px 2px rgba(255, 255, 255, 0.75);
+  box-shadow: 0 0 6px 2px rgba(255, 255, 255, 0.75);
+}
+.slider::before {
+  position: absolute;
+  content: "";
+  height: calc(var(--height) - 4px);
+  width: calc(var(--height) - 4px);
+  left: 3px;
+  bottom: 50%;
+  transform: translateY(50%);
+  border-radius: 50%;
+  background-color: white;
+  /* todo: animation */
+}
+input:checked + .slider {
+  background-color: var(--checked-color);
+}
+input:focus + .slider {
+  box-shadow: 0 0 1px var(--cehcked-color);
+}
+input:checked + .slider::before {
+  left: unset;
+  right: 3px;
+}
