@@ -85,7 +85,7 @@ const Home: React.FC = () => {
         >
           urtheaman
         </a>
-        <span> Open Sourced</span>
+        <span> (Open Sourced)</span>
       </footer>
     </div>
   );
