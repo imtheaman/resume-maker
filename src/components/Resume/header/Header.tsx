@@ -25,7 +25,7 @@ const init_state = {
   about: "I've built many softwares which are being used by billions of people",
 };
 
-const Header= () => {
+const Header = () => {
   const [state, dispatch] = useReducer(reducer, init_state);
   return (
     <header className="px-10 py-8 space-x-8 flex items-center border-b-2">

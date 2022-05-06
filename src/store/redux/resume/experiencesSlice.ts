@@ -28,6 +28,7 @@ const experiencesSlice = createSlice({
         to: { month: null, year: null },
         description: {
           heading: "Achievements/Tasks",
+          contents: [""],
         },
       },
     ],

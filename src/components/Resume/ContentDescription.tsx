@@ -66,15 +66,14 @@ const ContentDescription: React.FC<{
         />
       )}
 
-      <ul className="list-[square] mt-2">
+      <ul className="mt-2">
         {contents.map((content, index) => (
           <li className="ml-4" key={index}>
             <ContentEditable
-              className={`content-editable-dashed w-full focus:my-2 inline-block ${
+              className={`content-editable-dashed text-gray-600 w-full focus:my-2 inline-block ${
                 !content && "border-b border-dashed"
               }`}
               Comp="div"
-              suppressContentEditableWarning
               onBlur={(e: any) => {
                 console.log(e.target.textContent);
                 descriptionHandler(e.target.textContent || "", index);

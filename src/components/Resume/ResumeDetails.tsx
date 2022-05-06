@@ -7,10 +7,12 @@ import ResumeEditContext from "../../store/context-api/context";
 import Achievement from "./Achievement";
 
 const ResumeDetails: React.FC = () => {
-  const {experiences, projects, achievements} = useAppSelector((rootState) => rootState);
+  const { experiences, projects, achievements } = useAppSelector(
+    (rootState) => rootState
+  );
   const context = useContext(ResumeEditContext);
   return (
-    <div className="px-10 py-6 grid gap-x-12 grid-cols-2">
+    <div className="px-10 py-6 grid gap-x-12 gap-y-6 grid-cols-2">
       {experiences.beingUsed && (
         <div>
           <SectionHeading

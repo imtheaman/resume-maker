@@ -2,8 +2,8 @@ import { useAppDispatch } from "../../store/redux/store";
 import ContentEditable from "../customs/ContentEditable";
 
 interface Period {
-  month: number | undefined;
-  year: number | undefined;
+  month: number | null;
+  year: number | null;
 }
 const FromTo: React.FC<{
   from: Period;

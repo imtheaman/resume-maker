@@ -7,8 +7,8 @@ const projectsSlice = createSlice({
     data: [
       {
         name: "",
-        from: { month: undefined, year: undefined },
-        to: { month: undefined, year: undefined },
+        from: { month: null, year: null },
+        to: { month: null, year: null },
         description: { contents: [""] },
       },
     ],

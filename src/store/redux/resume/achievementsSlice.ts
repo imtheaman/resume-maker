@@ -7,8 +7,7 @@ const achievementsSlice = createSlice({
     data: [
       {
         name: "",
-        from: { month: undefined, year: undefined },
-        to: { month: undefined, year: undefined },
+        description: "",
       },
     ],
   },
@@ -19,17 +18,14 @@ const achievementsSlice = createSlice({
     ) => {
       state.data[action.payload.achId].name = action.payload.content;
     },
-    setAchFrom: (
+    setAchDesc: (
       state,
-      action: PayloadAction<{ achId: number; from: any }>
+      action: PayloadAction<{ achId: number; content: string }>
     ) => {
-      state.data[action.payload.achId].from = action.payload.from;
-    },
-    setAchTo: (state, action: PayloadAction<{ achId: number; to: any }>) => {
-      state.data[action.payload.achId].to = action.payload.to;
+      state.data[action.payload.achId].description = action.payload.content;
     },
   },
 });
 const { reducer: achievementsReducer, actions } = achievementsSlice;
-export const { setAchFrom, setAchName, setAchTo } = actions;
+export const { setAchDesc, setAchName } = actions;
 export default achievementsReducer;
