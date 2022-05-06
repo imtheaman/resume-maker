@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 const uiSlice = createSlice({
   name: "ui",
   initialState: {
-    theme: "bg-orange-500",
+    theme: "bg-blue-800",
     spellCheck: true,
   },
   reducers: {
