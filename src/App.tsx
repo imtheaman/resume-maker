@@ -38,15 +38,6 @@ const Home: React.FC = () => {
           <div className="max-w-[1200px] flex-grow flex justify-between items-center">
             <h1 className="md:text-4xl font-semibold italic">Resume Maker</h1>
             <div className="flex items-center space-x-4">
-              <button className="btn text-black" onClick={() => window.print()}>
-                <FontAwesomeIcon
-                  icon={faDownload}
-                  width={20}
-                  height={20}
-                  className="mr-2"
-                />
-                <p>Download</p>
-              </button>
               <SwitchCheckbox
                 name="Spell Check"
                 fontSize="21px"
@@ -58,82 +49,102 @@ const Home: React.FC = () => {
           </div>
         </header>
         {/* <Themes> */}
-        <div className="flex w-full max-w-[1200px] items-center space-x-6">
-          <div className="text-black flex">
-            <button className="btn" onClick={() => setShowThemes(!showThemes)}>
+        <div className="flex w-full max-w-[1200px] justify-between items-center space-x-6">
+          <div className="flex space-x-6">
+            <div className="text-black flex">
+              <button
+                className="btn"
+                onClick={() => setShowThemes(!showThemes)}
+              >
+                <FontAwesomeIcon
+                  icon={faPalette}
+                  width={18}
+                  height={18}
+                  className="mr-2"
+                />
+                Themes
+              </button>
+              {showThemes && (
+                <>
+                  <ThemeBtn theme="bg-orange-500" />
+                  <ThemeBtn theme="bg-yellow-500" />
+                  <ThemeBtn theme="bg-green-500" />
+                  <ThemeBtn theme="bg-blue-500" />
+                  <ThemeBtn theme="bg-blue-800" />
+                  <ThemeBtn theme="bg-purple-800" />
+                  <ThemeBtn theme="bg-pink-500" />
+                </>
+              )}
+            </div>
+            <button className="btn">
               <FontAwesomeIcon
-                icon={faPalette}
+                icon={faPenToSquare}
                 width={18}
                 height={18}
                 className="mr-2"
               />
-              Themes
+              Layout
             </button>
-            {showThemes && (
-              <>
-                <ThemeBtn theme="bg-orange-500" />
-                <ThemeBtn theme="bg-yellow-500" />
-                <ThemeBtn theme="bg-green-500" />
-                <ThemeBtn theme="bg-blue-500" />
-                <ThemeBtn theme="bg-blue-800" />
-                <ThemeBtn theme="bg-purple-800" />
-                <ThemeBtn theme="bg-pink-500" />
-              </>
-            )}
+            <button className="btn">
+              <FontAwesomeIcon
+                icon={faFont}
+                width={18}
+                height={18}
+                className="mr-2"
+              />
+              Font Size
+            </button>
+            <button className="btn">
+              <FontAwesomeIcon
+                icon={faPencil}
+                width={18}
+                height={18}
+                className="mr-2"
+              />
+              Fill Details
+            </button>
+            <div className="flex space-x-4">
+              <button
+                className={`btn ${
+                  disabled
+                    ? "text-gray-400 active:transform-none"
+                    : "text-black"
+                }`}
+                disabled
+              >
+                <FontAwesomeIcon icon={faBold} />
+              </button>
+              <button
+                className={`btn ${
+                  disabled
+                    ? "text-gray-400 active:transform-none"
+                    : "text-black"
+                }`}
+                disabled
+              >
+                <FontAwesomeIcon icon={faUnderline} />
+              </button>
+              <button
+                className={`btn ${
+                  disabled
+                    ? "text-gray-400 active:transform-none"
+                    : "text-black"
+                }`}
+                disabled
+              >
+                <FontAwesomeIcon icon={faLink} />
+              </button>
+            </div>
           </div>
-          <button className="btn">
+          <button className="btn text-black" onClick={() => window.print()}>
             <FontAwesomeIcon
-              icon={faPenToSquare}
-              width={18}
-              height={18}
+              icon={faDownload}
+              width={20}
+              height={20}
               className="mr-2"
             />
-            Layout
+            <p>Download</p>
           </button>
-          <button className="btn">
-            <FontAwesomeIcon
-              icon={faFont}
-              width={18}
-              height={18}
-              className="mr-2"
-            />
-            Font Size
-          </button>
-          <button className="btn">
-            <FontAwesomeIcon
-              icon={faPencil}
-              width={18}
-              height={18}
-              className="mr-2"
-            />
-            Fill Details
-          </button>
-          <div className="flex space-x-4">
-            <button
-              className={`btn ${
-                disabled ? "text-gray-400 active:transform-none" : "text-black"
-              }`}
-              disabled
-            >
-              <FontAwesomeIcon icon={faBold} />
-            </button>
-            <button
-              className={`btn ${
-                disabled ? "text-gray-400 active:transform-none" : "text-black"
-              }`}
-              disabled
-            >
-              <FontAwesomeIcon icon={faUnderline} />
-            </button>
-            <button
-              className={`btn ${
-                disabled ? "text-gray-400 active:transform-none" : "text-black"
-              }`}
-              disabled
-            >
-              <FontAwesomeIcon icon={faLink} />
-            </button>
-          </div>
         </div>
         {/* <Themes /> */}
         <ResumeTemplate />
