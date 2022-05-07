@@ -3,8 +3,12 @@ import ContentEditable from "../customs/ContentEditable";
 import ContentDescription from "./ContentDescription";
 import FromTo from "./FromTo";
 
-interface Props extends ProjectType {
+interface Props {
   projectId: number;
+  to: Period;
+  from: Period;
+  description: { contents: string[] };
+  name: string;
 }
 
 const Project: React.FC<Props> = ({
@@ -24,7 +28,7 @@ const Project: React.FC<Props> = ({
         className="text-xl text-gray-700 font-semibold"
         onBlur={() => console.log("second")}
       />
-      <FromTo from={from} to={to} id={id} />
+      <FromTo from={from} to={to} id={id} location={false} />
       <ContentDescription
         description={description}
         id={id}

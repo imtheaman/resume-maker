@@ -20,7 +20,7 @@ const Experience: React.FC<Props> = ({
   return (
     <div>
       <ContentEditable
-        Comp="a"
+        Comp="h2"
         placeholder="Title/Position"
         content={position}
         className="text-2xl text-gray-700 font-semibold"
@@ -37,6 +37,7 @@ const Experience: React.FC<Props> = ({
       <ContentDescription
         id={id}
         description={description}
+        className="border-b"
         placeholder="Achievements/Tasks"
       />
     </div>

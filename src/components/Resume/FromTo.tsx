@@ -1,16 +1,12 @@
 import { useAppDispatch } from "../../store/redux/store";
 import ContentEditable from "../customs/ContentEditable";
 
-interface Period {
-  month: number | null;
-  year: number | null;
-}
 const FromTo: React.FC<{
   from: Period;
   to: Period;
-  location?: string;
+  location?: string | false;
   id: { name: "exp" | "project" | "ach"; id: number };
-}> = ({ from, to, location = false, id }) => {
+}> = ({ from, to, location, id }) => {
   const dispatch = useAppDispatch();
   const fromHandler = (id: any) => {
     switch (id.name) {
@@ -26,29 +22,34 @@ const FromTo: React.FC<{
         <ContentEditable
           Comp="span"
           placeholder="Month"
-          content={from.month}
+          type="number"
+          content={from && from.month}
           onBlur={() => fromHandler}
+          onKeyDownCapture={(e: any) => isNaN(e.key) && e.preventDefault()}
         />
         <p>/</p>
         <ContentEditable
           Comp="span"
           placeholder="Year"
-          content={from.year}
+          content={from && from.year}
           onBlur={() => fromHandler}
+          onKeyDownCapture={(e: any) => isNaN(e.key) && e.preventDefault()}
         />
         <p className="mx-3">-</p>
         <ContentEditable
           Comp="span"
           placeholder="Month"
-          content={to.month}
+          content={to && to.month}
           onBlur={() => toHandler}
+          onKeyDownCapture={(e: any) => isNaN(e.key) && e.preventDefault()}
         />
         <p>/</p>
         <ContentEditable
           Comp="span"
           placeholder="Year"
-          content={to.year}
+          content={to && to.year}
           onBlur={() => toHandler}
+          onKeyDownCapture={(e: any) => isNaN(e.key) && e.preventDefault()}
         />
       </div>
       {location !== false && (
@@ -56,7 +57,7 @@ const FromTo: React.FC<{
           Comp="span"
           placeholder="Location"
           className="italic"
-          content={location}
+          content={location && location}
           onBlur={() => locationHandler}
         />
       )}

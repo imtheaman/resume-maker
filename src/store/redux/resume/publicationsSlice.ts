@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 const publicationsSlice = createSlice({
   name: "publications",
-  initialState: {},
+  initialState: {} as PublicationState,
   reducers: {},
 });
 const { reducer: publicationsReducer, actions } = publicationsSlice;

@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+
 const projectsSlice = createSlice({
   name: "projects",
   initialState: {
@@ -6,13 +7,10 @@ const projectsSlice = createSlice({
     heading: "Projects",
     data: [
       {
-        name: "",
-        from: { month: null, year: null },
-        to: { month: null, year: null },
         description: { contents: [""] },
       },
     ],
-  },
+  } as ProjectState,
   reducers: {
     createProjectDesc: (
       state,

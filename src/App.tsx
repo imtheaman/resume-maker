@@ -1,4 +1,18 @@
-import { faDownload, faPalette } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBold,
+  faDownload,
+  faFill,
+  faFont,
+  faLink,
+  faPalette,
+  faPen,
+  faPenAlt,
+  faPencil,
+  faPencilAlt,
+  faPenToSquare,
+  faSquareArrowUpRight,
+  faUnderline,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import SwitchCheckbox from "./components/customs/SwitchCheckbox";
@@ -10,6 +24,7 @@ import { setSpellCheck } from "./store/redux/ui/uiSlice";
 const Home: React.FC = () => {
   const [showThemes, setShowThemes] = useState(false);
   const { spellCheck, theme } = useAppSelector(({ ui }) => ui);
+  const disabled = !true;
   const dispatch = useAppDispatch();
   return (
     <div>
@@ -18,15 +33,12 @@ const Home: React.FC = () => {
         spellCheck={spellCheck}
       >
         <header
-          className={`sticky flex justify-center top-0 z-[11] text-white px-20 py-6 ${theme} w-full`}
+          className={`sticky flex justify-center top-0 z-[11] text-white px-4 md:px-20 py-6 ${theme} w-full`}
         >
           <div className="max-w-[1200px] flex-grow flex justify-between items-center">
-            <h1 className="text-4xl font-semibold italic">Resume Maker</h1>
+            <h1 className="md:text-4xl font-semibold italic">Resume Maker</h1>
             <div className="flex items-center space-x-4">
-              <button
-                className="flex items-center bg-white text-black p-2 duration-100 rounded-md hover:shadow-md active:scale-95"
-                onClick={() => window.print()}
-              >
+              <button className="btn text-black" onClick={() => window.print()}>
                 <FontAwesomeIcon
                   icon={faDownload}
                   width={20}
@@ -46,12 +58,9 @@ const Home: React.FC = () => {
           </div>
         </header>
         {/* <Themes> */}
-        <div className="flex w-full max-w-[1200px] justify-between">
+        <div className="flex w-full max-w-[1200px] items-center space-x-6">
           <div className="text-black flex">
-            <button
-              className="bg-white flex items-center justify-center p-2 rounded-md font-semibold"
-              onClick={() => setShowThemes(!showThemes)}
-            >
+            <button className="btn" onClick={() => setShowThemes(!showThemes)}>
               <FontAwesomeIcon
                 icon={faPalette}
                 width={18}
@@ -71,6 +80,59 @@ const Home: React.FC = () => {
                 <ThemeBtn theme="bg-pink-500" />
               </>
             )}
+          </div>
+          <button className="btn">
+            <FontAwesomeIcon
+              icon={faPenToSquare}
+              width={18}
+              height={18}
+              className="mr-2"
+            />
+            Layout
+          </button>
+          <button className="btn">
+            <FontAwesomeIcon
+              icon={faFont}
+              width={18}
+              height={18}
+              className="mr-2"
+            />
+            Font Size
+          </button>
+          <button className="btn">
+            <FontAwesomeIcon
+              icon={faPencil}
+              width={18}
+              height={18}
+              className="mr-2"
+            />
+            Fill Details
+          </button>
+          <div className="flex space-x-4">
+            <button
+              className={`btn ${
+                disabled ? "text-gray-400 active:transform-none" : "text-black"
+              }`}
+              disabled
+            >
+              <FontAwesomeIcon icon={faBold} />
+            </button>
+            <button
+              className={`btn ${
+                disabled ? "text-gray-400 active:transform-none" : "text-black"
+              }`}
+              disabled
+            >
+              <FontAwesomeIcon icon={faUnderline} />
+            </button>
+            <button
+              className={`btn ${
+                disabled ? "text-gray-400 active:transform-none" : "text-black"
+              }`}
+              disabled
+            >
+              <FontAwesomeIcon icon={faLink} />
+            </button>
           </div>
         </div>
         {/* <Themes /> */}

@@ -6,7 +6,7 @@ const ThemeBtn: React.FC<{ theme: string }> = ({ theme }) => {
   return (
     <button
       onClick={() => dispatch(setTheme(theme))}
-      className={`w-6 h-6 ${theme} rounded-md m-2`}
+      className={`w-6 h-6 ${theme} rounded-full m-2`}
     ></button>
   );
 };

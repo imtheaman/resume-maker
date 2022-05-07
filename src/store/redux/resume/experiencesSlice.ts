@@ -1,21 +1,3 @@
-interface State {
-  beingUsed: boolean;
-  heading: string;
-  data: [
-    {
-      position: string;
-      company: string;
-      from: { month: null | number; year: null | number };
-      to: { month: null | number; year: null | number };
-      location: string;
-      description: {
-        heading: string;
-        contents: [string];
-      };
-    }
-  ];
-}
-
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 const experiencesSlice = createSlice({
   name: "experiences",
@@ -24,15 +6,13 @@ const experiencesSlice = createSlice({
     heading: "Work Experience",
     data: [
       {
-        from: { month: null, year: null },
-        to: { month: null, year: null },
         description: {
           heading: "Achievements/Tasks",
           contents: [""],
         },
       },
     ],
-  } as State,
+  } as ExperienceState,
   reducers: {
     createExpDesc: (state, action: PayloadAction<{ expId: number }>) => {
       const contents = state.data[action.payload.expId].description.contents;
@@ -51,7 +31,7 @@ const experiencesSlice = createSlice({
       state,
       action: PayloadAction<{
         expId: number;
-        from: { month: number; year: number };
+        from: Period;
       }>
     ) => {
       state.data[action.payload.expId].from = action.payload.from;
@@ -60,7 +40,7 @@ const experiencesSlice = createSlice({
       state,
       action: PayloadAction<{
         expId: number;
-        to: { month: number; year: number };
+        to: Period;
       }>
     ) => {
       state.data[action.payload.expId].to = action.payload.to;

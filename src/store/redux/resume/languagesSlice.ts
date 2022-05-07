@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 const languagesSlice = createSlice({
   name: "languages",
-  initialState: {},
+  initialState: {} as LanguageState,
   reducers: {},
 });
 const { reducer: languagesReducer, actions } = languagesSlice;

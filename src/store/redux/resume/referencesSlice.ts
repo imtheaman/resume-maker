@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 const referencesSlice = createSlice({
   name: "references",
-  initialState: {},
+  initialState: {} as ReferenceState,
   reducers: {},
 });
 const { reducer: referencesReducer, actions } = referencesSlice;
