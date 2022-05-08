@@ -14,6 +14,9 @@ const experiencesSlice = createSlice({
     ],
   } as ExperienceState,
   reducers: {
+    setBeingUsed: (state, action: PayloadAction<boolean>) => {
+      state.beingUsed = action.payload;
+    },
     createExpDesc: (state, action: PayloadAction<{ expId: number }>) => {
       const contents = state.data[action.payload.expId].description.contents;
       if (contents.length === 1) contents.push("");
@@ -55,8 +58,14 @@ const experiencesSlice = createSlice({
 });
 
 const { reducer: experiencesReducer, actions } = experiencesSlice;
-export const { createExpDesc, setExpDesc, setFrom, setTo, setLocation } =
-  actions;
+export const {
+  setBeingUsed,
+  createExpDesc,
+  setExpDesc,
+  setFrom,
+  setTo,
+  setLocation,
+} = actions;
 export default experiencesReducer;
 export type ExperienceType = ReturnType<
   typeof experiencesReducer

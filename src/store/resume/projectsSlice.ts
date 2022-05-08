@@ -12,6 +12,9 @@ const projectsSlice = createSlice({
     ],
   } as ProjectState,
   reducers: {
+    setBeingUsed: (state, action: PayloadAction<boolean>) => {
+      state.beingUsed = action.payload;
+    },
     createProjectDesc: (
       state,
       action: PayloadAction<{ projectId: number }>
@@ -37,6 +40,6 @@ const projectsSlice = createSlice({
 });
 
 const { reducer: projectsReducer, actions } = projectsSlice;
-export const { createProjectDesc, setProjectDesc } = actions;
+export const { setBeingUsed, createProjectDesc, setProjectDesc } = actions;
 export default projectsReducer;
 export type ProjectType = ReturnType<typeof projectsReducer>["data"][number];

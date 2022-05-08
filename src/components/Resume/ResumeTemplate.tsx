@@ -1,7 +1,7 @@
 import { forwardRef } from "react";
 import { useAppSelector } from "../../store/store";
 import FillDetails from "../fill-details/FillDetails";
-import Layout from "../Layout/Layout";
+import Layout from "../templates/Layout";
 import ResumeDetails from "./ResumeDetails";
 
 const ResumeTemplate = forwardRef<HTMLDivElement>((props, ref) => {

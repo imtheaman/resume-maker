@@ -1,12 +1,16 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 const languagesSlice = createSlice({
   name: "languages",
   initialState: {
     beingUsed: false,
-    heading: 'Languages'
+    heading: "Languages",
   } as LanguageState,
-  reducers: {},
+  reducers: {
+    setBeingUsed: (state, action: PayloadAction<boolean>) => {
+      state.beingUsed = action.payload;
+    },
+  },
 });
 const { reducer: languagesReducer, actions } = languagesSlice;
-export const {} = actions;
+export const { setBeingUsed } = actions;
 export default languagesReducer;

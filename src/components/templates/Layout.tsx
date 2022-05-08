@@ -1,8 +1,8 @@
 import { useAppDispatch } from "../../store/store";
 
-const Layout = () => {
+const Templates = () => {
   const dispatch = useAppDispatch();
   return <div>Templates</div>;
 };
 
-export default Layout;
+export default Templates;

@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 const skillsSlice = createSlice({
   name: "skills",
@@ -6,9 +6,13 @@ const skillsSlice = createSlice({
     beingUsed: false,
     heading: "Skills",
   } as SkillState,
-  reducers: {},
+  reducers: {
+    setBeingUsed: (state, action: PayloadAction<boolean>) => {
+      state.beingUsed = action.payload;
+    },
+  },
 });
 
 const { reducer: skillsReducer, actions } = skillsSlice;
-export const {} = actions;
+export const {setBeingUsed} = actions;
 export default skillsReducer;

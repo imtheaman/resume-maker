@@ -6,6 +6,7 @@ const SwitchCheckbox: React.FC<{
   name?: string;
   fontSize?: string;
   className?: string;
+  color?: string;
   fontWeight?: string | number;
 }> = ({
   defaultChecked = false,
@@ -14,10 +15,11 @@ const SwitchCheckbox: React.FC<{
   name,
   className,
   onChange,
+  color,
   ...otherProps
 }) => {
   return (
-    <div>
+    <div className={styles.switchContainer}>
       {name && <span style={{ fontSize, fontWeight }}>{name}</span>}
       <label className={`${styles.switch} ${className && className}`}>
         <input

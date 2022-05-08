@@ -6,6 +6,9 @@ const achievementsSlice = createSlice({
     heading: "Achievements",
   } as AchievementState,
   reducers: {
+    setBeingUsed: (state, action: PayloadAction<boolean>) => {
+      state.beingUsed = action.payload;
+    },
     setAchName: (
       state,
       action: PayloadAction<{ achId: number; content: string }>
@@ -27,5 +30,5 @@ const achievementsSlice = createSlice({
   },
 });
 const { reducer: achievementsReducer, actions } = achievementsSlice;
-export const { setAchDesc, setAchName, setAchPeriod } = actions;
+export const { setBeingUsed, setAchDesc, setAchName, setAchPeriod } = actions;
 export default achievementsReducer;

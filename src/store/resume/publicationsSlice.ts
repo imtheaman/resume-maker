@@ -1,12 +1,16 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 const publicationsSlice = createSlice({
   name: "publications",
   initialState: {
     beingUsed: false,
-    heading: 'Publications'
+    heading: "Publications",
   } as PublicationState,
-  reducers: {},
+  reducers: {
+    setBeingUsed: (state, action: PayloadAction<boolean>) => {
+      state.beingUsed = action.payload;
+    },
+  },
 });
 const { reducer: publicationsReducer, actions } = publicationsSlice;
-export const {} = actions;
+export const { setBeingUsed } = actions;
 export default publicationsReducer;

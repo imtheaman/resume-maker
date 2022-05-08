@@ -59,7 +59,7 @@
   .input-container {
     @apply w-full flex items-center before:mr-2;
   }
-  .input {
+  .p {
     @apply outline-none empty:border-b focus:border-b text-gray-600;
   }
   .input-small {
@@ -70,5 +70,12 @@
   }
   .desc-heading {
     @apply italic text-gray-500;
+  }
+  .fill-details {
+    @apply flex relative flex-col space-y-3 w-full max-w-md;
+  }
+
+  .skill-border {
+    @apply px-2 py-1 border rounded-lg text-center inline-block min-w-[6rem];
   }
 }

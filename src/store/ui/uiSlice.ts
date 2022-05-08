@@ -7,7 +7,7 @@ const uiSlice = createSlice({
     screen: "resume",
     fontSize: "medium",
     isResumeBlank: true,
-    listStyle: "content-['🔻']",
+    listStyle: "before:content-['🔻']",
     focused: false,
     showTools: false,
   } as Ui,

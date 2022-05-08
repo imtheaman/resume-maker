@@ -1,12 +1,16 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 const interestsSlice = createSlice({
   name: "interests",
   initialState: {
     beingUsed: false,
     heading: "Interests",
   } as InterestState,
-  reducers: {},
+  reducers: {
+    setBeingUsed: (state, action: PayloadAction<boolean>) => {
+      state.beingUsed = action.payload;
+    },
+  },
 });
 const { reducer: interestsReducer, actions } = interestsSlice;
-export const {} = actions;
+export const { setBeingUsed } = actions;
 export default interestsReducer;

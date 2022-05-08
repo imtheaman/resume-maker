@@ -1,60 +1,53 @@
 import { useAppDispatch, useAppSelector } from "../../store/store";
 import { setFocused, setShowTools } from "../../store/ui/uiSlice";
-import Editable from "../customs/Editable";
-import Tools from "./Tools";
+import Awards from "./awards/Awards";
+import Education from "./education/Education";
+import Experience from "./experience/Experience";
+import Interests from "./interests/Interests";
+import Languages from "./languages/Languages";
+import Organizations from "./organizations/Organizations";
+import Profile from "./profile/Profile";
+import Projects from "./projects/Projects";
+import Publications from "./publications/Publications";
+import Reference from "./references/Reference";
+import Skills from "./skills/Skills";
+import Volunteers from "./volunteer/Volunteers";
 
-const FillDetails = ({}) => {
+const FillDetails = () => {
   const dispatch = useAppDispatch();
-  const { theme, listStyle } = useAppSelector(({ ui }) => ui);
+  const theme = useAppSelector(({ ui }) => ui.theme);
   return (
     <div
-      className="py-8 px-12 flex flex-col"
+      className="py-8 px-12"
       onFocus={() => {
         dispatch(setFocused(true));
         dispatch(setShowTools(true));
       }}
+      onBlur={() => {
+        dispatch(setFocused(false));
+        dispatch(setShowTools(false));
+      }}
     >
-      <h1 className="text-2xl font-thin capitalize text-center">
+      <h1 className="text-2xl mb-12 font-thin capitalize text-center">
         <span
           className={`-skew-x-12 inline-block text-white py-1 px-4 ${theme}`}
         >
           <span className="inline-block skew-x-12">Your resume details</span>
         </span>
       </h1>
-      <div className="flex relative flex-col space-y-3 w-full max-w-md">
-        <Editable placeholder="EXPERIENCE" as="h2" className="h2">
-          Experience
-        </Editable>
-        <input className="input-primary" placeholder="Position/Title" />
-        <input className="input-primary" placeholder="Company" />
-        <div className="flex justify-between items-center">
-          <div className="flex items-center">
-            <label htmlFor="from">From -</label>
-            <input type="month" name="from" className="ml-3 date" />
-          </div>
-          <div className="flex items-center">
-            <label htmlFor="to">To -</label>
-            <input type="month" name="to" className="ml-3 date" />
-          </div>
-        </div>
-        <div className="flex flex-col">
-          <Editable
-            as="h4"
-            className="desc-heading"
-            placeholder="Achievements/Tasks"
-          >
-            Achievements/Tasks
-          </Editable>
-          <div className={`input-container before:${listStyle}`}>
-            <input type="text" className="input" />
-          </div>
-        </div>
-        <Tools
-          onClick={(e: any) => {
-            e.stopPropagation();
-            dispatch(setShowTools(true));
-          }}
-        />
+      <div className="grid grid-cols-2 gap-10">
+        <Profile />
+        <Experience />
+        <Projects />
+        <Education />
+        <Skills />
+        <Languages />
+        <Interests />
+        <Publications />
+        <Awards />
+        <Reference />
+        <Volunteers />
+        <Organizations />
       </div>
     </div>
   );

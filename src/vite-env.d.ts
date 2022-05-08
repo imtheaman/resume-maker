@@ -4,6 +4,14 @@ interface Period {
   year: number;
 }
 
+interface Desc {
+  heading?: string;
+  placeholder?: string;
+  contents: string[];
+}
+
+interface LongDetail {}
+
 interface Ui {
   theme: string;
   spellCheck: boolean;
@@ -28,10 +36,7 @@ interface ExperienceState extends State {
       from: Period;
       to: Period;
       location: string;
-      description: {
-        heading: string;
-        contents: [string];
-      };
+      description: { heading: string; placeholder: string; contents: string[] };
     }
   ];
 }
@@ -53,10 +58,7 @@ interface EducationState extends State {
       institute: string;
       from: Period;
       to: Period;
-      description: {
-        heading: string;
-        contents: string[];
-      };
+      description: { heading: string; placeholder: string; contents: string[] };
     }
   ];
 }
@@ -67,7 +69,7 @@ interface ProjectState extends State {
       project: string;
       from: Period;
       to: Period;
-      description: { contents: string[] };
+      description: { heading: string; placeholder: string; contents: string[] };
     }
   ];
 }
@@ -83,6 +85,27 @@ interface ReferenceState extends State {
       contact: string;
     }
   ];
+}
+
+interface SectionHeading {
+  content: string;
+  placeholder: string;
+  setSection: Function;
+}
+
+interface ShortDetail {
+  heading: string;
+  placeholder: string;
+}
+
+interface LongDetail {
+  description: Desc;
+  setSection: Function;
+  section: { heading: string; placeholder: string };
+}
+
+interface MediumDetail {
+  description: Desc;
 }
 
 interface PublicationState extends State {

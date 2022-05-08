@@ -6,8 +6,8 @@ import Nav from "./components/header/Nav";
 import ReactToPrint, { PrintContextConsumer } from "react-to-print";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDownload } from "@fortawesome/free-solid-svg-icons";
-import FillDetails from "./components/fill-details/FillDetails";
-import Layout from "./components/Layout/Layout";
+import FillDetails from "./components/fill-details/experience/Experience";
+import Layout from "./components/templates/Layout";
 
 const Home: React.FC = () => {
   const { spellCheck, screen } = useAppSelector(({ ui }) => ui);
