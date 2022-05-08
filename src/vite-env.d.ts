@@ -4,6 +4,17 @@ interface Period {
   year: number;
 }
 
+interface Ui {
+  theme: string;
+  spellCheck: boolean;
+  screen: "resume" | "templates" | "edit";
+  fontSize: "medium" | "small" | "large";
+  isResumeBlank: boolean;
+  listStyle: string;
+  focused: boolean;
+  showTools: boolean;
+}
+
 interface State {
   beingUsed: boolean;
   heading: string;
@@ -110,6 +121,17 @@ interface OrganizationState extends State {
   data: [
     {
       organization: string;
+      from: Period;
+      to: Period;
+      description: string;
+    }
+  ];
+}
+
+interface VolunteerState extends State {
+  data: [
+    {
+      company: string;
       from: Period;
       to: Period;
       description: string;
