@@ -9,6 +9,9 @@ const publicationsSlice = createSlice({
     setBeingUsed: (state, action: PayloadAction<boolean>) => {
       state.beingUsed = action.payload;
     },
+    setHeading: (state, action: PayloadAction<string>) => {
+      state.heading = action.payload;
+    },
   },
 });
 const { reducer: publicationsReducer, actions } = publicationsSlice;

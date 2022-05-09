@@ -4,20 +4,18 @@ const projectsSlice = createSlice({
   name: "projects",
   initialState: {
     beingUsed: false,
-    heading: "Projects",
-    data: [
-      {
-        description: { contents: [""] },
-      },
-    ],
+    heading: "Projects"
   } as ProjectState,
   reducers: {
     setBeingUsed: (state, action: PayloadAction<boolean>) => {
       state.beingUsed = action.payload;
     },
+    setHeading: (state, action: PayloadAction<string>) => {
+      state.heading = action.payload;
+    },
     createProjectDesc: (
       state,
-      action: PayloadAction<{ projectId: number }>
+      action: PayloadAction<{ projectId: string }>
     ) => {
       const contents =
         state.data[action.payload.projectId].description.contents;
@@ -27,7 +25,7 @@ const projectsSlice = createSlice({
     setProjectDesc: (
       state,
       action: PayloadAction<{
-        projectId: number;
+        projectId: string;
         descId: number;
         content: string;
       }>

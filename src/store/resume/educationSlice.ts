@@ -15,24 +15,33 @@ const educationSlice = createSlice({
     },
     setCourse: (
       state,
-      action: PayloadAction<{ eduId: number; course: string }>
+      action: PayloadAction<{ eduId: string; course: string }>
     ) => {
       state.data[action.payload.eduId].course = action.payload.course;
     },
     setInstitute: (
       state,
-      action: PayloadAction<{ eduId: number; institute: string }>
+      action: PayloadAction<{ eduId: string; institute: string }>
     ) => {
       state.data[action.payload.eduId].institute = action.payload.institute;
     },
     setFrom: (
       state,
       action: PayloadAction<{
-        eduId: number;
+        eduId: string;
         from: Period;
       }>
     ) => {
       state.data[action.payload.eduId].from = action.payload.from;
+    },
+    setTo: (
+      state,
+      action: PayloadAction<{
+        eduId: string;
+        to: Period;
+      }>
+    ) => {
+      state.data[action.payload.eduId].to = action.payload.to;
     },
   },
 });

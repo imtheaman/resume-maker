@@ -9,6 +9,9 @@ const awardsSlice = createSlice({
     setBeingUsed: (state, action: PayloadAction<boolean>) => {
       state.beingUsed = action.payload;
     },
+    setHeading: (state, action: PayloadAction<string>) => {
+      state.heading = action.payload;
+    }
   },
 });
 const { reducer: awardsReducer, actions } = awardsSlice;

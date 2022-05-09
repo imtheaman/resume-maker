@@ -3,28 +3,23 @@ const experiencesSlice = createSlice({
   name: "experiences",
   initialState: {
     beingUsed: false,
-    heading: "Work Experience",
-    data: [
-      {
-        description: {
-          heading: "Achievements/Tasks",
-          contents: [""],
-        },
-      },
-    ],
+    heading: "Work Experience"
   } as ExperienceState,
   reducers: {
     setBeingUsed: (state, action: PayloadAction<boolean>) => {
       state.beingUsed = action.payload;
     },
-    createExpDesc: (state, action: PayloadAction<{ expId: number }>) => {
+    setHeading: (state, action: PayloadAction<string>) => {
+      state.heading = action.payload;
+    },
+    createExpDesc: (state, action: PayloadAction<{ expId: string }>) => {
       const contents = state.data[action.payload.expId].description.contents;
       if (contents.length === 1) contents.push("");
       else if (contents.at(-2)) contents.push("");
     },
     setExpDesc: (
       state,
-      action: PayloadAction<{ expId: number; descId: number; content: string }>
+      action: PayloadAction<{ expId: string; descId: number; content: string }>
     ) => {
       state.data[action.payload.expId].description.contents[
         action.payload.descId
@@ -33,7 +28,7 @@ const experiencesSlice = createSlice({
     setFrom: (
       state,
       action: PayloadAction<{
-        expId: number;
+        expId: string;
         from: Period;
       }>
     ) => {
@@ -42,7 +37,7 @@ const experiencesSlice = createSlice({
     setTo: (
       state,
       action: PayloadAction<{
-        expId: number;
+        expId: string;
         to: Period;
       }>
     ) => {
@@ -50,7 +45,7 @@ const experiencesSlice = createSlice({
     },
     setLocation: (
       state,
-      action: PayloadAction<{ expId: number; location: string }>
+      action: PayloadAction<{ expId: string; location: string }>
     ) => {
       state.data[action.payload.expId].location = action.payload.location;
     },

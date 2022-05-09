@@ -7,7 +7,7 @@ import ReactToPrint, { PrintContextConsumer } from "react-to-print";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDownload } from "@fortawesome/free-solid-svg-icons";
 import FillDetails from "./components/fill-details/experience/Experience";
-import Layout from "./components/templates/Layout";
+import Layout from "./components/templates/Templates";
 
 const Home: React.FC = () => {
   const { spellCheck, screen } = useAppSelector(({ ui }) => ui);

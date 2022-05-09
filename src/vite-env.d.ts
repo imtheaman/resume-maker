@@ -1,7 +1,7 @@
 /// <reference types="vite/client" />
 interface Period {
-  month: number;
-  year: number;
+  month: number | null;
+  year: number | null;
 }
 
 interface Desc {
@@ -9,8 +9,6 @@ interface Desc {
   placeholder?: string;
   contents: string[];
 }
-
-interface LongDetail {}
 
 interface Ui {
   theme: string;
@@ -29,49 +27,53 @@ interface State {
 }
 
 interface ExperienceState extends State {
-  data: [
-    {
+  data: {
+    [id: string]: {
       position: string;
       company: string;
       from: Period;
       to: Period;
       location: string;
       description: { heading: string; placeholder: string; contents: string[] };
-    }
-  ];
+    };
+  };
+  order: [string];
 }
 
 interface AchievementState extends State {
-  data: [
-    {
+  data: {
+    [id: string]: {
       achievement: string;
       when: Period;
       description: string;
-    }
-  ];
+    };
+  };
+  order: [string];
 }
 
 interface EducationState extends State {
-  data: [
-    {
+  data: {
+    [id: string]: {
       course: string;
       institute: string;
       from: Period;
       to: Period;
       description: { heading: string; placeholder: string; contents: string[] };
-    }
-  ];
+    };
+  };
+  order: [string];
 }
 
 interface ProjectState extends State {
-  data: [
-    {
+  data: {
+    [id: string]: {
       project: string;
       from: Period;
       to: Period;
       description: { heading: string; placeholder: string; contents: string[] };
-    }
-  ];
+    };
+  };
+  order: [string];
 }
 
 interface SkillState extends State {
@@ -109,12 +111,13 @@ interface MediumDetail {
 }
 
 interface PublicationState extends State {
-  data: [
-    {
+  data: {
+    [id: string]: {
       publication: string;
       description: string;
-    }
-  ];
+    };
+  };
+  order: [string];
 }
 
 interface LanguageState extends State {
@@ -131,33 +134,36 @@ interface InterestState extends State {
 }
 
 interface AwardState extends State {
-  data: [
-    {
+  data: {
+    [id: string]: {
       award: string;
       when: Period;
       description: string;
-    }
-  ];
+    };
+  };
+  order: [string];
 }
 
 interface OrganizationState extends State {
-  data: [
-    {
+  data: {
+    [id: string]: {
       organization: string;
       from: Period;
       to: Period;
       description: string;
-    }
-  ];
+    };
+  };
+  order: [string];
 }
 
 interface VolunteerState extends State {
-  data: [
-    {
+  data: {
+    [id: string]: {
       company: string;
       from: Period;
       to: Period;
       description: string;
-    }
-  ];
+    };
+  };
+  order: [string];
 }
