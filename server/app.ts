@@ -1,12 +1,24 @@
 import express from "express";
 import bodyParser from "body-parser";
-import { insertDoc, readDoc } from "../database/utils";
+import { createUser, insertDoc, readDoc } from "../database/utils";
+import { SHA512 } from "crypto-js";
 
 const app = express();
 app.use(bodyParser.json());
 const port = process.env.NODE_ENV === "production" ? process.env.port : 4000;
-app.get("/:resumeId", async (req, res) => {
-  const response = await readDoc(req.params.resumeId);
+
+const hash = (input: string) => SHA512(input).toString();
+
+app.post("/resume", async (req, res) => {
+  const response = await readDoc(req.headers.authorization);
+  res.json(response);
+});
+app.post("/signin", async (req, res) => {
+  const response = await createUser(req.body.username, hash(req.body.password));
+  res.json(response);
+});
+app.put("/signup", async (req, res) => {
+  const response = await createUser(req.body.username, hash(req.body.password));
   res.json(response);
 });
 app.post("/", async (req, res) => {
