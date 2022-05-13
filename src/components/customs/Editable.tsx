@@ -1,8 +1,9 @@
-import { ElementType } from "react";
+import { ElementType } from 'react';
 
 const Editable: React.FC<{
   as: ElementType;
-  placeholder: string;
+  content: string;
+  placeholder?: string;
   className?: string;
   onKeyDownCapture?: Function;
   [key: string]: any;
@@ -10,12 +11,10 @@ const Editable: React.FC<{
   placeholder,
   content,
   className,
-  children,
   as: As,
   onKeyDownCapture,
   ...otherProps
 }) => {
-  console.log(typeof onKeyDownCapture);
   return (
     <As
       contentEditable
@@ -25,11 +24,11 @@ const Editable: React.FC<{
       onKeyDownCapture={
         onKeyDownCapture
           ? onKeyDownCapture
-          : (e: any) => e.key === "Enter" && e.preventDefault()
+          : (e: any) => e.key === 'Enter' && e.preventDefault()
       }
       {...otherProps}
     >
-      {children}
+      {content}
     </As>
   );
 };

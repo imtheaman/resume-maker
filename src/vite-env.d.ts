@@ -1,8 +1,8 @@
 /// <reference types="vite/client" />
-interface Period {
-  month: number | null;
-  year: number | null;
-}
+import { ActionCreatorWithPayload, AnyAction } from '@reduxjs/toolkit';
+import { FocusEvent, ReactNode } from 'react';
+
+type BlurEvent = FocusEvent<HTMLInputElement>;
 
 interface Desc {
   heading?: string;
@@ -10,11 +10,23 @@ interface Desc {
   contents: string[];
 }
 
+// <actions>
+interface StringValueAction {
+  id: string;
+  content: string;
+}
+interface DescContentAction {
+  id: string;
+  descId: number;
+  content: string;
+}
+// <actions />
+
 interface Ui {
   theme: string;
   spellCheck: boolean;
-  screen: "resume" | "templates" | "edit";
-  fontSize: "medium" | "small" | "large";
+  screen: 'resume' | 'templates' | 'edit';
+  fontSize: 'medium' | 'small' | 'large';
   isResumeBlank: boolean;
   listStyle: string;
   focused: boolean;
@@ -26,51 +38,54 @@ interface State {
   heading: string;
 }
 
-interface ExperienceState extends State {
-  data: {
-    [id: string]: {
-      position: string;
-      company: string;
-      from: Period;
-      to: Period;
-      location: string;
-      description: { heading: string; placeholder: string; contents: string[] };
-    };
-  };
-  order: [string];
-}
+// interface ExperienceState extends State {
+//   data: {
+//     [id: string]: {
+//       primary: string;
+//       secondary: string;
+//       from: string;
+//       to: string;
+//       location: string;
+//       description: { heading: string; contents: string[] };
+//     };
+//   };
+//   order: [string];
+// }
 
 interface AchievementState extends State {
   data: {
     [id: string]: {
       achievement: string;
-      when: Period;
+      when: string;
       description: string;
     };
   };
   order: [string];
 }
 
-interface EducationState extends State {
-  data: {
-    [id: string]: {
-      course: string;
-      institute: string;
-      from: Period;
-      to: Period;
-      description: { heading: string; placeholder: string; contents: string[] };
-    };
-  };
-  order: [string];
-}
+// interface EducationState extends State {
+//   data: {
+//     [id: string]: {
+//       primary: string;
+//       secondary: string;
+//       from: string;
+//       to: string;
+//       location: string;
+//       description: { heading: string; contents: string[] };
+//     };
+//   };
+//   order: [string];
+// }
 
-interface ProjectState extends State {
+interface LongDetailState extends State {
   data: {
     [id: string]: {
-      project: string;
-      from: Period;
-      to: Period;
-      description: { heading: string; placeholder: string; contents: string[] };
+      primary: string;
+      secondary?: string;
+      from: string;
+      to: string;
+      location?: string;
+      description: { heading: string; contents: string[] };
     };
   };
   order: [string];
@@ -92,23 +107,58 @@ interface ReferenceState extends State {
 interface SectionHeading {
   content: string;
   placeholder: string;
-  setSection: Function;
+  beingUsed: boolean;
+  setBeingUsed: ActionCreatorWithPayload<boolean, string>;
+  setHeading: ActionCreatorWithPayload<string, string>;
 }
 
-interface ShortDetail {
-  heading: string;
-  placeholder: string;
-}
+// interface ShortDetail {
+//   heading: string;
+//   placeholder: string;
+// }
 
-interface LongDetail {
-  description: Desc;
-  setSection: Function;
-  section: { heading: string; placeholder: string };
-}
+// interface FromToLocation {
+//   id: string;
+//   from: {
+//     content: string;
+//     change: ActionCreatorWithPayload<StringValueAction, string>;
+//   };
+//   to: {
+//     content: string;
+//     change: ActionCreatorWithPayload<StringValueAction, string>;
+//   };
+//   location: {
+//     content: string;
+//     change: ActionCreatorWithPayload<StringValueAction, string>;
+//   };
+// }
 
-interface MediumDetail {
-  description: Desc;
-}
+// interface LongDetail {
+//   id: string;
+//   primary: {
+//     heading: string;
+//     placeholder: string;
+//     change: ActionCreatorWithPayload<StringValueAction, string>;
+//   };
+//   secondary: {
+//     heading: string;
+//     placeholder: string;
+//     change: ActionCreatorWithPayload<StringValueAction, string>;
+//   };
+//   description: {
+//     heading: string;
+//     placeholder: string;
+//     contents: string[];
+//     setHeading: ActionCreatorWithPayload<StringValueAction, string>;
+//     setContent: ActionCreatorWithPayload<DescContentAction, string>;
+//     create: ActionCreatorWithPayload<{ id: string }, string>;
+//   };
+//   periodAndLocation: ReactNode;
+// }
+
+// interface MediumDetail {
+//   description: Desc;
+// }
 
 interface PublicationState extends State {
   data: {
@@ -137,7 +187,7 @@ interface AwardState extends State {
   data: {
     [id: string]: {
       award: string;
-      when: Period;
+      when: string;
       description: string;
     };
   };
@@ -147,23 +197,25 @@ interface AwardState extends State {
 interface OrganizationState extends State {
   data: {
     [id: string]: {
-      organization: string;
-      from: Period;
-      to: Period;
+      primary: string;
+      from: string;
+      to: string;
       description: string;
     };
   };
   order: [string];
 }
 
-interface VolunteerState extends State {
-  data: {
-    [id: string]: {
-      company: string;
-      from: Period;
-      to: Period;
-      description: string;
-    };
-  };
-  order: [string];
-}
+// interface VolunteerState extends State {
+//   data: {
+//     [id: string]: {
+//       primary: string;
+//       secondary: string;
+//       from: string;
+//       to: string;
+//       location: string;
+//       description: { heading: string; contents: string[] };
+//     };
+//   };
+//   order: [string];
+// }

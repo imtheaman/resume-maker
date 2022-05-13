@@ -1,6 +1,7 @@
 import Editable from "../customs/Editable";
 
-const ShortDetail: React.FC<ShortDetail> = ({ heading, placeholder }) => {
+const ShortDetail: React.FC<> = ({ heading, placeholder }) => {
+
   return (
     <div className="fill-details">
       <Editable as="h2" placeholder={placeholder.toUpperCase()} className="h2">

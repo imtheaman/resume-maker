@@ -1,30 +1,31 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { Ui } from '../../vite-env';
 const uiSlice = createSlice({
-  name: "ui",
+  name: 'ui',
   initialState: {
-    theme: "bg-green-500",
+    theme: 'bg-green-500',
     spellCheck: true,
-    screen: "resume",
-    fontSize: "medium",
+    screen: 'resume',
+    fontSize: 'medium',
     isResumeBlank: true,
     listStyle: "before:content-['🔻']",
     focused: false,
     showTools: false,
   } as Ui,
   reducers: {
-    setTheme: (state, action: PayloadAction<string>) => {
+    setTheme: (state: Ui, action: PayloadAction<string>) => {
       state.theme = action.payload;
     },
-    setSpellCheck: (state, action: PayloadAction<boolean>) => {
+    setSpellCheck: (state: Ui, action: PayloadAction<boolean>) => {
       state.spellCheck = action.payload;
     },
-    setScreen: (state, action: PayloadAction<Ui["screen"]>) => {
+    setScreen: (state: Ui, action: PayloadAction<Ui['screen']>) => {
       state.screen = action.payload;
     },
-    setFocused: (state, action: PayloadAction<boolean>) => {
+    setFocused: (state: Ui, action: PayloadAction<boolean>) => {
       state.focused = action.payload;
     },
-    setShowTools: (state, action: PayloadAction<boolean>) => {
+    setShowTools: (state: Ui, action: PayloadAction<boolean>) => {
       state.showTools = action.payload;
     },
   },

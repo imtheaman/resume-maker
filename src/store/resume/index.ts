@@ -1,16 +1,16 @@
 import { combineReducers } from "@reduxjs/toolkit";
-import achievementsReducer from "./achievementsSlice";
-import awardsReducer from "./awardsSlice";
-import educationsReducer from "./educationSlice";
-import experiencesReducer from "./experiencesSlice";
-import interestsReducer from "./interestsSlice";
-import languagesReducer from "./languagesSlice";
-import organizationsReducer from "./organizationsSlice";
-import projectsReducer from "./projectsSlice";
-import publicationsReducer from "./publicationsSlice";
-import referencesReducer from "./referencesSlice";
-import skillsReducer from "./skillsSlice";
-import volunteersReducer from "./volunteersSlice";
+import achievementsReducer from "./medium-details/achievements";
+import awardsReducer from "./medium-details/awards";
+import educationsReducer from "./long-details/educations";
+import experiencesReducer from "./long-details/experiences";
+import interestsReducer from "./short-details/interests";
+import languagesReducer from "./short-details/languages";
+import organizationsReducer from "./medium-details/organizations";
+import projectsReducer from "./long-details/projects";
+import publicationsReducer from "./medium-details/publications";
+import referencesReducer from "./short-details/references";
+import skillsReducer from "./short-details/skills";
+import volunteersReducer from "./long-details/volunteers";
 
 const resumeReducer = combineReducers({
   experiences: experiencesReducer,

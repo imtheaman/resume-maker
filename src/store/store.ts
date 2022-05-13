@@ -11,6 +11,7 @@ import {
   REGISTER,
   REHYDRATE,
 } from "redux-persist";
+import logger from 'redux-logger'
 import rootReducer from ".";
 
 const persistConfig = {
@@ -27,7 +28,7 @@ export const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }),
+    }).concat(logger),
 });
 
 export const persistor = persistStore(store);
