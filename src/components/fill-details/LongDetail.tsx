@@ -3,7 +3,12 @@ import { useAppDispatch, useAppSelector } from '../../store/store';
 import { BlurEvent } from '../../vite-env';
 import Editable from '../customs/Editable';
 import Tools from './Tools';
-export type LongSection = 'experiences' | 'projects' | 'educations' | 'volunteers';
+export type LongSection =
+  | 'experiences'
+  | 'projects'
+  | 'educations'
+  | 'volunteers'
+  | 'organizations';
 
 interface Props {
   id: string;

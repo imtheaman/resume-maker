@@ -1,21 +1,22 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { SkillState } from '../../../vite-env';
-import { FcreateData, FsetBeingUsed, FsetData, FsetHeading } from '../functions';
+import { ShortDeatilState } from '../../../vite-env';
+import { FcreateData, FsetBeingUsed, FsetHeading, FsetType, FsetValue } from '../functions';
 
 const skillsSlice = createSlice({
   name: 'skills',
   initialState: {
     beingUsed: false,
     heading: 'Skills',
-  } as SkillState,
+  } as ShortDeatilState,
   reducers: {
     setBeingUsed: FsetBeingUsed,
     setHeading: FsetHeading,
-    setData: FsetData,
     createData: FcreateData,
+    setValue: FsetValue,
+    setType: FsetType
   },
 });
 
 const { reducer: skillsReducer, actions } = skillsSlice;
-export const { setBeingUsed, createData, setHeading, setData } = actions;
+export const { setBeingUsed, createData, setHeading, setValue, setType } = actions;
 export default skillsReducer;

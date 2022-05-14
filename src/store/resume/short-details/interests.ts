@@ -1,20 +1,20 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { InterestState } from '../../../vite-env';
-import { FcreateData, FsetBeingUsed, FsetData, FsetHeading, FsetValue } from '../functions';
+import { ShortDeatilState } from '../../../vite-env';
+import { FcreateData, FsetBeingUsed, FsetHeading, FsetType, FsetValue } from '../functions';
 const interestsSlice = createSlice({
   name: 'interests',
   initialState: {
     beingUsed: false,
     heading: 'Interests',
-  } as InterestState,
+  } as ShortDeatilState,
   reducers: {
     setBeingUsed: FsetBeingUsed,
     setHeading: FsetHeading,
-    setData: FsetData,
+    setType: FsetType,
     createData: FcreateData,
     setValue: FsetValue
   },
 });
 const { reducer: interestsReducer, actions } = interestsSlice;
-export const { setBeingUsed, createData, setData, setHeading, setValue } = actions;
+export const { setBeingUsed, createData, setType, setHeading, setValue } = actions;
 export default interestsReducer;

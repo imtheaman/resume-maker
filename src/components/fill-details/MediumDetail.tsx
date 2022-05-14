@@ -1,15 +1,60 @@
-import Editable from "../customs/Editable";
-import Description from "./Description";
+import { useAppDispatch, useAppSelector } from '../../store/store';
+import { BlurEvent } from '../../vite-env';
+import Editable from '../customs/Editable';
+import Tools from './Tools';
 
-const MediumDetail: React.FC<MediumDetail> = ({ description }) => {
+export type MediumSection = 'achievements' | 'awards' | 'publications';
+interface Props {
+  id: string;
+  section: MediumSection;
+  placeholder: {
+    primary: string;
+  };
+}
+
+const MediumDetail: React.FC<Props> = ({ id, section, placeholder }) => {
+  const dispatch = useAppDispatch();
+  const { primary, description, when } = useAppSelector(
+    ({ resume }) => resume[section].data[id]
+  );
+  const {
+    setWhen,
+    setPrimary,
+    setDesc,
+  } = require(`../../store/resume/medium-details/${section}`);
   return (
-    <div className="fill-details">
-      <Editable as="h2" placeholder="REFERENCES" className="h2">
-        References
-      </Editable>
-      <Editable as="h4" placeholder="Contact Name"></Editable>
-      <Description {...description} />
-    </div>
+    <>
+      <Editable
+        as='h4'
+        placeholder={placeholder.primary}
+        onBlur={(e: BlurEvent) =>
+          dispatch(setPrimary({ id, content: e.currentTarget.value }))
+        }
+        content={primary}
+      />
+      <div className='flex items-center'>
+        <label htmlFor='when'>When -</label>
+        <input
+          type='month'
+          name='when'
+          value={when}
+          className='ml-3 date'
+          onChange={(e: BlurEvent) =>
+            dispatch(setWhen({ id, content: e.currentTarget.value }))
+          }
+        />
+      </div>
+      <Editable
+        as='p'
+        className='italic'
+        placeholder='description'
+        content={description}
+        onBlur={(e: BlurEvent) =>
+          dispatch(setDesc({ id, content: e.currentTarget.value }))
+        }
+      />
+      <Tools id={id} />
+    </>
   );
 };
 

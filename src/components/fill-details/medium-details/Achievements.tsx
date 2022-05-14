@@ -2,21 +2,21 @@ import { useAppSelector } from '../../../store/store';
 import MediumDetail from '../MediumDetail';
 import SectionHeading from '../SectionHeading';
 
-const Awards: React.FC = () => {
-  const order = useAppSelector(({ resume }) => resume.awards.order);
+const Achievements: React.FC = () => {
+  const order = useAppSelector(({ resume }) => resume.achievements.order);
   return (
     <div className='fill-details'>
-      <SectionHeading placeholder='AWARDS' section='awards' />
+      <SectionHeading placeholder='ACHIEVEMENTS' section='achievements' />
       {order.map((id) => (
         <MediumDetail
         key={id}
           id={id}
-          placeholder={{ primary: 'Award Name' }}
-          section='awards'
+          placeholder={{ primary: 'Achievement Name' }}
+          section='achievements'
         />
       ))}
     </div>
   );
 };
 
-export default Awards;
+export default Achievements;

@@ -3,21 +3,21 @@ import FromToLocation from '../FromToLocation';
 import LongDetail from '../LongDetail';
 import SectionHeading from '../SectionHeading';
 
-const Volunteer: React.FC = () => {
-  const order = useAppSelector(({ resume }) => resume.volunteers.order);
+const Organization: React.FC = () => {
+  const order = useAppSelector(({ resume }) => resume.organizations.order);
   return (
     <div className='fill-details'>
-      <SectionHeading placeholder='VOLUNTEER' section='volunteers' />
+      <SectionHeading placeholder='WORK EXPERIENCE' section='organizations' />
       {order.map((id) => (
         <LongDetail
           key={id}
           id={id}
-          section='volunteers'
-          Fromtolocation={<FromToLocation id={id} section='volunteers' />}
+          section='organizations'
+          Fromtolocation={<FromToLocation id={id} section='organizations' />}
           placeholder={{
             primary: 'Title/Position',
             secondary: 'Organization Name',
-            desc: 'Tasks',
+            desc: 'Achievements/Tasks',
           }}
         />
       ))}
@@ -25,4 +25,4 @@ const Volunteer: React.FC = () => {
   );
 };
 
-export default Volunteer;
+export default Organization;

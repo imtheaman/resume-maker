@@ -4,7 +4,7 @@ import LongDetail from '../LongDetail';
 import SectionHeading from '../SectionHeading';
 
 const Projects: React.FC = () => {
-  const order = useAppSelector(({ resume }) => resume.experiences.order);
+  const order = useAppSelector(({ resume }) => resume.projects.order);
   return (
     <div className='fill-details'>
       <SectionHeading placeholder='PROJECTS' section='projects' />

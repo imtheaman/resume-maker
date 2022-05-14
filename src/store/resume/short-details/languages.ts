@@ -1,10 +1,10 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { LanguageState } from '../../../vite-env';
+import { createSlice } from '@reduxjs/toolkit';
+import { ShortDeatilState } from '../../../vite-env';
 import {
   FcreateData,
   FsetBeingUsed,
-  FsetData,
   FsetHeading,
+  FsetType,
   FsetValue,
 } from '../functions';
 const languagesSlice = createSlice({
@@ -12,16 +12,16 @@ const languagesSlice = createSlice({
   initialState: {
     beingUsed: false,
     heading: 'Languages',
-  } as LanguageState,
+  } as ShortDeatilState,
   reducers: {
     setBeingUsed: FsetBeingUsed,
     setHeading: FsetHeading,
-    setData: FsetData,
+    setType: FsetType,
     createData: FcreateData,
     setValue: FsetValue,
   },
 });
 const { reducer: languagesReducer, actions } = languagesSlice;
-export const { setBeingUsed, createData, setHeading, setData, setValue } =
+export const { setBeingUsed, createData, setHeading, setType, setValue } =
   actions;
 export default languagesReducer;

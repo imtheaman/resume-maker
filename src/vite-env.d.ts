@@ -55,7 +55,7 @@ interface State {
 interface AchievementState extends State {
   data: {
     [id: string]: {
-      achievement: string;
+      primary: string;
       when: string;
       description: string;
     };
@@ -92,7 +92,12 @@ interface LongDetailState extends State {
 }
 
 interface SkillState extends State {
-  data: [string];
+  data: [
+    {
+      type: string;
+      value: 1 | 2 | 3 | 4 | 5;
+    }
+  ];
 }
 
 interface ReferenceState extends State {
@@ -102,14 +107,6 @@ interface ReferenceState extends State {
       contact: string;
     }
   ];
-}
-
-interface SectionHeading {
-  content: string;
-  placeholder: string;
-  beingUsed: boolean;
-  setBeingUsed: ActionCreatorWithPayload<boolean, string>;
-  setHeading: ActionCreatorWithPayload<string, string>;
 }
 
 // interface ShortDetail {
@@ -160,33 +157,10 @@ interface SectionHeading {
 //   description: Desc;
 // }
 
-interface PublicationState extends State {
+interface MediumDetailState extends State {
   data: {
     [id: string]: {
-      publication: string;
-      description: string;
-    };
-  };
-  order: [string];
-}
-
-interface LanguageState extends State {
-  data: [
-    {
-      language: string;
-      fluency: 1 | 2 | 3 | 4 | 5;
-    }
-  ];
-}
-
-interface InterestState extends State {
-  data: [string];
-}
-
-interface AwardState extends State {
-  data: {
-    [id: string]: {
-      award: string;
+      primary: string;
       when: string;
       description: string;
     };
@@ -194,17 +168,34 @@ interface AwardState extends State {
   order: [string];
 }
 
-interface OrganizationState extends State {
-  data: {
-    [id: string]: {
-      primary: string;
-      from: string;
-      to: string;
-      description: string;
-    };
-  };
-  order: [string];
+// interface LanguageState extends State {
+//   data: [
+//     {
+//       type: string;
+//       value: 1 | 2 | 3 | 4 | 5;
+//     }
+//   ];
+// }
+
+interface ShortDeatilState extends State {
+  data: [
+    {
+      type: string;
+      value: 1 | 2 | 3 | 4 | 5;
+    }
+  ];
 }
+
+// interface AwardState extends State {
+//   data: {
+//     [id: string]: {
+//       primary: string;
+//       when: string;
+//       description: string;
+//     };
+//   };
+//   order: [string];
+// }
 
 // interface VolunteerState extends State {
 //   data: {

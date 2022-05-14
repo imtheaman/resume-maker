@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { LongDetailState } from '../../../vite-env';
 import {
+  Fcreate,
   FcreateDescContent,
   FsetBeingUsed,
   FsetDescContent,
@@ -14,11 +15,25 @@ import {
   FsetSecondary,
   FsetTo,
 } from '../functions';
+
+const init: LongDetailState['data'][string] = {
+  primary: '',
+  secondary: '',
+  from: '',
+  to: '',
+  location: '',
+  description: { heading: 'Tasks', contents: [''] },
+};
+
 const volunteersSlice = createSlice({
   name: 'volunteers',
   initialState: {
     beingUsed: false,
     heading: 'Volunteers',
+    data: {
+      '25cc658a-0a87-4196-8579-354d8ab33df8': init,
+    },
+    order: ['25cc658a-0a87-4196-8579-354d8ab33df8'],
   } as LongDetailState,
   reducers: {
     setBeingUsed: FsetBeingUsed,
@@ -26,6 +41,7 @@ const volunteersSlice = createSlice({
     setPrimary: FsetPrimary,
     setSecondary: FsetSecondary,
     setFrom: FsetFrom,
+    create: Fcreate(init),
     setTo: FsetTo,
     setLocation: FsetLocation,
     setDescContent: FsetDescContent,
@@ -43,6 +59,7 @@ export const {
   setDescHeading,
   setFrom,
   setHeading,
+  create,
   setLocation,
   setOrderDown,
   setOrderUp,

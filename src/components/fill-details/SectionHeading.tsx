@@ -1,11 +1,13 @@
 import { useAppDispatch, useAppSelector } from '../../store/store';
-import { BlurEvent, SectionHeading } from '../../vite-env';
+import { BlurEvent } from '../../vite-env';
 import Editable from '../customs/Editable';
 import SwitchCheckbox from '../customs/SwitchCheckbox';
 import { LongSection } from './LongDetail';
+import { MediumSection } from './MediumDetail';
+import { ShortSection } from './ShortDetail';
 
 interface Props {
-  section: LongSection;
+  section: LongSection | MediumSection | ShortSection | 'references';
   placeholder: string;
 }
 

@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { AchievementState } from '../../../vite-env';
+import { MediumDetailState } from '../../../vite-env';
 import {
   Fcreate,
   FsetBeingUsed,
@@ -10,24 +10,27 @@ import {
   FsetPrimary,
   FsetWhen,
 } from '../functions';
+
+export const init: MediumDetailState['data'][string] = {
+  primary: '',
+  when: '',
+  description: '',
+};
+
 const achievementsSlice = createSlice({
   name: 'achievements',
   initialState: {
     beingUsed: false,
     heading: 'Achievements',
     data: {
-      '14118381-c45b-48b6-8e71-139ef4c6b2aa': {
-        achievement: '',
-        when: '',
-        description: '',
-      },
+      '25cc658a-0a87-4196-8579-354d8ab33df8': init,
     },
-    order: ['14118381-c45b-48b6-8e71-139ef4c6b2aa'],
-  } as AchievementState,
+    order: ['25cc658a-0a87-4196-8579-354d8ab33df8'],
+  } as MediumDetailState,
   reducers: {
     setBeingUsed: FsetBeingUsed,
     setHeading: FsetHeading,
-    create: Fcreate,
+    create: Fcreate(init),
     setPrimary: FsetPrimary,
     setWhen: FsetWhen,
     setDesc: FsetDesc,

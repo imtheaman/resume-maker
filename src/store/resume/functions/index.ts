@@ -1,6 +1,11 @@
 import { PayloadAction } from '@reduxjs/toolkit';
-import { DescContentAction, StringValueAction } from '../../../vite-env';
-
+import {
+  DescContentAction,
+  LongDetailState,
+  MediumDetailState,
+  StringValueAction,
+} from '../../../vite-env';
+import { v4 as uuid } from 'uuid';
 export const FsetOrderDown = (
   state: any,
   action: PayloadAction<{ id: string }>
@@ -36,7 +41,7 @@ export const FsetDescContent = (
     action.payload.content;
 };
 
-export const FsetData = (
+export const FsetType = (
   state: any,
   action: PayloadAction<{ id: number; content: string }>
 ) => {
@@ -106,9 +111,15 @@ export const FsetHeading = (state: any, action: PayloadAction<string>) => {
 export const FsetBeingUsed = (state: any, action: PayloadAction<boolean>) => {
   state.beingUsed = action.payload;
 };
-//*todo id generation using uuid
-export const Fcreate = (state: any, action: PayloadAction<{ id: string }>) => {
-  state.order.push(action.payload.id);
+
+export const Fcreate = (
+  init_value: (LongDetailState | MediumDetailState)['data'][string]
+) => {
+  return (state: any) => {
+    const id = uuid();
+    state.order.push(id);
+    state.data[id] = init_value;
+  };
 };
 
 export const FsetWhen = (

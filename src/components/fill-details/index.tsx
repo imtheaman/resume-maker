@@ -5,7 +5,7 @@ import Education from "./long-details/Education";
 import Experience from "./long-details/Experience";
 import Interests from "./short-details/Interests";
 import Languages from "./short-details/Languages";
-import Organizations from "./medium-details/Organizations";
+import Organizations from "./long-details/Organizations";
 import Profile from "./Profile";
 import Projects from "./long-details/Projects";
 import Publications from "./medium-details/Publications";

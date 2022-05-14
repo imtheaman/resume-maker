@@ -20,7 +20,7 @@ const referencesSlice = createSlice({
       state.data[action.payload.id] = action.payload.content;
     },
     createReference: (state: any) => {
-      state.data.push('');
+      state.data.push({ person: '', contact: '' });
     },
   },
 });
