@@ -12,6 +12,7 @@ const languagesSlice = createSlice({
   initialState: {
     beingUsed: false,
     heading: 'Languages',
+    data: [{ type: '', value: 1 }],
   } as ShortDeatilState,
   reducers: {
     setBeingUsed: FsetBeingUsed,
@@ -22,6 +23,5 @@ const languagesSlice = createSlice({
   },
 });
 const { reducer: languagesReducer, actions } = languagesSlice;
-export const { setBeingUsed, createData, setHeading, setType, setValue } =
-  actions;
-export default languagesReducer;
+export default actions;
+export { languagesReducer };

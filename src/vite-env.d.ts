@@ -178,12 +178,10 @@ interface MediumDetailState extends State {
 // }
 
 interface ShortDeatilState extends State {
-  data: [
-    {
-      type: string;
-      value: 1 | 2 | 3 | 4 | 5;
-    }
-  ];
+  data: {
+    type: string;
+    value: 1 | 2 | 3 | 4 | 5;
+  }[];
 }
 
 // interface AwardState extends State {

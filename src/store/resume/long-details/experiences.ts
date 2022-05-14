@@ -53,19 +53,5 @@ const experiencesSlice = createSlice({
 });
 
 const { reducer: experiencesReducer, actions } = experiencesSlice;
-export const {
-  setBeingUsed,
-  createDescContent,
-  setDescContent,
-  create,
-  setDescHeading,
-  setHeading,
-  setPrimary,
-  setSecondary,
-  setOrderDown,
-  setOrderUp,
-  setFrom,
-  setTo,
-  setLocation,
-} = actions;
-export default experiencesReducer;
+export default actions;
+export {experiencesReducer};

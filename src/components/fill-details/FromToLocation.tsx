@@ -2,6 +2,11 @@ import { useAppDispatch, useAppSelector } from '../../store/store';
 import { BlurEvent } from '../../vite-env';
 import Editable from '../customs/Editable';
 import { LongSection } from './LongDetail';
+import experiences from '../../store/resume/long-details/experiences';
+import educations from '../../store/resume/long-details/educations';
+import projects from '../../store/resume/long-details/projects';
+import volunteers from '../../store/resume/long-details/volunteers';
+import organizations from '../../store/resume/long-details/organizations';
 
 interface Props {
   id: string;
@@ -12,11 +17,17 @@ const FromToLocation: React.FC<Props> = ({ id, section }) => {
   const { from, to, location } = useAppSelector(
     ({ resume }) => resume[section].data[id]
   );
-  const {
-    setFrom,
-    setTo,
-    setLocation,
-  } = require(`../../store/resume/long-details/${section}`);
+  //@ts-ignore
+  const { setFrom, setTo, setLocation } =
+    section === 'educations'
+      ? educations
+      : section === 'projects'
+      ? projects
+      : section === 'volunteers'
+      ? volunteers
+      : section === 'organizations'
+      ? organizations
+      : experiences;
 
   return (
     <div className='flex justify-between items-center'>
@@ -27,7 +38,7 @@ const FromToLocation: React.FC<Props> = ({ id, section }) => {
           name='from'
           className='ml-3 date'
           value={from}
-          onBlur={(e: BlurEvent) =>
+          onChange={(e: BlurEvent) =>
             dispatch(setFrom({ id, content: e.currentTarget.value }))
           }
         />
@@ -39,12 +50,12 @@ const FromToLocation: React.FC<Props> = ({ id, section }) => {
           name='to'
           value={to}
           className='ml-3 date'
-          onBlur={(e: BlurEvent) =>
+          onChange={(e: BlurEvent) =>
             dispatch(setTo({ id, content: e.currentTarget.value }))
           }
         />
       </div>
-      {location && (
+      {typeof location === 'string' && (
         <Editable
           className='italic'
           as='p'

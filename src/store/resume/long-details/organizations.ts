@@ -49,17 +49,5 @@ const organizationsSlice = createSlice({
   },
 });
 const { reducer: organizationsReducer, actions } = organizationsSlice;
-export const {
-  setBeingUsed,
-  setFrom,
-  setHeading,
-  setOrderDown,
-  setOrderup,
-  setPrimary,
-  setTo,
-  create,
-  createDescContent,
-  setDescContent,
-  setDescHeading,
-} = actions;
-export default organizationsReducer;
+export default actions;
+export {organizationsReducer};

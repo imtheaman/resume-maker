@@ -39,14 +39,5 @@ const achievementsSlice = createSlice({
   },
 });
 const { reducer: achievementsReducer, actions } = achievementsSlice;
-export const {
-  setHeading,
-  create,
-  setBeingUsed,
-  setDesc,
-  setPrimary,
-  setOrderDown,
-  setOrderUp,
-  setWhen,
-} = actions;
-export default achievementsReducer;
+export default actions;
+export {achievementsReducer};

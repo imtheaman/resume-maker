@@ -47,17 +47,5 @@ const projectsSlice = createSlice({
 });
 
 const { reducer: projectsReducer, actions } = projectsSlice;
-export const {
-  setBeingUsed,
-  createDescContent,
-  setDescContent,
-  setDescHeading,
-  setFrom,
-  setHeading,
-  create,
-  setOrderDown,
-  setOrderUp,
-  setPrimary,
-  setTo,
-} = actions;
-export default projectsReducer;
+export default actions;
+export {projectsReducer};

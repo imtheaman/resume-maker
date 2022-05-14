@@ -52,19 +52,5 @@ const volunteersSlice = createSlice({
   },
 });
 const { reducer: volunteersReducer, actions } = volunteersSlice;
-export const {
-  setBeingUsed,
-  createDescContent,
-  setDescContent,
-  setDescHeading,
-  setFrom,
-  setHeading,
-  create,
-  setLocation,
-  setOrderDown,
-  setOrderUp,
-  setPrimary,
-  setSecondary,
-  setTo,
-} = actions;
-export default volunteersReducer;
+export default actions;
+export { volunteersReducer };

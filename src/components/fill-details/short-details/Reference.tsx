@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import { setReference } from '../../../store/resume/short-details/references';
+import actions from '../../../store/resume/short-details/references';
 import { useAppDispatch, useAppSelector } from '../../../store/store';
 import { BlurEvent } from '../../../vite-env';
 import Editable from '../../customs/Editable';
@@ -9,6 +9,7 @@ import Tools from '../Tools';
 const Reference: React.FC = () => {
   const dispatch = useAppDispatch();
   const data = useAppSelector(({ resume }) => resume.references.data);
+  const setReference = actions.setReference
   return (
     <div className='fill-details'>
       <SectionHeading placeholder='REFERENCES' section='references' />

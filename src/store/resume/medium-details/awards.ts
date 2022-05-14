@@ -34,14 +34,5 @@ const awardsSlice = createSlice({
   },
 });
 const { reducer: awardsReducer, actions } = awardsSlice;
-export const {
-  setBeingUsed,
-  setHeading,
-  create,
-  setDesc,
-  setPrimary,
-  setOrderDown,
-  setOrderUp,
-  setWhen,
-} = actions;
-export default awardsReducer;
+export default actions;
+export {awardsReducer};

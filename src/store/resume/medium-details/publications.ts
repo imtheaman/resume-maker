@@ -34,14 +34,5 @@ const publicationsSlice = createSlice({
   },
 });
 const { reducer: publicationsReducer, actions } = publicationsSlice;
-export const {
-  setBeingUsed,
-  setDesc,
-  setHeading,
-  setOrderDown,
-  create,
-  setWhen,
-  setOrderUp,
-  setPrimary,
-} = actions;
-export default publicationsReducer;
+export default actions;
+export {publicationsReducer};

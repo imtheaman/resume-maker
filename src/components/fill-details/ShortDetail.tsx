@@ -1,6 +1,9 @@
 import { useAppDispatch, useAppSelector } from '../../store/store';
 import { BlurEvent } from '../../vite-env';
 import Editable from '../customs/Editable';
+import interests from '../../store/resume/short-details/interests';
+import languages from '../../store/resume/short-details/languages';
+import skills from '../../store/resume/short-details/skills';
 
 export type ShortSection = 'interests' | 'languages' | 'skills';
 
@@ -11,11 +14,13 @@ interface Props {
 }
 
 const ShortDetail: React.FC<Props> = ({ id, section, placeholder }) => {
-  const {
-    setType,
-    setValue,
-    createData,
-  } = require(`../../store/resume/short-details/${section}`);
+  const { setType, setValue, createData } =
+    section === 'interests'
+      ? interests
+      : section === 'languages'
+      ? languages
+      : skills;
+
   const dispatch = useAppDispatch();
   const { type, value } = useAppSelector(
     ({ resume }) => resume[section].data[id]
@@ -43,7 +48,8 @@ const ShortDetail: React.FC<Props> = ({ id, section, placeholder }) => {
         value={value}
         max={5}
         onChange={(e: BlurEvent) =>
-          dispatch(setValue({ id, content: e.currentTarget.value }))
+          // @ts-ignore
+          dispatch(setValue({ id, content: +e.currentTarget.value }))
         }
       />
     </div>

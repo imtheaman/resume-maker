@@ -6,6 +6,7 @@ const referencesSlice = createSlice({
   initialState: {
     beingUsed: false,
     heading: 'References',
+    data: [{ person: '', contact: '' }],
   } as ReferenceState,
   reducers: {
     setBeingUsed: FsetBeingUsed,
@@ -25,6 +26,5 @@ const referencesSlice = createSlice({
   },
 });
 const { reducer: referencesReducer, actions } = referencesSlice;
-export const { setBeingUsed, createReference, setHeading, setReference } =
-  actions;
-export default referencesReducer;
+export default actions;
+export { referencesReducer };

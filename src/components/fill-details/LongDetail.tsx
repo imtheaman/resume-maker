@@ -3,6 +3,12 @@ import { useAppDispatch, useAppSelector } from '../../store/store';
 import { BlurEvent } from '../../vite-env';
 import Editable from '../customs/Editable';
 import Tools from './Tools';
+import experiences from '../../store/resume/long-details/experiences';
+import educations from '../../store/resume/long-details/educations';
+import projects from '../../store/resume/long-details/projects';
+import volunteers from '../../store/resume/long-details/volunteers';
+import organizations from '../../store/resume/long-details/organizations';
+
 export type LongSection =
   | 'experiences'
   | 'projects'
@@ -28,11 +34,21 @@ const LongDetail: React.FC<Props> = ({
 }) => {
   const {
     setPrimary,
+    //@ts-ignore
     setSecondary,
     createDescContent,
     setDescContent,
     setDescHeading,
-  } = require(`../../store/resume/long-details/${section}`);
+  } =
+    section === 'educations'
+      ? educations
+      : section === 'projects'
+      ? projects
+      : section === 'volunteers'
+      ? volunteers
+      : section === 'organizations'
+      ? organizations
+      : experiences;
 
   const dispatch = useAppDispatch();
   const [{ primary, secondary, description }, listStyle] = useAppSelector(
@@ -49,7 +65,7 @@ const LongDetail: React.FC<Props> = ({
           dispatch(setPrimary({ id, content: e.currentTarget.value }))
         }
       />
-      {secondary && (
+      {typeof secondary === 'string' && (
         <Editable
           as='h3'
           className='input-primary'

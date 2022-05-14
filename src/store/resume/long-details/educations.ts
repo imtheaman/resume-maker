@@ -53,19 +53,5 @@ const educationSlice = createSlice({
 });
 
 const { reducer: educationsReducer, actions } = educationSlice;
-export const {
-  setBeingUsed,
-  createDescContent,
-  setDescContent,
-  setDescHeading,
-  setPrimary,
-  create,
-  setLocation,
-  setOrderDown,
-  setOrderUp,
-  setTo,
-  setFrom,
-  setHeading,
-  setSecondary,
-} = actions;
-export default educationsReducer;
+export default actions;
+export { educationsReducer };

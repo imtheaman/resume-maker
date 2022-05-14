@@ -2,6 +2,9 @@ import { useAppDispatch, useAppSelector } from '../../store/store';
 import { BlurEvent } from '../../vite-env';
 import Editable from '../customs/Editable';
 import Tools from './Tools';
+import achievements from '../../store/resume/medium-details/achievements';
+import awards from '../../store/resume/medium-details/awards';
+import publications from '../../store/resume/medium-details/publications';
 
 export type MediumSection = 'achievements' | 'awards' | 'publications';
 interface Props {
@@ -17,11 +20,12 @@ const MediumDetail: React.FC<Props> = ({ id, section, placeholder }) => {
   const { primary, description, when } = useAppSelector(
     ({ resume }) => resume[section].data[id]
   );
-  const {
-    setWhen,
-    setPrimary,
-    setDesc,
-  } = require(`../../store/resume/medium-details/${section}`);
+  const { setWhen, setPrimary, setDesc } =
+    section === 'achievements'
+      ? achievements
+      : section === 'awards'
+      ? awards
+      : publications;
   return (
     <>
       <Editable
