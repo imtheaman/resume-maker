@@ -55,7 +55,7 @@ const LongDetail: React.FC<Props> = ({
     ({ resume, ui }) => [resume[section].data[id], ui.listStyle]
   );
   return (
-    <>
+    <div className='fill-details' data-id={id}>
       <Editable
         as='h3'
         className='input-primary'
@@ -114,7 +114,7 @@ const LongDetail: React.FC<Props> = ({
         </div>
       </div>
       <Tools id={id} />
-    </>
+    </div>
   );
 };
 

@@ -21,7 +21,7 @@
     list-style-type: square;
   }
   [placeholder]:empty:focus::before {
-    content: "";
+    content: '';
   }
 }
 
@@ -33,10 +33,10 @@
     @apply outline-none focus:border-b focus:border-dashed;
   }
   .btn {
-    @apply flex items-center justify-center bg-white py-2 px-4 duration-75 shadow rounded-full hover:shadow-md active:scale-95 disabled:cursor-not-allowed disabled:opacity-50;
+    @apply flex whitespace-nowrap items-center justify-center bg-white py-2 px-4 duration-75 shadow rounded-full hover:shadow-md active:scale-95 disabled:cursor-not-allowed disabled:opacity-50;
   }
   .custom-btn {
-    @apply flex items-center justify-center py-2 px-4 duration-75 shadow rounded-full hover:shadow-md active:scale-95;
+    @apply flex items-center whitespace-nowrap justify-center py-2 px-4 duration-75 shadow rounded-full hover:shadow-md active:scale-95;
   }
   .rounded-btn-8 {
     @apply w-8 h-8 flex justify-center items-center text-sm duration-75 shadow rounded-full hover:shadow-md active:scale-95;

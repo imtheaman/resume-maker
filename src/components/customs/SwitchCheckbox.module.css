@@ -1,5 +1,5 @@
 .switch {
-  --checked-color: #303030;
+  --checked-color: #3c3c3c;
   --unchecked-color: #ccc;
   --width: 38px;
   --height: 20px;
@@ -45,10 +45,10 @@ input:checked + .slider:hover::before {
 }
 .slider::before {
   position: absolute;
-  content: "";
-  height: calc(var(--height) - 4px);
-  width: calc(var(--height) - 4px);
-  left: 2px;
+  content: '';
+  height: calc(var(--height) - 5px);
+  width: calc(var(--height) - 5px);
+  left: 3px;
   border-radius: 50%;
   background-color: white;
   /* todo: animation */
@@ -61,5 +61,5 @@ input:focus + .slider {
 }
 input:checked + .slider::before {
   left: unset;
-  right: 2px;
+  right: 3px;
 }

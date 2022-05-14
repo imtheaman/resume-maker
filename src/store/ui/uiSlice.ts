@@ -7,10 +7,7 @@ const uiSlice = createSlice({
     spellCheck: true,
     screen: 'resume',
     fontSize: 'medium',
-    isResumeBlank: true,
     listStyle: "before:content-['🔻']",
-    focused: false,
-    showTools: false,
   } as Ui,
   reducers: {
     setTheme: (state: Ui, action: PayloadAction<string>) => {

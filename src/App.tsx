@@ -1,47 +1,60 @@
 import { useRef } from 'react';
-import { useAppSelector } from './store/store';
+import { useAppDispatch, useAppSelector } from './store/store';
 import Screen from './components/Resume/Screen';
 import Header from './components/header/Header';
 import Nav from './components/header/Nav';
 import ReactToPrint, { PrintContextConsumer } from 'react-to-print';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faDownload } from '@fortawesome/free-solid-svg-icons';
-import FillDetails from './components/fill-details/long-details/Experience';
-import Layout from './components/templates/Templates';
+import { faDownload, faSwatchbook } from '@fortawesome/free-solid-svg-icons';
+import useIntersectionObserver from './hooks/useIntersectionObserver';
+import { setScreen } from './store/ui/uiSlice';
 
 const Home: React.FC = () => {
-  const { spellCheck, screen } = useAppSelector(({ ui }) => ui);
+  const { spellCheck, screen, theme } = useAppSelector(({ ui }) => ui);
+  const dispatch = useAppDispatch();
   const printRef = useRef<HTMLDivElement>();
+  const { ref: elementRef, value: intersected } = useIntersectionObserver({
+    root: null,
+    threshold: 1,
+  });
   return (
     <div>
       <main
-        className='w-full flex flex-col items-center space-y-6 mb-6'
+        className='w-full flex flex-col items-center  mb-6'
         spellCheck={spellCheck}
       >
-        <Header />
-        <nav className='flex w-full max-w-[1200px] justify-between items-center space-x-6'>
-          <Nav />
-          {/* @ts-ignore */}
-          <ReactToPrint content={() => printRef.current}>
-            <PrintContextConsumer>
-              {({ handlePrint }) => (
-                <button
-                  disabled={screen !== 'resume'}
-                  className='btn'
-                  onClick={handlePrint}
-                >
-                  <FontAwesomeIcon
-                    icon={faDownload}
-                    width={20}
-                    height={20}
-                    className='mr-2'
-                  />
-                  <p>Download</p>
-                </button>
-              )}
-            </PrintContextConsumer>
-          </ReactToPrint>
-        </nav>
+        <Header ref={elementRef} />
+        <div
+          className={`sticky top-0 w-full z-20 ${
+            !intersected && 'bg-gray-200'
+          } flex items-center justify-center`}
+        >
+          <nav
+            className={` py-6 flex w-full max-w-[1340px] justify-between items-center space-x-6`}
+          >
+            <Nav />
+            {/* @ts-ignore */}
+            <ReactToPrint content={() => printRef.current}>
+              <PrintContextConsumer>
+                {({ handlePrint }) => (
+                  <button
+                    disabled={screen !== 'resume'}
+                    className='btn'
+                    onClick={handlePrint}
+                  >
+                    <FontAwesomeIcon
+                      icon={faDownload}
+                      width={20}
+                      height={20}
+                      className='mr-2'
+                    />
+                    <p>Download</p>
+                  </button>
+                )}
+              </PrintContextConsumer>
+            </ReactToPrint>
+          </nav>
+        </div>
         {/* @ts-ignore */}
         <Screen ref={printRef} />
       </main>
