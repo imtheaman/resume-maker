@@ -36,12 +36,12 @@ const Nav = () => {
         {showThemes && (
           <>
             <ThemeBtn theme='bg-orange-600' />
-            <ThemeBtn theme='bg-yellow-500' />
-            <ThemeBtn theme='bg-green-500' />
-            <ThemeBtn theme='bg-blue-500' />
+            <ThemeBtn theme='bg-yellow-600' />
+            <ThemeBtn theme='bg-green-600' />
+            <ThemeBtn theme='bg-blue-600' />
             <ThemeBtn theme='bg-blue-800' />
             <ThemeBtn theme='bg-purple-800' />
-            <ThemeBtn theme='bg-pink-500' />
+            <ThemeBtn theme='bg-pink-600' />
           </>
         )}
       </div>
