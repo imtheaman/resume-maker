@@ -15,7 +15,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ThemeBtn from '../customs/ThemeBtn';
 import { ReactElement, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../store/store';
-import { setScreen } from '../../store/ui/uiSlice';
+import { setScreen } from '../../store/ui';
 import Modal from '../modal/Modal';
 import SaveOnline from '../save-online/SaveOnline';
 import Layout from '../layout';

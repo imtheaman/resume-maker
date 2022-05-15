@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 import { useAppDispatch, useAppSelector } from '../../store/store';
-import { setSpellCheck } from '../../store/ui/uiSlice';
+import { setSpellCheck } from '../../store/ui';
 import SwitchCheckbox from '../customs/SwitchCheckbox';
 
 const Header = forwardRef<HTMLDivElement>((props, ref) => {

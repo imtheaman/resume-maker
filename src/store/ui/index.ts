@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { AllActions, Ui } from '../../vite-env';
+import { AllActions, FontFamily, FontSize, Screen, Ui } from '../../vite-env';
 const uiSlice = createSlice({
   name: 'ui',
   initialState: {
@@ -7,7 +7,6 @@ const uiSlice = createSlice({
     spellCheck: true,
     screen: 'resume',
     fontSize: 'medium',
-    listStyle: "before:content-['🔻']",
   } as Ui,
   reducers: {
     setTheme: (state: Ui, action: PayloadAction<string>) => {
@@ -16,19 +15,24 @@ const uiSlice = createSlice({
     setSpellCheck: (state: Ui, action: PayloadAction<boolean>) => {
       state.spellCheck = action.payload;
     },
-    setScreen: (state: Ui, action: PayloadAction<Ui['screen']>) => {
+    setScreen: (state: Ui, action: PayloadAction<Screen>) => {
       state.screen = action.payload;
     },
-    setFocused: (
-      state: Ui,
-      action: PayloadAction<{ section: AllActions; id: string }>
-    ) => {
-      state.focused = action.payload;
+    setFontSize: (state: Ui, action: PayloadAction<FontSize>) => {
+      state.fontSize = action.payload;
+    },
+    setFontFamily: (state: Ui, action: PayloadAction<FontFamily>) => {
+      state.fontFamily = action.payload;
     },
   },
 });
 
 const { reducer: uiReducer, actions } = uiSlice;
-export const { setSpellCheck, setTheme, setScreen, setFocused } =
-  actions;
+export const {
+  setSpellCheck,
+  setTheme,
+  setScreen,
+  setFontFamily,
+  setFontSize,
+} = actions;
 export default uiReducer;

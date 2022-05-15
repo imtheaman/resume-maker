@@ -26,16 +26,16 @@ interface DescContentAction {
 }
 // <actions />
 
+type FontFamily = 'raleway' | 'open sans' | 'inter' | 'ubuntu';
+type Screen = 'resume' | 'templates' | 'edit';
+type FontSize = 'medium' | 'small' | 'large';
+
 interface Ui {
   theme: string;
   spellCheck: boolean;
-  screen: 'resume' | 'templates' | 'edit';
-  fontSize: 'medium' | 'small' | 'large';
-  listStyle: string;
-  focused: {
-    section: AllActions;
-    id: string;
-  };
+  screen: Screen;
+  fontSize: FontSize;
+  fontFamily: FontFamily;
 }
 
 interface State {
@@ -117,5 +117,14 @@ interface ProfileState {
     connect: string;
     email: string;
     phone: string;
+  };
+}
+
+interface EditorState {
+  listStyle: string;
+  focused: {
+    section: AllActions;
+    id: string;
+    descId?: number;
   };
 }

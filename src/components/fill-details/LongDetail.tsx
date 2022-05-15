@@ -52,7 +52,7 @@ const LongDetail: React.FC<Props> = ({
 
   const dispatch = useAppDispatch();
   const [{ primary, secondary, description }, listStyle] = useAppSelector(
-    ({ resume, ui }) => [resume[section].data[id], ui.listStyle]
+    ({ resume, editor }) => [resume[section].data[id], editor.listStyle]
   );
   return (
     <div className='space-y-4' data-id={id}>

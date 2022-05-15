@@ -1,5 +1,5 @@
 import { ReactElement, useState } from 'react';
-import { setName, setProfilePic } from '../../../store/profile/profile';
+import { setName, setProfilePic } from '../../../store/profile';
 import { useAppDispatch, useAppSelector } from '../../../store/store';
 import { BlurEvent } from '../../../vite-env';
 import Editable from '../../customs/Editable';

@@ -1,5 +1,5 @@
 import { useAppDispatch } from "../../store/store";
-import { setTheme } from "../../store/ui/uiSlice";
+import { setTheme } from "../../store/ui";
 
 const ThemeBtn: React.FC<{ theme: string }> = ({ theme }) => {
   const dispatch = useAppDispatch();
