@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 import { useAppDispatch, useAppSelector } from '../../store/store';
 import { BlurEvent } from '../../vite-env';
 import Editable from '../customs/Editable';
-import Tools from './Tools';
+
 import experiences from '../../store/resume/long-details/experiences';
 import educations from '../../store/resume/long-details/educations';
 import projects from '../../store/resume/long-details/projects';
@@ -62,7 +62,7 @@ const LongDetail: React.FC<Props> = ({
         placeholder={placeholder.primary}
         content={primary}
         onBlur={(e: BlurEvent) =>
-          dispatch(setPrimary({ id, content: e.currentTarget.value }))
+          dispatch(setPrimary({ id, content: e.target.value }))
         }
       />
       {typeof secondary === 'string' && (
@@ -72,7 +72,7 @@ const LongDetail: React.FC<Props> = ({
           placeholder={placeholder.secondary}
           content={secondary}
           onBlur={(e: BlurEvent) =>
-            dispatch(setSecondary({ id, content: e.currentTarget.value }))
+            dispatch(setSecondary({ id, content: e.target.value }))
           }
         />
       )}
@@ -84,7 +84,7 @@ const LongDetail: React.FC<Props> = ({
           placeholder={placeholder.desc}
           content={description.heading}
           onBlur={(e: BlurEvent) =>
-            dispatch(setDescHeading({ id, content: e.currentTarget.value }))
+            dispatch(setDescHeading({ id, content: e.target.value }))
           }
         />
         <div className={`input-container ${listStyle}`}>
@@ -99,7 +99,7 @@ const LongDetail: React.FC<Props> = ({
                   setDescContent({
                     id,
                     descId: index,
-                    content: e.currentTarget.value,
+                    content: e.target.value,
                   })
                 )
               }
@@ -113,7 +113,6 @@ const LongDetail: React.FC<Props> = ({
           ))}
         </div>
       </div>
-      <Tools id={id} />
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import { useAppDispatch, useAppSelector } from '../../store/store';
-import { BlurEvent } from '../../vite-env';
+import { AllActions, BlurEvent } from '../../vite-env';
 import Editable from '../customs/Editable';
 import SwitchCheckbox from '../customs/SwitchCheckbox';
 import { LongSection } from './LongDetail';
@@ -19,7 +19,7 @@ import references from '../../store/resume/short-details/references';
 import skills from '../../store/resume/short-details/skills';
 
 interface Props {
-  section: LongSection | MediumSection | ShortSection | 'references';
+  section: AllActions;
   placeholder: string;
 }
 
@@ -59,7 +59,7 @@ const SectionHeading: React.FC<Props> = ({ section, placeholder }) => {
         as='h2'
         className='h2 flex-grow'
         content={heading}
-        onBlur={(e: BlurEvent) => dispatch(setHeading(e.currentTarget.value))}
+        onBlur={(e: BlurEvent) => dispatch(setHeading(e.target.value))}
       />
       <SwitchCheckbox onChange={() => dispatch(setBeingUsed(!beingUsed))} />
     </div>

@@ -33,7 +33,7 @@ const ShortDetail: React.FC<Props> = ({ id, section, placeholder }) => {
         className={`skill-border`}
         content={type}
         onBlur={(e: BlurEvent) =>
-          dispatch(setType({ id, content: e.currentTarget.value }))
+          dispatch(setType({ id, content: e.target.value }))
         }
         onKeyDownCapture={(e: any) => {
           if (e.key === 'Enter') {
@@ -49,7 +49,7 @@ const ShortDetail: React.FC<Props> = ({ id, section, placeholder }) => {
         max={5}
         onChange={(e: BlurEvent) =>
           // @ts-ignore
-          dispatch(setValue({ id, content: +e.currentTarget.value }))
+          dispatch(setValue({ id, content: +e.target.value }))
         }
       />
     </div>

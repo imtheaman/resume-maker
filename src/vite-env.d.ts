@@ -1,8 +1,12 @@
 /// <reference types="vite/client" />
 import { ActionCreatorWithPayload, AnyAction } from '@reduxjs/toolkit';
 import { FocusEvent, ReactNode } from 'react';
+import { LongSection } from './components/fill-details/LongDetail';
+import { MediumSection } from './components/fill-details/MediumDetail';
+import { ShortSection } from './components/fill-details/ShortDetail';
 
 type BlurEvent = FocusEvent<HTMLInputElement>;
+type AllActions = LongSection | MediumSection | ShortSection | 'references';
 
 interface Desc {
   heading?: string;
@@ -27,10 +31,12 @@ interface Ui {
   spellCheck: boolean;
   screen: 'resume' | 'templates' | 'edit';
   fontSize: 'medium' | 'small' | 'large';
-  isResumeBlank: boolean;
   listStyle: string;
-  focused: boolean;
   showTools: boolean;
+  focused: {
+    section: AllActions;
+    id: string;
+  };
 }
 
 interface State {

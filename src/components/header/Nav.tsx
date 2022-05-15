@@ -20,7 +20,7 @@ import { setScreen } from '../../store/ui/uiSlice';
 const Nav = () => {
   const [showThemes, setShowThemes] = useState(false);
   const dispatch = useAppDispatch();
-  const { screen, theme, focused } = useAppSelector(({ ui }) => ui);
+  const { screen, theme, showTools } = useAppSelector(({ ui }) => ui);
   return (
     <div className='flex space-x-6'>
       <div className='text-black flex'>
@@ -111,16 +111,16 @@ const Nav = () => {
       </button>
       {!showThemes && (
         <>
-          <button disabled={!focused} className='rounded-btn-10'>
+          <button disabled={!showTools} className='rounded-btn-10'>
             <FontAwesomeIcon icon={faBold} />
           </button>
-          <button disabled={!focused} className='rounded-btn-10'>
+          <button disabled={!showTools} className='rounded-btn-10'>
             <FontAwesomeIcon icon={faUnderline} />
           </button>
-          <button disabled={!focused} className='rounded-btn-10'>
+          <button disabled={!showTools} className='rounded-btn-10'>
             <FontAwesomeIcon icon={faItalic} />
           </button>
-          <button disabled={!focused} className='rounded-btn-10'>
+          <button disabled={!showTools} className='rounded-btn-10'>
             <FontAwesomeIcon icon={faLink} />
           </button>
         </>

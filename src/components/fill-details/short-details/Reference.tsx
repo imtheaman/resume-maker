@@ -9,7 +9,7 @@ import Tools from '../Tools';
 const Reference: React.FC = () => {
   const dispatch = useAppDispatch();
   const data = useAppSelector(({ resume }) => resume.references.data);
-  const setReference = actions.setReference
+  const setReference = actions.setReference;
   return (
     <div className='fill-details'>
       <SectionHeading placeholder='REFERENCES' section='references' />
@@ -18,38 +18,62 @@ const Reference: React.FC = () => {
           <Editable
             as='h4'
             content={el.person}
+            placeholder='Person Name'
+            className='input-primary'
             onBlur={(e: BlurEvent) =>
               dispatch(
                 setReference({
                   id: index,
                   content: {
-                    person: e.currentTarget.value,
+                    person: e.target.value,
                     contact: el.contact,
                   },
                 })
               )
             }
           />
-          <span className='italic border-b'>Contact</span>
-          <Editable
-            as='p'
-            className='font-thin'
-            content={el.contact}
-            onBlur={(e: BlurEvent) =>
-              dispatch(
-                setReference({
-                  id: index,
-                  content: {
-                    person: el.person,
-                    contact: e.currentTarget.value,
-                  },
-                })
-              )
-            }
-          />
+          <div className='flex'>
+            <span className='font-thin mr-2'>Email : </span>
+            <Editable
+              as='p'
+              className='border-b flex-grow'
+              content={el.contact}
+              placeholder='email address'
+              onBlur={(e: BlurEvent) =>
+                dispatch(
+                  setReference({
+                    id: index,
+                    content: {
+                      person: el.person,
+                      contact: e.target.value,
+                    },
+                  })
+                )
+              }
+            />
+          </div>
+          <div className='flex'>
+            <span className='font-thin mr-2'>Phone : </span>
+            <Editable
+              as='p'
+              className='border-b flex-grow'
+              content={el.contact}
+              placeholder='phone details'
+              onBlur={(e: BlurEvent) =>
+                dispatch(
+                  setReference({
+                    id: index,
+                    content: {
+                      person: el.person,
+                      contact: e.target.value,
+                    },
+                  })
+                )
+              }
+            />
+          </div>
         </Fragment>
       ))}
-      <Tools />
     </div>
   );
 };

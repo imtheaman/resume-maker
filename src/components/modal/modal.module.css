@@ -14,15 +14,7 @@
   cursor: pointer;
 }
 .modalDiv {
-  cursor: default;
-  background-color: #fff;
-  border-radius: 8px;
-  padding: 3rem;
   position: relative;
-  width: 80%;
-  max-width: 30rem;
-  display: flex;
-  flex-direction: column;
 }
 .modalBtn {
   cursor: pointer;
@@ -30,5 +22,5 @@
   position: absolute;
   top: 8px;
   right: 8px;
-  width: 1.9rem;
+  width: 2rem;
 }

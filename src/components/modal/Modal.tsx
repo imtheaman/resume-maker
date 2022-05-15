@@ -1,46 +1,44 @@
-import { ReactElement, ReactNode } from "react";
-import { createPortal } from "react-dom";
-import styles from "./modal.module.css";
+import { Dispatch, ReactElement, ReactNode } from 'react';
+import { createPortal } from 'react-dom';
+import styles from './modal.module.css';
 
 const Modal: React.FC<{
-  className?: string;
-  showModal: (arg: false | any) => any;
+  showModal: Dispatch<React.SetStateAction<boolean>>;
   children: ReactNode;
 }> = ({
   children,
-  className,
   showModal,
   ...otherProps
-}): ReactElement | null => {
-  if (!document.getElementById("modal")) {
-    console.error("div with id `modal` is not defined in the html");
+}): ReactElement<any> | null => {
+  if (!document.getElementById('modal')) {
+    console.error('div with id `modal` is not defined in the html');
   }
   return createPortal(
     <div className={styles.modalContainer} onClick={(e) => showModal(false)}>
       <div
-        className={`${styles.modalDiv} ${className ? className : ""}`}
+        className={styles.modalDiv}
         onClick={(e) => e.stopPropagation()}
         {...otherProps}
       >
         <div className={styles.modalBtn} onClick={(e) => showModal(false)}>
           <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth="1"
+            xmlns='http://www.w3.org/2000/svg'
+            fill='none'
+            viewBox='0 0 24 24'
+            stroke='currentColor'
+            strokeWidth='1'
           >
             <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+              strokeLinecap='round'
+              strokeLinejoin='round'
+              d='M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z'
             />
           </svg>
         </div>
         {children}
       </div>
     </div>,
-    document.getElementById("modal")!
+    document.getElementById('modal')!
   );
 };
 

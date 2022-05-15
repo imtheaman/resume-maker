@@ -7,6 +7,7 @@ import ReactToPrint, { PrintContextConsumer } from 'react-to-print';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDownload } from '@fortawesome/free-solid-svg-icons';
 import useIntersectionObserver from './hooks/useIntersectionObserver';
+import Tools from './components/fill-details/Tools';
 
 const Home: React.FC = () => {
   const { spellCheck, screen } = useAppSelector(({ ui }) => ui);
@@ -55,6 +56,7 @@ const Home: React.FC = () => {
         </div>
         {/* @ts-ignore */}
         <Screen ref={printRef} />
+        <Tools />
       </main>
 
       <footer className='text-center mb-8 italic text-gray-500'>

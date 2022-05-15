@@ -39,7 +39,7 @@ const FromToLocation: React.FC<Props> = ({ id, section }) => {
           className='ml-3 date'
           value={from}
           onChange={(e: BlurEvent) =>
-            dispatch(setFrom({ id, content: e.currentTarget.value }))
+            dispatch(setFrom({ id, content: e.target.value }))
           }
         />
       </div>
@@ -51,7 +51,7 @@ const FromToLocation: React.FC<Props> = ({ id, section }) => {
           value={to}
           className='ml-3 date'
           onChange={(e: BlurEvent) =>
-            dispatch(setTo({ id, content: e.currentTarget.value }))
+            dispatch(setTo({ id, content: e.target.value }))
           }
         />
       </div>
@@ -62,7 +62,7 @@ const FromToLocation: React.FC<Props> = ({ id, section }) => {
           placeholder='Location'
           content={location}
           onBlur={(e: BlurEvent) =>
-            dispatch(setLocation({ id, content: e.currentTarget.value }))
+            dispatch(setLocation({ id, content: e.target.value }))
           }
         />
       )}

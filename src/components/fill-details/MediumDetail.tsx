@@ -1,7 +1,7 @@
 import { useAppDispatch, useAppSelector } from '../../store/store';
 import { BlurEvent } from '../../vite-env';
 import Editable from '../customs/Editable';
-import Tools from './Tools';
+
 import achievements from '../../store/resume/medium-details/achievements';
 import awards from '../../store/resume/medium-details/awards';
 import publications from '../../store/resume/medium-details/publications';
@@ -32,7 +32,7 @@ const MediumDetail: React.FC<Props> = ({ id, section, placeholder }) => {
         as='h4'
         placeholder={placeholder.primary}
         onBlur={(e: BlurEvent) =>
-          dispatch(setPrimary({ id, content: e.currentTarget.value }))
+          dispatch(setPrimary({ id, content: e.target.value }))
         }
         content={primary}
       />
@@ -44,7 +44,7 @@ const MediumDetail: React.FC<Props> = ({ id, section, placeholder }) => {
           value={when}
           className='ml-3 date'
           onChange={(e: BlurEvent) =>
-            dispatch(setWhen({ id, content: e.currentTarget.value }))
+            dispatch(setWhen({ id, content: e.target.value }))
           }
         />
       </div>
@@ -54,10 +54,9 @@ const MediumDetail: React.FC<Props> = ({ id, section, placeholder }) => {
         placeholder='description'
         content={description}
         onBlur={(e: BlurEvent) =>
-          dispatch(setDesc({ id, content: e.currentTarget.value }))
+          dispatch(setDesc({ id, content: e.target.value }))
         }
       />
-      <Tools id={id} />
     </>
   );
 };

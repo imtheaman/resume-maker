@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Ui } from '../../vite-env';
+import { AllActions, Ui } from '../../vite-env';
 const uiSlice = createSlice({
   name: 'ui',
   initialState: {
@@ -19,11 +19,14 @@ const uiSlice = createSlice({
     setScreen: (state: Ui, action: PayloadAction<Ui['screen']>) => {
       state.screen = action.payload;
     },
-    setFocused: (state: Ui, action: PayloadAction<boolean>) => {
-      state.focused = action.payload;
-    },
     setShowTools: (state: Ui, action: PayloadAction<boolean>) => {
-      state.showTools = action.payload;
+      state.showTools = action.payload
+    },
+    setFocused: (
+      state: Ui,
+      action: PayloadAction<{ section: AllActions; id: string }>
+    ) => {
+      state.focused = action.payload;
     },
   },
 });
