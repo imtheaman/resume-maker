@@ -88,10 +88,9 @@ const LongDetail: React.FC<Props> = ({
           }
         />
         {description.contents.map((el, index) => (
-          <div className='flex'>
+          <div className='flex' key={index}>
             <span className={`${listStyle} mr-2`} />
             <Editable
-              key={index}
               as='p'
               className='desc-content'
               content={el}

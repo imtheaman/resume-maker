@@ -112,8 +112,10 @@ interface ProfileState {
     github: `https://github.com/${string}`;
     linkedin: `https://linkedin.com/in/${string}`;
     stackoverflow: `https://stackoverflow.com/users/${string}`;
+    medium: `https://medium.com/@${string}`;
+    reddit: `https://reddit.com/user/${string}`;
+    connect: string;
     email: string;
     phone: string;
-    reddit: `https://reddit.com/${string}`;
   };
 }

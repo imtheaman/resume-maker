@@ -10,6 +10,7 @@ const Skills: React.FC = () => {
       <div className='flex flex-wrap'>
         {data.map((_, index) => (
           <ShortDetail
+            key={index}
             style={'short-section-fill-light'}
             placeholder='skill'
             section='skills'
