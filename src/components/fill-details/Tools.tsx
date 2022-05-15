@@ -35,7 +35,6 @@ const Tools: React.FC = () => {
           </div>
         </div>
       )}
-      ;
     </>
   );
 };

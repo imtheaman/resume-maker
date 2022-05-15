@@ -19,7 +19,7 @@ const Home: React.FC = () => {
   return (
     <div>
       <main
-        className='w-full flex flex-col items-center  mb-6'
+        className='w-full flex flex-col items-center mb-6'
         spellCheck={spellCheck}
       >
         <Header ref={elementRef} />
@@ -29,7 +29,7 @@ const Home: React.FC = () => {
           } flex items-center justify-center`}
         >
           <nav
-            className={` py-6 flex w-full max-w-[1340px] justify-between items-center space-x-6`}
+            className={`py-6 flex w-full max-w-[1340px] justify-between items-center space-x-6`}
           >
             <Nav />
             {/* @ts-ignore */}
