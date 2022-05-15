@@ -13,7 +13,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ThemeBtn from '../customs/ThemeBtn';
-import { ReactElement, ReactNode, useState } from 'react';
+import { ReactElement, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../store/store';
 import { setScreen } from '../../store/ui/uiSlice';
 import Modal from '../modal/Modal';
@@ -24,7 +24,7 @@ const Nav = () => {
   const [showThemes, setShowThemes] = useState(false);
   const dispatch = useAppDispatch();
   const [modal, setModal] = useState<ReactElement | false>(false);
-  const { screen, theme, showTools } = useAppSelector(({ ui }) => ui);
+  const { screen, theme } = useAppSelector(({ ui }) => ui);
   return (
     <div className='flex space-x-6'>
       <div className='text-black flex'>
@@ -116,16 +116,16 @@ const Nav = () => {
       {modal && <Modal setModal={setModal} modal={modal} />}
       {!showThemes && (
         <>
-          <button disabled={!showTools} className='rounded-btn-10'>
+          <button disabled={screen !== 'edit'} className='rounded-btn-10'>
             <FontAwesomeIcon icon={faBold} />
           </button>
-          <button disabled={!showTools} className='rounded-btn-10'>
+          <button disabled={screen !== 'edit'} className='rounded-btn-10'>
             <FontAwesomeIcon icon={faUnderline} />
           </button>
-          <button disabled={!showTools} className='rounded-btn-10'>
+          <button disabled={screen !== 'edit'} className='rounded-btn-10'>
             <FontAwesomeIcon icon={faItalic} />
           </button>
-          <button disabled={!showTools} className='rounded-btn-10'>
+          <button disabled={screen !== 'edit'} className='rounded-btn-10'>
             <FontAwesomeIcon icon={faLink} />
           </button>
         </>

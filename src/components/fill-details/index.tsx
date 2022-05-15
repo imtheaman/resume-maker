@@ -11,29 +11,21 @@ import Publications from './medium-details/Publications';
 import Reference from './short-details/Reference';
 import Skills from './short-details/Skills';
 import Volunteers from './long-details/Volunteers';
-import { setShowTools } from '../../store/ui/uiSlice';
+import Achievements from './medium-details/Achievements';
 
 const FillDetails = () => {
   const dispatch = useAppDispatch();
   const theme = useAppSelector(({ ui }) => ui.theme);
   return (
-    <div
-      className='py-8 px-12'
-      onFocus={() => {
-        dispatch(setShowTools(true));
-      }}
-      onBlur={() => {
-        setTimeout(() => dispatch(setShowTools(false)), 500);
-      }}
-    >
-      <h1 className='text-2xl mb-12 font-thin capitalize text-center'>
+    <div className='py-8 px-14'>
+      <h1 className='text-2xl mb-5 font-thin capitalize text-center'>
         <span
           className={`-skew-x-12 inline-block text-white py-1 px-4 ${theme}`}
         >
           <span className='inline-block skew-x-12'>Your resume details</span>
         </span>
       </h1>
-      <div className='grid grid-cols-2 gap-10'>
+      <div className='grid grid-cols-2 gap-x-12 gap-y-4'>
         <Profile />
         <Experience />
         <Projects />
@@ -42,6 +34,7 @@ const FillDetails = () => {
         <Languages />
         <Interests />
         <Publications />
+        <Achievements />
         <Awards />
         <Reference />
         <Volunteers />

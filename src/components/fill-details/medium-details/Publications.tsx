@@ -5,13 +5,13 @@ import SectionHeading from '../SectionHeading';
 const Publications: React.FC = () => {
   const order = useAppSelector(({ resume }) => resume.publications.order);
   return (
-    <div className='fill-details'>
+    <div className='space-y-4'>
       <SectionHeading placeholder='PUBLICATIONS' section='publications' />
       {order.map((id) => (
         <MediumDetail
           key={id}
           id={id}
-          placeholder={{ primary: 'Publication Name' }}
+          placeholder={{ primary: 'Publication Name', desc: 'When Published' }}
           section='publications'
         />
       ))}

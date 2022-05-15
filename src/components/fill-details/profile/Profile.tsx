@@ -29,6 +29,7 @@ const Profile = () => {
           <input
             type='file'
             accept='image/*'
+            title=''
             onChange={(e) => {
               if (e.target.files) {
                 const url = URL.createObjectURL(e.target.files[0]);
@@ -38,9 +39,15 @@ const Profile = () => {
             className='z-10 file:w-36 file:h-36 opacity-0 file:rounded-full'
           />
         </div>
-        <div className='space-y-4 w-full'>
+        <div className='space-y-3 w-full'>
           <div className='flex items-center'>
-            <h2 className='flex-grow h2'>Profile</h2>
+            <Editable
+              as='h3'
+              placeholder='Full Name'
+              className='flex-grow text-4xl font-semibold'
+              content={name}
+              onBlur={(e: BlurEvent) => dispatch(setName(e.target.innerText))}
+            />
             <button
               className={`-skew-x-12 inline-block text-white py-1 px-4 ${theme}`}
               onClick={() => setModal(<Socials />)}
@@ -49,13 +56,6 @@ const Profile = () => {
             </button>
             {modal && <Modal modal={modal} setModal={setModal} />}
           </div>
-          <Editable
-            as='h3'
-            placeholder='Name'
-            className='input-primary'
-            content={name}
-            onBlur={(e: BlurEvent) => dispatch(setName(e.target.innerText))}
-          />
           <Editable
             as='h3'
             placeholder='Your short intro'

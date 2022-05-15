@@ -5,7 +5,10 @@ import Layout from '../templates/Templates';
 import Resume from '.';
 
 const Screen = forwardRef<HTMLDivElement>((props, ref) => {
-  const [ screen, {...resume} ] = useAppSelector(({ ui, resume }) => [ui.screen, resume]);
+  const [screen, { ...resume }] = useAppSelector(({ ui, resume }) => [
+    ui.screen,
+    resume,
+  ]);
   return (
     <div ref={ref} className='w-[1200px] min-h-[1682px] bg-white'>
       {screen === 'edit' ? (
@@ -14,7 +17,7 @@ const Screen = forwardRef<HTMLDivElement>((props, ref) => {
         <Layout />
       ) : (
         <>
-          {Object.keys(resume).some(el => resume[el]) ? (
+          {Object.keys(resume).some((el) => resume[el]) ? (
             <Resume />
           ) : (
             <div className='flex flex-col justify-center items-center pt-20'>

@@ -11,9 +11,10 @@ interface Props {
   id: number;
   section: ShortSection;
   placeholder: string;
+  style: string;
 }
 
-const ShortDetail: React.FC<Props> = ({ id, section, placeholder }) => {
+const ShortDetail: React.FC<Props> = ({ id, section, style, placeholder }) => {
   const { setType, setValue, createData } =
     section === 'interests'
       ? interests
@@ -26,33 +27,21 @@ const ShortDetail: React.FC<Props> = ({ id, section, placeholder }) => {
     ({ resume }) => resume[section].data[id]
   );
   return (
-    <div>
-      <Editable
-        as='span'
-        placeholder={placeholder}
-        className={`skill-border`}
-        content={type}
-        onBlur={(e: BlurEvent) =>
-          dispatch(setType({ id, content: e.target.innerText }))
+    <Editable
+      as='span'
+      placeholder={placeholder}
+      className={style}
+      content={type}
+      onBlur={(e: BlurEvent) =>
+        dispatch(setType({ id, content: e.target.innerText }))
+      }
+      onKeyDownCapture={(e: any) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          dispatch(createData());
         }
-        onKeyDownCapture={(e: any) => {
-          if (e.key === 'Enter') {
-            e.preventDefault();
-            dispatch(createData());
-          }
-        }}
-      />
-      <input
-        type='range'
-        min={1}
-        value={value}
-        max={5}
-        onChange={(e: BlurEvent) =>
-          // @ts-ignore
-          dispatch(setValue({ id, content: +e.target.innerText }))
-        }
-      />
-    </div>
+      }}
+    />
   );
 };
 

@@ -32,7 +32,6 @@ interface Ui {
   screen: 'resume' | 'templates' | 'edit';
   fontSize: 'medium' | 'small' | 'large';
   listStyle: string;
-  showTools: boolean;
   focused: {
     section: AllActions;
     id: string;
@@ -44,20 +43,6 @@ interface State {
   heading: string;
 }
 
-// interface ExperienceState extends State {
-//   data: {
-//     [id: string]: {
-//       primary: string;
-//       secondary: string;
-//       from: string;
-//       to: string;
-//       location: string;
-//       description: { heading: string; contents: string[] };
-//     };
-//   };
-//   order: [string];
-// }
-
 interface AchievementState extends State {
   data: {
     [id: string]: {
@@ -68,20 +53,6 @@ interface AchievementState extends State {
   };
   order: [string];
 }
-
-// interface EducationState extends State {
-//   data: {
-//     [id: string]: {
-//       primary: string;
-//       secondary: string;
-//       from: string;
-//       to: string;
-//       location: string;
-//       description: { heading: string; contents: string[] };
-//     };
-//   };
-//   order: [string];
-// }
 
 interface LongDetailState extends State {
   data: {
@@ -115,54 +86,6 @@ interface ReferenceState extends State {
   ];
 }
 
-// interface ShortDetail {
-//   heading: string;
-//   placeholder: string;
-// }
-
-// interface FromToLocation {
-//   id: string;
-//   from: {
-//     content: string;
-//     change: ActionCreatorWithPayload<StringValueAction, string>;
-//   };
-//   to: {
-//     content: string;
-//     change: ActionCreatorWithPayload<StringValueAction, string>;
-//   };
-//   location: {
-//     content: string;
-//     change: ActionCreatorWithPayload<StringValueAction, string>;
-//   };
-// }
-
-// interface LongDetail {
-//   id: string;
-//   primary: {
-//     heading: string;
-//     placeholder: string;
-//     change: ActionCreatorWithPayload<StringValueAction, string>;
-//   };
-//   secondary: {
-//     heading: string;
-//     placeholder: string;
-//     change: ActionCreatorWithPayload<StringValueAction, string>;
-//   };
-//   description: {
-//     heading: string;
-//     placeholder: string;
-//     contents: string[];
-//     setHeading: ActionCreatorWithPayload<StringValueAction, string>;
-//     setContent: ActionCreatorWithPayload<DescContentAction, string>;
-//     create: ActionCreatorWithPayload<{ id: string }, string>;
-//   };
-//   periodAndLocation: ReactNode;
-// }
-
-// interface MediumDetail {
-//   description: Desc;
-// }
-
 interface MediumDetailState extends State {
   data: {
     [id: string]: {
@@ -174,15 +97,6 @@ interface MediumDetailState extends State {
   order: [string];
 }
 
-// interface LanguageState extends State {
-//   data: [
-//     {
-//       type: string;
-//       value: 1 | 2 | 3 | 4 | 5;
-//     }
-//   ];
-// }
-
 interface ShortDeatilState extends State {
   data: {
     type: string;
@@ -190,27 +104,16 @@ interface ShortDeatilState extends State {
   }[];
 }
 
-// interface AwardState extends State {
-//   data: {
-//     [id: string]: {
-//       primary: string;
-//       when: string;
-//       description: string;
-//     };
-//   };
-//   order: [string];
-// }
-
-// interface VolunteerState extends State {
-//   data: {
-//     [id: string]: {
-//       primary: string;
-//       secondary: string;
-//       from: string;
-//       to: string;
-//       location: string;
-//       description: { heading: string; contents: string[] };
-//     };
-//   };
-//   order: [string];
-// }
+interface ProfileState {
+  profilePic: string;
+  name: string;
+  intro: string;
+  socials: {
+    github: `https://github.com/${string}`;
+    linkedin: `https://linkedin.com/in/${string}`;
+    stackoverflow: `https://stackoverflow.com/users/${string}`;
+    email: string;
+    phone: string;
+    reddit: `https://reddit.com/${string}`;
+  };
+}

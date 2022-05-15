@@ -11,10 +11,10 @@ import { useAppSelector } from '../../store/store';
 
 const Tools: React.FC = () => {
   const dispatch = useDispatch();
-  const showTools = useAppSelector(({ ui }) => ui.showTools);
+  const screen = useAppSelector(({ ui }) => ui.screen);
   return (
     <>
-      {showTools && (
+      {screen === 'edit' && (
         <div className='fixed top-1/2 text-white  px-2 py-8 -skew-y-12 -translate-y-1/3 left-12'>
           <div className='flex flex-col items-center space-y-5 skew-y-12'>
             <button className='rounded-btn-10'>
@@ -35,6 +35,7 @@ const Tools: React.FC = () => {
           </div>
         </div>
       )}
+      ;
     </>
   );
 };

@@ -3,13 +3,20 @@ import SectionHeading from '../SectionHeading';
 import ShortDetail from '../ShortDetail';
 
 const Skills: React.FC = () => {
-  const length = useAppSelector(({ resume }) => resume.skills.data.length);
+  const data = useAppSelector(({ resume }) => resume.skills.data);
   return (
-    <div className='fill-details'>
+    <div>
       <SectionHeading placeholder='SKILLS' section='skills' />
-      {new Array(length).map((_, index) => (
-        <ShortDetail placeholder='skill' section='skills' id={index} />
-      ))}
+      <div className='flex flex-wrap'>
+        {data.map((_, index) => (
+          <ShortDetail
+            style={'short-section-fill-light'}
+            placeholder='skill'
+            section='skills'
+            id={index}
+          />
+        ))}
+      </div>
     </div>
   );
 };

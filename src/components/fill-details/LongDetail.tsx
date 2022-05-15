@@ -55,7 +55,7 @@ const LongDetail: React.FC<Props> = ({
     ({ resume, ui }) => [resume[section].data[id], ui.listStyle]
   );
   return (
-    <div className='fill-details' data-id={id}>
+    <div className='space-y-4' data-id={id}>
       <Editable
         as='h3'
         className='input-primary'
@@ -87,12 +87,13 @@ const LongDetail: React.FC<Props> = ({
             dispatch(setDescHeading({ id, content: e.target.innerText }))
           }
         />
-        <div className={`input-container ${listStyle}`}>
-          {description.contents.map((el, index) => (
+        {description.contents.map((el, index) => (
+          <div className='flex'>
+            <span className={`${listStyle} mr-2`} />
             <Editable
               key={index}
               as='p'
-              className='text-gray-700 w-full border-dashed empty:border-b'
+              className='desc-content'
               content={el}
               onBlur={(e: BlurEvent) =>
                 dispatch(
@@ -110,8 +111,8 @@ const LongDetail: React.FC<Props> = ({
                 }
               }}
             />
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
     </div>
   );

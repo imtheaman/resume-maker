@@ -4,14 +4,13 @@ import { useAppDispatch, useAppSelector } from '../../../store/store';
 import { BlurEvent } from '../../../vite-env';
 import Editable from '../../customs/Editable';
 import SectionHeading from '../SectionHeading';
-import Tools from '../Tools';
 
 const Reference: React.FC = () => {
   const dispatch = useAppDispatch();
   const data = useAppSelector(({ resume }) => resume.references.data);
   const setReference = actions.setReference;
   return (
-    <div className='fill-details'>
+    <div className='space-y-4'>
       <SectionHeading placeholder='REFERENCES' section='references' />
       {data.map((el, index) => (
         <Fragment key={index}>
@@ -33,32 +32,12 @@ const Reference: React.FC = () => {
             }
           />
           <div className='flex'>
-            <span className='font-thin mr-2'>Email : </span>
+            <span className='desc-heading mr-2'>Contact :</span>
             <Editable
               as='p'
               className='border-b flex-grow'
               content={el.contact}
-              placeholder='email address'
-              onBlur={(e: BlurEvent) =>
-                dispatch(
-                  setReference({
-                    id: index,
-                    content: {
-                      person: el.person,
-                      contact: e.target.innerText,
-                    },
-                  })
-                )
-              }
-            />
-          </div>
-          <div className='flex'>
-            <span className='font-thin mr-2'>Phone : </span>
-            <Editable
-              as='p'
-              className='border-b flex-grow'
-              content={el.contact}
-              placeholder='phone details'
+              placeholder='Email/Phone'
               onBlur={(e: BlurEvent) =>
                 dispatch(
                   setReference({

@@ -19,9 +19,6 @@ const uiSlice = createSlice({
     setScreen: (state: Ui, action: PayloadAction<Ui['screen']>) => {
       state.screen = action.payload;
     },
-    setShowTools: (state: Ui, action: PayloadAction<boolean>) => {
-      state.showTools = action.payload
-    },
     setFocused: (
       state: Ui,
       action: PayloadAction<{ section: AllActions; id: string }>
@@ -32,6 +29,6 @@ const uiSlice = createSlice({
 });
 
 const { reducer: uiReducer, actions } = uiSlice;
-export const { setSpellCheck, setTheme, setScreen, setFocused, setShowTools } =
+export const { setSpellCheck, setTheme, setScreen, setFocused } =
   actions;
 export default uiReducer;

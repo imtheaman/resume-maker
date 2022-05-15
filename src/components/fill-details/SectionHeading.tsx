@@ -2,9 +2,6 @@ import { useAppDispatch, useAppSelector } from '../../store/store';
 import { AllActions, BlurEvent } from '../../vite-env';
 import Editable from '../customs/Editable';
 import SwitchCheckbox from '../customs/SwitchCheckbox';
-import { LongSection } from './LongDetail';
-import { MediumSection } from './MediumDetail';
-import { ShortSection } from './ShortDetail';
 import experiences from '../../store/resume/long-details/experiences';
 import educations from '../../store/resume/long-details/educations';
 import projects from '../../store/resume/long-details/projects';
@@ -61,7 +58,10 @@ const SectionHeading: React.FC<Props> = ({ section, placeholder }) => {
         content={heading}
         onBlur={(e: BlurEvent) => dispatch(setHeading(e.target.innerText))}
       />
-      <SwitchCheckbox onChange={() => dispatch(setBeingUsed(!beingUsed))} />
+      <SwitchCheckbox
+        defaultChecked={beingUsed}
+        onChange={() => dispatch(setBeingUsed(!beingUsed))}
+      />
     </div>
   );
 };

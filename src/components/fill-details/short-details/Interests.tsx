@@ -3,18 +3,21 @@ import SectionHeading from '../SectionHeading';
 import ShortDetail from '../ShortDetail';
 
 const Interests: React.FC = () => {
-  const length = useAppSelector(({ resume }) => resume.interests.data.length);
+  const data = useAppSelector(({ resume }) => resume.interests.data);
   return (
-    <div className='fill-details'>
+    <div>
       <SectionHeading placeholder='INTERESTS' section='interests' />
-      {new Array(length).map((_, index) => (
-        <ShortDetail
-          key={index}
-          placeholder='interest'
-          section='interests'
-          id={index}
-        />
-      ))}
+      <div className='flex flex-wrap'>
+        {data.map((_, index) => (
+          <ShortDetail
+            key={index}
+            style={'short-section-border'}
+            placeholder='interest'
+            section='interests'
+            id={index}
+          />
+        ))}
+      </div>
     </div>
   );
 };

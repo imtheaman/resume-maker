@@ -3,14 +3,15 @@ import SectionHeading from '../SectionHeading';
 import ShortDetail from '../ShortDetail';
 
 const Languages: React.FC = () => {
-  const length = useAppSelector(({ resume }) => resume.languages.data.length);
+  const data = useAppSelector(({ resume }) => resume.languages.data);
   return (
-    <div className='fill-details'>
+    <div>
       <SectionHeading placeholder='LANGUAGES' section='languages' />
-      {new Array(length).map((_, index) => (
+      {data.map((_, index) => (
         <ShortDetail
+          style={'short-section-fill-dark'}
           key={index}
-          placeholder='interest'
+          placeholder='language'
           section='languages'
           id={index}
         />

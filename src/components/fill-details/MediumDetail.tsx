@@ -12,13 +12,14 @@ interface Props {
   section: MediumSection;
   placeholder: {
     primary: string;
+    desc: string;
   };
 }
 
 const MediumDetail: React.FC<Props> = ({ id, section, placeholder }) => {
   const dispatch = useAppDispatch();
-  const { primary, description, when } = useAppSelector(
-    ({ resume }) => resume[section].data[id]
+  const [{ primary, description, when }, listStyle] = useAppSelector(
+    ({ resume, ui }) => [resume[section].data[id], ui.listStyle]
   );
   const { setWhen, setPrimary, setDesc } =
     section === 'achievements'
@@ -30,6 +31,7 @@ const MediumDetail: React.FC<Props> = ({ id, section, placeholder }) => {
     <>
       <Editable
         as='h4'
+        className='input-primary'
         placeholder={placeholder.primary}
         onBlur={(e: BlurEvent) =>
           dispatch(setPrimary({ id, content: e.target.innerText }))
@@ -37,26 +39,30 @@ const MediumDetail: React.FC<Props> = ({ id, section, placeholder }) => {
         content={primary}
       />
       <div className='flex items-center'>
-        <label htmlFor='when'>When -</label>
+        <label htmlFor='when' className='desc-heading'>
+          {placeholder.desc} -
+        </label>
         <input
-          type='month'
+          type='text'
           name='when'
           value={when}
-          className='ml-3 date'
+          className='ml-3 date border-b'
           onChange={(e: BlurEvent) =>
             dispatch(setWhen({ id, content: e.target.innerText }))
           }
         />
       </div>
-      <Editable
-        as='p'
-        className='italic'
-        placeholder='description'
-        content={description}
-        onBlur={(e: BlurEvent) =>
-          dispatch(setDesc({ id, content: e.target.innerText }))
-        }
-      />
+      <div className='flex'>
+        <span className={`${listStyle} mr-2`} />
+        <Editable
+          as='p'
+          content={description}
+          className='desc-content'
+          onBlur={(e: BlurEvent) =>
+            dispatch(setDesc({ id, content: e.target.innerText }))
+          }
+        />
+      </div>
     </>
   );
 };

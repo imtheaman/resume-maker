@@ -45,7 +45,7 @@
     @apply w-10 h-10 bg-white flex justify-center items-center text-gray-800 duration-75 shadow rounded-full hover:shadow-md active:scale-95 disabled:cursor-not-allowed disabled:opacity-50;
   }
   .h2 {
-    @apply text-2xl font-semibold uppercase my-4;
+    @apply text-2xl font-semibold uppercase my-2;
   }
   .input-primary {
     @apply outline-none empty:border-b focus:border-b text-xl text-gray-800;
@@ -57,7 +57,7 @@
     @apply outline-none empty:border-b focus:border-b text-lg text-gray-700;
   }
   .input-container {
-    @apply w-full flex items-center before:mr-2;
+    @apply w-full flex flex-col items-center space-y-2;
   }
   .p {
     @apply outline-none empty:border-b focus:border-b text-gray-600;
@@ -69,15 +69,24 @@
     @apply outline-none;
   }
   .desc-heading {
-    @apply italic text-gray-500;
+    @apply italic text-gray-500 self-start;
   }
-  .fill-details {
-    @apply flex relative flex-col space-y-3 w-full max-w-md;
+  .desc-content {
+    @apply text-gray-700 w-full border-dashed empty:border-b;
   }
   .tiny-heading {
     @apply italic border-b self-start text-gray-600;
   }
-  .skill-border {
-    @apply px-2 py-1 border rounded-lg text-center inline-block min-w-[6rem];
+  .short-section {
+    @apply px-2 py-1 mr-4 my-2 rounded-lg text-center text-lg inline-block min-w-[6rem];
+  }
+  .short-section-border {
+    @apply short-section border;
+  }
+  .short-section-fill-dark {
+    @apply short-section bg-gray-600 text-white;
+  }
+  .short-section-fill-light {
+    @apply short-section bg-gray-200 text-black;
   }
 }

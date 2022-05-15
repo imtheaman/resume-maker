@@ -30,43 +30,50 @@ const FromToLocation: React.FC<Props> = ({ id, section }) => {
       : experiences;
 
   return (
-    <div className='flex justify-between items-center'>
-      <div className='flex items-center'>
-        <label htmlFor='from'>From -</label>
-        <input
-          type='month'
-          name='from'
-          className='ml-3 date'
-          value={from}
-          onChange={(e: BlurEvent) =>
-            dispatch(setFrom({ id, content: e.target.innerText }))
-          }
-        />
-      </div>
-      <div className='flex items-center'>
-        <label htmlFor='to'>To -</label>
-        <input
-          type='month'
-          name='to'
-          value={to}
-          className='ml-3 date'
-          onChange={(e: BlurEvent) =>
-            dispatch(setTo({ id, content: e.target.innerText }))
-          }
-        />
+    <>
+      <div className='flex justify-between whitespace-nowrap items-center'>
+        <div className='flex items-center'>
+          <label htmlFor='from' className='desc-heading'>
+            From -
+          </label>
+          <input
+            type='text'
+            name='from'
+            className='ml-3 date border-b'
+            value={from}
+            onChange={(e: BlurEvent) =>
+              dispatch(setFrom({ id, content: e.target.value }))
+            }
+          />
+        </div>
+        <div className='flex items-center'>
+          <label htmlFor='to' className='desc-heading'>To -</label>
+          <input
+            type='text'
+            name='to'
+            value={to}
+            className='ml-3 date border-b'
+            onChange={(e: BlurEvent) =>
+              dispatch(setTo({ id, content: e.target.value }))
+            }
+          />
+        </div>
       </div>
       {typeof location === 'string' && (
-        <Editable
-          className='italic'
-          as='p'
-          placeholder='Location'
-          content={location}
-          onBlur={(e: BlurEvent) =>
-            dispatch(setLocation({ id, content: e.target.innerText }))
-          }
-        />
+        <div className='flex justify-between'>
+          <span className='desc-heading'>Location - </span>
+          <Editable
+            className='flex-grow ml-4 empty:border-b'
+            as='div'
+            placeholder='Location'
+            content={location}
+            onBlur={(e: BlurEvent) =>
+              dispatch(setLocation({ id, content: e.target.innerText }))
+            }
+          />
+        </div>
       )}
-    </div>
+    </>
   );
 };
 

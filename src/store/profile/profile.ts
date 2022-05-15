@@ -1,8 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { ProfileState } from '../../vite-env';
 
 const profileSlice = createSlice({
   name: 'profile',
-  initialState: {},
+  initialState: {} as ProfileState,
   reducers: {
     setProfilePic: (state: any, action: PayloadAction<string>) => {
       state.profilePic = action.payload;
