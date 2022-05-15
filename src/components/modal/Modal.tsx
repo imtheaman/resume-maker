@@ -1,26 +1,18 @@
-import { Dispatch, ReactElement, ReactNode } from 'react';
+import { Dispatch, ReactElement, ReactNode, SetStateAction } from 'react';
 import { createPortal } from 'react-dom';
 import styles from './modal.module.css';
 
 const Modal: React.FC<{
-  showModal: Dispatch<React.SetStateAction<boolean>>;
-  children: ReactNode;
-}> = ({
-  children,
-  showModal,
-  ...otherProps
-}): ReactElement<any> | null => {
+  modal: ReactElement | false;
+  setModal: Dispatch<SetStateAction<false | ReactElement>>;
+}> = ({ modal, setModal }): ReactElement<any> | null => {
   if (!document.getElementById('modal')) {
     console.error('div with id `modal` is not defined in the html');
   }
   return createPortal(
-    <div className={styles.modalContainer} onClick={(e) => showModal(false)}>
-      <div
-        className={styles.modalDiv}
-        onClick={(e) => e.stopPropagation()}
-        {...otherProps}
-      >
-        <div className={styles.modalBtn} onClick={(e) => showModal(false)}>
+    <div className={styles.modalContainer} onClick={(e) => setModal(false)}>
+      <div className={styles.modalDiv} onClick={(e) => e.stopPropagation()}>
+        <div className={styles.modalBtn} onClick={(e) => setModal(false)}>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             fill='none'
@@ -35,7 +27,7 @@ const Modal: React.FC<{
             />
           </svg>
         </div>
-        {children}
+        {modal}
       </div>
     </div>,
     document.getElementById('modal')!

@@ -32,7 +32,7 @@ const MediumDetail: React.FC<Props> = ({ id, section, placeholder }) => {
         as='h4'
         placeholder={placeholder.primary}
         onBlur={(e: BlurEvent) =>
-          dispatch(setPrimary({ id, content: e.target.value }))
+          dispatch(setPrimary({ id, content: e.target.innerText }))
         }
         content={primary}
       />
@@ -44,7 +44,7 @@ const MediumDetail: React.FC<Props> = ({ id, section, placeholder }) => {
           value={when}
           className='ml-3 date'
           onChange={(e: BlurEvent) =>
-            dispatch(setWhen({ id, content: e.target.value }))
+            dispatch(setWhen({ id, content: e.target.innerText }))
           }
         />
       </div>
@@ -54,7 +54,7 @@ const MediumDetail: React.FC<Props> = ({ id, section, placeholder }) => {
         placeholder='description'
         content={description}
         onBlur={(e: BlurEvent) =>
-          dispatch(setDesc({ id, content: e.target.value }))
+          dispatch(setDesc({ id, content: e.target.innerText }))
         }
       />
     </>

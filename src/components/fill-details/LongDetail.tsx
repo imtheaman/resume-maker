@@ -62,7 +62,7 @@ const LongDetail: React.FC<Props> = ({
         placeholder={placeholder.primary}
         content={primary}
         onBlur={(e: BlurEvent) =>
-          dispatch(setPrimary({ id, content: e.target.value }))
+          dispatch(setPrimary({ id, content: e.target.innerText }))
         }
       />
       {typeof secondary === 'string' && (
@@ -72,7 +72,7 @@ const LongDetail: React.FC<Props> = ({
           placeholder={placeholder.secondary}
           content={secondary}
           onBlur={(e: BlurEvent) =>
-            dispatch(setSecondary({ id, content: e.target.value }))
+            dispatch(setSecondary({ id, content: e.target.innerText }))
           }
         />
       )}
@@ -84,7 +84,7 @@ const LongDetail: React.FC<Props> = ({
           placeholder={placeholder.desc}
           content={description.heading}
           onBlur={(e: BlurEvent) =>
-            dispatch(setDescHeading({ id, content: e.target.value }))
+            dispatch(setDescHeading({ id, content: e.target.innerText }))
           }
         />
         <div className={`input-container ${listStyle}`}>
@@ -99,7 +99,7 @@ const LongDetail: React.FC<Props> = ({
                   setDescContent({
                     id,
                     descId: index,
-                    content: e.target.value,
+                    content: e.target.innerText,
                   })
                 )
               }

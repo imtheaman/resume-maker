@@ -59,7 +59,7 @@ const SectionHeading: React.FC<Props> = ({ section, placeholder }) => {
         as='h2'
         className='h2 flex-grow'
         content={heading}
-        onBlur={(e: BlurEvent) => dispatch(setHeading(e.target.value))}
+        onBlur={(e: BlurEvent) => dispatch(setHeading(e.target.innerText))}
       />
       <SwitchCheckbox onChange={() => dispatch(setBeingUsed(!beingUsed))} />
     </div>

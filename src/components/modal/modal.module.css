@@ -15,6 +15,7 @@
 }
 .modalDiv {
   position: relative;
+  cursor: default;
 }
 .modalBtn {
   cursor: pointer;

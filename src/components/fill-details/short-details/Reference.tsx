@@ -25,7 +25,7 @@ const Reference: React.FC = () => {
                 setReference({
                   id: index,
                   content: {
-                    person: e.target.value,
+                    person: e.target.innerText,
                     contact: el.contact,
                   },
                 })
@@ -45,7 +45,7 @@ const Reference: React.FC = () => {
                     id: index,
                     content: {
                       person: el.person,
-                      contact: e.target.value,
+                      contact: e.target.innerText,
                     },
                   })
                 )
@@ -65,7 +65,7 @@ const Reference: React.FC = () => {
                     id: index,
                     content: {
                       person: el.person,
-                      contact: e.target.value,
+                      contact: e.target.innerText,
                     },
                   })
                 )

@@ -13,13 +13,17 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ThemeBtn from '../customs/ThemeBtn';
-import { useState } from 'react';
+import { ReactElement, ReactNode, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../store/store';
 import { setScreen } from '../../store/ui/uiSlice';
+import Modal from '../modal/Modal';
+import SaveOnline from '../save-online/SaveOnline';
+import Layout from '../layout';
 
 const Nav = () => {
   const [showThemes, setShowThemes] = useState(false);
   const dispatch = useAppDispatch();
+  const [modal, setModal] = useState<ReactElement | false>(false);
   const { screen, theme, showTools } = useAppSelector(({ ui }) => ui);
   return (
     <div className='flex space-x-6'>
@@ -54,7 +58,7 @@ const Nav = () => {
         />
         Templates
       </button>
-      <button className='btn'>
+      <button className='btn' onClick={() => setModal(<Layout />)}>
         <FontAwesomeIcon
           icon={faGear}
           width={18}
@@ -100,7 +104,7 @@ const Nav = () => {
           </>
         )}
       </button>
-      <button className='btn'>
+      <button className='btn' onClick={() => setModal(<SaveOnline />)}>
         <FontAwesomeIcon
           icon={faGlobe}
           width={18}
@@ -109,6 +113,7 @@ const Nav = () => {
         />
         Save Online
       </button>
+      {modal && <Modal setModal={setModal} modal={modal} />}
       {!showThemes && (
         <>
           <button disabled={!showTools} className='rounded-btn-10'>

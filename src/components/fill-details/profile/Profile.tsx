@@ -1,21 +1,27 @@
-import { useRef, useState } from 'react';
-import { useAppSelector } from '../../../store/store';
+import { ReactElement, useState } from 'react';
+import { setName, setProfilePic } from '../../../store/profile/profile';
+import { useAppDispatch, useAppSelector } from '../../../store/store';
+import { BlurEvent } from '../../../vite-env';
 import Editable from '../../customs/Editable';
+import Modal from '../../modal/Modal';
+import Socials from './Socials';
 
 const Profile = () => {
-  const [imgurl, setImgurl] = useState<string>();
+  const [modal, setModal] = useState<ReactElement | false>(false);
   const theme = useAppSelector(({ ui }) => ui.theme);
+  const dispatch = useAppDispatch();
+  const { profilePic, name } = useAppSelector(({ profile }) => profile);
   return (
     <div className='col-span-2'>
       <div className='flex w-full items-center'>
         <div className='relative'>
           <img
-            src={imgurl}
+            src={profilePic}
             className={`absolute ${
-              !imgurl && 'bg-gray-100'
+              !profilePic && 'bg-gray-100'
             } z-0 top-0 w-36 h-36 object-cover rounded-full`}
           />
-          {!imgurl && (
+          {!profilePic && (
             <span className='absolute top-1/2 -translate-y-1/2 left-11'>
               choose
             </span>
@@ -26,8 +32,7 @@ const Profile = () => {
             onChange={(e) => {
               if (e.target.files) {
                 const url = URL.createObjectURL(e.target.files[0]);
-                console.dir(url);
-                setImgurl(url);
+                dispatch(setProfilePic(url));
               }
             }}
             className='z-10 file:w-36 file:h-36 opacity-0 file:rounded-full'
@@ -35,24 +40,21 @@ const Profile = () => {
         </div>
         <div className='space-y-4 w-full'>
           <div className='flex items-center'>
-            <Editable
-              as='h2'
-              placeholder='PROFILE'
-              className='text-2xl font-semibold uppercase flex-grow'
-              content='Profile'
-            />
+            <h2 className='flex-grow h2'>Profile</h2>
             <button
               className={`-skew-x-12 inline-block text-white py-1 px-4 ${theme}`}
-              onClick={() => setShowModal(true)}
+              onClick={() => setModal(<Socials />)}
             >
               <div className='skew-x-12'>Socials</div>
             </button>
+            {modal && <Modal modal={modal} setModal={setModal} />}
           </div>
           <Editable
             as='h3'
             placeholder='Name'
             className='input-primary'
-            content=''
+            content={name}
+            onBlur={(e: BlurEvent) => dispatch(setName(e.target.innerText))}
           />
           <Editable
             as='h3'
