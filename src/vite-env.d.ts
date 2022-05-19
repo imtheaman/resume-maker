@@ -1,17 +1,24 @@
 /// <reference types="vite/client" />
 import { ActionCreatorWithPayload, AnyAction } from '@reduxjs/toolkit';
 import { FocusEvent, ReactNode } from 'react';
-import { LongSection } from './components/fill-details/LongDetail';
-import { MediumSection } from './components/fill-details/MediumDetail';
-import { ShortSection } from './components/fill-details/ShortDetail';
 
+export type ShortSection = 'interests' | 'languages' | 'skills' | 'references';
+export type MediumSection = 'achievements' | 'awards' | 'publications';
+export type LongSection =
+  | 'experiences'
+  | 'projects'
+  | 'educations'
+  | 'volunteers'
+  | 'organizations';
 type BlurEvent = FocusEvent<HTMLInputElement>;
-type AllActions = LongSection | MediumSection | ShortSection | 'references';
+type AllActions = LongSection | MediumSection | ShortSection;
 
 interface Desc {
   heading?: string;
   placeholder?: string;
-  contents: string[];
+  contents: {
+    [id: string]: string;
+  };
 }
 
 // <actions>
@@ -21,7 +28,7 @@ interface StringValueAction {
 }
 interface DescContentAction {
   id: string;
-  descId: number;
+  descId: string;
   content: string;
 }
 // <actions />
@@ -62,28 +69,15 @@ interface LongDetailState extends State {
       from: string;
       to: string;
       location?: string;
-      description: { heading: string; contents: string[] };
+      description: {
+        heading: string;
+        contents: {
+          [id: string]: string;
+        };
+      };
     };
   };
   order: [string];
-}
-
-interface SkillState extends State {
-  data: [
-    {
-      type: string;
-      value: 1 | 2 | 3 | 4 | 5;
-    }
-  ];
-}
-
-interface ReferenceState extends State {
-  data: [
-    {
-      person: string;
-      contact: string;
-    }
-  ];
 }
 
 interface MediumDetailState extends State {
@@ -99,9 +93,14 @@ interface MediumDetailState extends State {
 
 interface ShortDeatilState extends State {
   data: {
-    type: string;
-    value: 1 | 2 | 3 | 4 | 5;
-  }[];
+    [id: string]: {
+      type: string;
+      value: string;
+    };
+  };
+  //* new addable
+  style: 'short-section-fill-dark';
+  order: [string];
 }
 
 interface ProfileState {
@@ -125,6 +124,6 @@ interface EditorState {
   focused: {
     section: AllActions;
     id: string;
-    descId?: number;
-  };
+    descId?: string;
+  } | null;
 }

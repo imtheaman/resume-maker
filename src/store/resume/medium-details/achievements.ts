@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { MediumDetailState } from '../../../vite-env';
 import {
   Fcreate,
+  Fdelete,
   FsetBeingUsed,
   FsetDesc,
   FsetHeading,
@@ -30,7 +31,8 @@ const achievementsSlice = createSlice({
   reducers: {
     setBeingUsed: FsetBeingUsed,
     setHeading: FsetHeading,
-    create: Fcreate(init),
+    createEl: Fcreate(init),
+    deleteEl: Fdelete,
     setPrimary: FsetPrimary,
     setWhen: FsetWhen,
     setDesc: FsetDesc,

@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { MediumDetailState } from '../../../vite-env';
 import {
   Fcreate,
+  Fdelete,
   FsetBeingUsed,
   FsetDesc,
   FsetHeading,
@@ -26,7 +27,8 @@ const publicationsSlice = createSlice({
     setBeingUsed: FsetBeingUsed,
     setHeading: FsetHeading,
     setPrimary: FsetPrimary,
-    create: Fcreate(init),
+    createEl: Fcreate(init),
+    deleteEl: Fdelete,
     setWhen: FsetWhen,
     setDesc: FsetDesc,
     setOrderUp: FsetOrderUp,

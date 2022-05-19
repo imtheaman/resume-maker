@@ -13,18 +13,18 @@ import { skillsReducer } from './short-details/skills';
 import { volunteersReducer } from './long-details/volunteers';
 
 const resumeReducer = combineReducers({
-  experiences: experiencesReducer,
-  projects: projectsReducer,
-  achievements: achievementsReducer,
   educations: educationsReducer,
+  experiences: experiencesReducer,
+  organizations: organizationsReducer,
+  projects: projectsReducer,
+  volunteers: volunteersReducer,
+  achievements: achievementsReducer,
   references: referencesReducer,
   publications: publicationsReducer,
   skills: skillsReducer,
-  organizations: organizationsReducer,
   languages: languagesReducer,
   interests: interestsReducer,
   awards: awardsReducer,
-  volunteers: volunteersReducer,
 });
 
 export default resumeReducer;

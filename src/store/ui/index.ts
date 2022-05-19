@@ -1,9 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { AllActions, FontFamily, FontSize, Screen, Ui } from '../../vite-env';
+import { FontFamily, FontSize, Screen, Ui } from '../../vite-env';
 const uiSlice = createSlice({
   name: 'ui',
   initialState: {
-    theme: 'bg-orange-600',
+    theme: 'bg-green-600',
     spellCheck: true,
     screen: 'resume',
     fontSize: 'medium',

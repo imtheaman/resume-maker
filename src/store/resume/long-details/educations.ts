@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { LongDetailState } from '../../../vite-env';
 import {
   Fcreate,
-  FcreateDescContent,
+  Fdelete,
   FsetBeingUsed,
   FsetDescContent,
   FsetDescHeading,
@@ -22,7 +22,12 @@ const init: LongDetailState['data'][string] = {
   from: '',
   to: '',
   location: '',
-  description: { heading: 'Courses', contents: [''] },
+  description: {
+    heading: 'Courses',
+    contents: {
+      '25cc658a-0a87-4196-8579-354d8ab33df8': '',
+    },
+  },
 };
 
 const educationSlice = createSlice({
@@ -36,19 +41,19 @@ const educationSlice = createSlice({
     order: ['25cc658a-0a87-4196-8579-354d8ab33df8'],
   } as LongDetailState,
   reducers: {
+    createEl: Fcreate(init),
+    deleteEl: Fdelete,
     setBeingUsed: FsetBeingUsed,
+    setDescContent: FsetDescContent,
+    setDescHeading: FsetDescHeading,
+    setFrom: FsetFrom,
     setHeading: FsetHeading,
+    setLocation: FsetLocation,
+    setOrderDown: FsetOrderDown,
+    setOrderUp: FsetOrderUp,
     setPrimary: FsetPrimary,
     setSecondary: FsetSecondary,
-    create: Fcreate(init),
-    setFrom: FsetFrom,
     setTo: FsetTo,
-    setLocation: FsetLocation,
-    setDescHeading: FsetDescHeading,
-    setDescContent: FsetDescContent,
-    createDescContent: FcreateDescContent,
-    setOrderUp: FsetOrderUp,
-    setOrderDown: FsetOrderDown,
   },
 });
 

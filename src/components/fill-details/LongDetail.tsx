@@ -1,20 +1,9 @@
 import { ReactNode } from 'react';
 import { useAppDispatch, useAppSelector } from '../../store/store';
-import { BlurEvent } from '../../vite-env';
+import { BlurEvent, LongSection } from '../../vite-env';
 import Editable from '../customs/Editable';
-
-import experiences from '../../store/resume/long-details/experiences';
-import educations from '../../store/resume/long-details/educations';
-import projects from '../../store/resume/long-details/projects';
-import volunteers from '../../store/resume/long-details/volunteers';
-import organizations from '../../store/resume/long-details/organizations';
-
-export type LongSection =
-  | 'experiences'
-  | 'projects'
-  | 'educations'
-  | 'volunteers'
-  | 'organizations';
+import { setFocused } from '../../store/editor';
+import useSection from '../../hooks/useSection';
 
 interface Props {
   id: string;
@@ -34,28 +23,22 @@ const LongDetail: React.FC<Props> = ({
 }) => {
   const {
     setPrimary,
-    //@ts-ignore
     setSecondary,
-    createDescContent,
+    createEl,
     setDescContent,
     setDescHeading,
-  } =
-    section === 'educations'
-      ? educations
-      : section === 'projects'
-      ? projects
-      : section === 'volunteers'
-      ? volunteers
-      : section === 'organizations'
-      ? organizations
-      : experiences;
+  } = useSection(section);
 
   const dispatch = useAppDispatch();
   const [{ primary, secondary, description }, listStyle] = useAppSelector(
     ({ resume, editor }) => [resume[section].data[id], editor.listStyle]
   );
   return (
-    <div className='space-y-4' data-id={id}>
+    <div
+      className='space-y-4'
+      data-id={id}
+      onFocus={() => dispatch(setFocused({ id, section }))}
+    >
       <Editable
         as='h3'
         className='input-primary'
@@ -87,8 +70,15 @@ const LongDetail: React.FC<Props> = ({
             dispatch(setDescHeading({ id, content: e.target.innerText }))
           }
         />
-        {description.contents.map((el, index) => (
-          <div className='flex' key={index}>
+        {Object.entries(description.contents).map(([descId, el]) => (
+          <div
+            className='flex'
+            key={descId}
+            onFocus={(e) => {
+              e.stopPropagation();
+              dispatch(setFocused({ id, section, descId: descId }));
+            }}
+          >
             <span className={`${listStyle} mr-2`} />
             <Editable
               as='p'
@@ -98,7 +88,7 @@ const LongDetail: React.FC<Props> = ({
                 dispatch(
                   setDescContent({
                     id,
-                    descId: index,
+                    descId: descId,
                     content: e.target.innerText,
                   })
                 )
@@ -106,7 +96,7 @@ const LongDetail: React.FC<Props> = ({
               onKeyDownCapture={(e: any) => {
                 if (e.key === 'Enter') {
                   e.preventDefault();
-                  dispatch(createDescContent({ id }));
+                  dispatch(createEl({ id, descId }));
                 }
               }}
             />

@@ -1,47 +1,44 @@
 import { useAppDispatch, useAppSelector } from '../../store/store';
-import { BlurEvent } from '../../vite-env';
+import { BlurEvent, ShortSection } from '../../vite-env';
 import Editable from '../customs/Editable';
 import interests from '../../store/resume/short-details/interests';
 import languages from '../../store/resume/short-details/languages';
 import skills from '../../store/resume/short-details/skills';
-
-export type ShortSection = 'interests' | 'languages' | 'skills';
+import { setFocused } from '../../store/editor';
+import useSection from '../../hooks/useSection';
 
 interface Props {
-  id: number;
+  id: string;
   section: ShortSection;
   placeholder: string;
   style: string;
 }
 
 const ShortDetail: React.FC<Props> = ({ id, section, style, placeholder }) => {
-  const { setType, setValue, createData } =
-    section === 'interests'
-      ? interests
-      : section === 'languages'
-      ? languages
-      : skills;
+  const { setType, setValue, create } = useSection(section);
 
   const dispatch = useAppDispatch();
   const { type, value } = useAppSelector(
     ({ resume }) => resume[section].data[id]
   );
   return (
-    <Editable
-      as='span'
-      placeholder={placeholder}
-      className={style}
-      content={type}
-      onBlur={(e: BlurEvent) =>
-        dispatch(setType({ id, content: e.target.innerText }))
-      }
-      onKeyDownCapture={(e: any) => {
-        if (e.key === 'Enter') {
-          e.preventDefault();
-          dispatch(createData());
+    <div onFocus={() => dispatch(setFocused({ id, section }))}>
+      <Editable
+        as='span'
+        placeholder={placeholder}
+        className={style}
+        content={type}
+        onBlur={(e: BlurEvent) =>
+          dispatch(setType({ id, content: e.target.innerText }))
         }
-      }}
-    />
+        onKeyDownCapture={(e: any) => {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            dispatch(create());
+          }
+        }}
+      />
+    </div>
   );
 };
 

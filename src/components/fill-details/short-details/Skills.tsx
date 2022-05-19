@@ -3,18 +3,18 @@ import SectionHeading from '../SectionHeading';
 import ShortDetail from '../ShortDetail';
 
 const Skills: React.FC = () => {
-  const data = useAppSelector(({ resume }) => resume.skills.data);
+  const order = useAppSelector(({ resume }) => resume.skills.order);
   return (
     <div>
       <SectionHeading placeholder='SKILLS' section='skills' />
       <div className='flex flex-wrap'>
-        {data.map((_, index) => (
+        {order.map((id) => (
           <ShortDetail
-            key={index}
+            key={id}
             style={'short-section-fill-light'}
             placeholder='skill'
             section='skills'
-            id={index}
+            id={id}
           />
         ))}
       </div>

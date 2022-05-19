@@ -1,32 +1,29 @@
 import { Fragment } from 'react';
-import actions from '../../../store/resume/short-details/references';
 import { useAppDispatch, useAppSelector } from '../../../store/store';
 import { BlurEvent } from '../../../vite-env';
 import Editable from '../../customs/Editable';
 import SectionHeading from '../SectionHeading';
+import references from '../../../store/resume/short-details/references';
 
-const Reference: React.FC = () => {
-  const dispatch = useAppDispatch();
+const References: React.FC = () => {
   const data = useAppSelector(({ resume }) => resume.references.data);
-  const setReference = actions.setReference;
+  const { setType, setValue } = references;
+  const dispatch = useAppDispatch();
   return (
-    <div className='space-y-4'>
-      <SectionHeading placeholder='REFERENCES' section='references' />
-      {data.map((el, index) => (
-        <Fragment key={index}>
+    <div>
+      <SectionHeading placeholder='References' section='references' />
+      {Object.entries(data).map(([id, { type, value }]) => (
+        <Fragment>
           <Editable
             as='h4'
-            content={el.person}
+            content={type}
             placeholder='Person Name'
             className='input-primary'
             onBlur={(e: BlurEvent) =>
               dispatch(
-                setReference({
-                  id: index,
-                  content: {
-                    person: e.target.innerText,
-                    contact: el.contact,
-                  },
+                setType({
+                  id: id,
+                  content: e.target.innerText,
                 })
               )
             }
@@ -36,16 +33,13 @@ const Reference: React.FC = () => {
             <Editable
               as='p'
               className='border-b flex-grow'
-              content={el.contact}
+              content={value}
               placeholder='Email/Phone'
               onBlur={(e: BlurEvent) =>
                 dispatch(
-                  setReference({
-                    id: index,
-                    content: {
-                      person: el.person,
-                      contact: e.target.innerText,
-                    },
+                  setValue({
+                    id: id,
+                    content: e.target.innerText,
                   })
                 )
               }
@@ -57,4 +51,4 @@ const Reference: React.FC = () => {
   );
 };
 
-export default Reference;
+export default References;

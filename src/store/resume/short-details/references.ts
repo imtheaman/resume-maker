@@ -1,28 +1,32 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { ReferenceState } from '../../../vite-env';
-import { FsetBeingUsed, FsetHeading } from '../functions';
+import { createSlice } from '@reduxjs/toolkit';
+import { ShortDeatilState } from '../../../vite-env';
+import {
+  Fcreate,
+  Fdelete,
+  FsetBeingUsed,
+  FsetHeading,
+  FsetType,
+  FsetValue,
+} from '../functions';
+
+const init = { type: '', value: '' };
 const referencesSlice = createSlice({
   name: 'references',
   initialState: {
     beingUsed: false,
     heading: 'References',
-    data: [{ person: '', contact: '' }],
-  } as ReferenceState,
+    data: {
+      '25cc658a-0a87-4196-8579-354d8ab33df8': init,
+    },
+    order: ['25cc658a-0a87-4196-8579-354d8ab33df8'],
+  } as ShortDeatilState,
   reducers: {
     setBeingUsed: FsetBeingUsed,
     setHeading: FsetHeading,
-    setReference: (
-      state: any,
-      action: PayloadAction<{
-        id: number;
-        content: { person: string; contact: string };
-      }>
-    ) => {
-      state.data[action.payload.id] = action.payload.content;
-    },
-    createReference: (state: any) => {
-      state.data.push({ person: '', contact: '' });
-    },
+    setType: FsetType,
+    setValue: FsetValue,
+    createEl: Fcreate(init),
+    deleteEl: Fdelete,
   },
 });
 const { reducer: referencesReducer, actions } = referencesSlice;

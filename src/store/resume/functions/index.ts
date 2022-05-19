@@ -3,6 +3,7 @@ import {
   DescContentAction,
   LongDetailState,
   MediumDetailState,
+  ShortDeatilState,
   StringValueAction,
 } from '../../../vite-env';
 import { v4 as uuid } from 'uuid';
@@ -16,6 +17,21 @@ export const FsetOrderDown = (
   state.order[indextoMove + 1] = action.payload.id;
 };
 
+export const Fdelete = (
+  state: any,
+  action: PayloadAction<{ id: string; descId?: string }>
+) => {
+  if (action.payload.descId) {
+    delete state.data[action.payload.id].description.contents[
+      action.payload.descId
+    ];
+  } else {
+    const order = state.order;
+    order.splice(order.indexOf(action.payload.id), 1);
+    delete state.data[action.payload.id];
+  }
+};
+
 export const FsetOrderUp = (
   state: any,
   action: PayloadAction<{ id: string }>
@@ -24,13 +40,6 @@ export const FsetOrderUp = (
   const valueOfIndexBefore = state.order[indextoMove - 1];
   state.order[indextoMove] = valueOfIndexBefore;
   state.order[indextoMove - 1] = action.payload.id;
-};
-
-export const FcreateDescContent = (
-  state: any,
-  action: PayloadAction<{ id: string }>
-) => {
-  state.data[action.payload.id].description.contents.push('');
 };
 
 export const FsetDescContent = (
@@ -43,21 +52,14 @@ export const FsetDescContent = (
 
 export const FsetType = (
   state: any,
-  action: PayloadAction<{ id: number; content: string }>
+  action: PayloadAction<{ id: string; content: string }>
 ) => {
   state.data[action.payload.id].type = action.payload.content;
 };
 
-export const FcreateData = (state: any) => {
-  state.data.push({
-    type: '',
-    value: 1,
-  });
-};
-
 export const FsetValue = (
   state: any,
-  action: PayloadAction<{ id: number; content: 1 | 2 | 3 | 4 | 5 }>
+  action: PayloadAction<{ id: string; content: string }>
 ) => {
   state.data[action.payload.id].value = action.payload.content;
 };
@@ -113,12 +115,23 @@ export const FsetBeingUsed = (state: any, action: PayloadAction<boolean>) => {
 };
 
 export const Fcreate = (
-  init_value: (LongDetailState | MediumDetailState)['data'][string]
+  init_value: (
+    | LongDetailState
+    | MediumDetailState
+    | ShortDeatilState
+  )['data'][string]
 ) => {
-  return (state: any) => {
+  return (
+    state: any,
+    action: PayloadAction<{ id: string; descId?: string }>
+  ) => {
     const id = uuid();
-    state.order.push(id);
-    state.data[id] = init_value;
+    if (action.payload.descId) {
+      state.data[action.payload.id].description.contents[id] = '';
+    } else {
+      state.order.push(id);
+      state.data[id] = init_value;
+    }
   };
 };
 

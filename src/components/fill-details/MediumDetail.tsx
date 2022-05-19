@@ -1,12 +1,9 @@
 import { useAppDispatch, useAppSelector } from '../../store/store';
-import { BlurEvent } from '../../vite-env';
+import { BlurEvent, MediumSection } from '../../vite-env';
 import Editable from '../customs/Editable';
+import { setFocused } from '../../store/editor';
+import useSection from '../../hooks/useSection';
 
-import achievements from '../../store/resume/medium-details/achievements';
-import awards from '../../store/resume/medium-details/awards';
-import publications from '../../store/resume/medium-details/publications';
-
-export type MediumSection = 'achievements' | 'awards' | 'publications';
 interface Props {
   id: string;
   section: MediumSection;
@@ -19,16 +16,14 @@ interface Props {
 const MediumDetail: React.FC<Props> = ({ id, section, placeholder }) => {
   const dispatch = useAppDispatch();
   const [{ primary, description, when }, listStyle] = useAppSelector(
-    ({ resume, ui }) => [resume[section].data[id], ui.listStyle]
+    ({ resume, editor }) => [resume[section].data[id], editor.listStyle]
   );
-  const { setWhen, setPrimary, setDesc } =
-    section === 'achievements'
-      ? achievements
-      : section === 'awards'
-      ? awards
-      : publications;
+  const { setWhen, setPrimary, setDesc } = useSection(section)
   return (
-    <>
+    <div
+      className='space-y-4'
+      onFocus={() => dispatch(setFocused({ id, section }))}
+    >
       <Editable
         as='h4'
         className='input-primary'
@@ -63,7 +58,7 @@ const MediumDetail: React.FC<Props> = ({ id, section, placeholder }) => {
           }
         />
       </div>
-    </>
+    </div>
   );
 };
 

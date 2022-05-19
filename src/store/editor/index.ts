@@ -3,15 +3,17 @@ import { AllActions, EditorState } from '../../vite-env';
 
 const editorSlice = createSlice({
   name: 'editor',
-  initialState: {} as EditorState,
+  initialState: {
+    listStyle: 'before:content-["📌"]',
+  } as EditorState,
   reducers: {
     setFocused: (
       state: EditorState,
       action: PayloadAction<{
         section: AllActions;
         id: string;
-        descId?: number;
-      }>
+        descId?: string;
+      } | null>
     ) => {
       state.focused = action.payload;
     },

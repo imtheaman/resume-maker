@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { LongDetailState } from '../../../vite-env';
 import {
   Fcreate,
-  FcreateDescContent,
+  Fdelete,
   FsetBeingUsed,
   FsetDescContent,
   FsetDescHeading,
@@ -22,7 +22,12 @@ const init: LongDetailState['data'][string] = {
   from: '',
   to: '',
   location: '',
-  description: { heading: 'Achievements/Tasks', contents: [''] },
+  description: {
+    heading: 'Achievements/Tasks',
+    contents: {
+      '25cc658a-0a87-4196-8579-354d8ab33df8': '',
+    },
+  },
 };
 
 const experiencesSlice = createSlice({
@@ -36,19 +41,19 @@ const experiencesSlice = createSlice({
     order: ['25cc658a-0a87-4196-8579-354d8ab33df8'],
   } as LongDetailState,
   reducers: {
+    createEl: Fcreate(init),
+    deleteEl: Fdelete,
     setBeingUsed: FsetBeingUsed,
+    setDescContent: FsetDescContent,
+    setDescHeading: FsetDescHeading,
+    setFrom: FsetFrom,
     setHeading: FsetHeading,
+    setLocation: FsetLocation,
+    setOrderDown: FsetOrderDown,
+    setOrderUp: FsetOrderUp,
     setPrimary: FsetPrimary,
     setSecondary: FsetSecondary,
-    setOrderUp: FsetOrderUp,
-    setOrderDown: FsetOrderDown,
-    create: Fcreate(init),
-    setDescHeading: FsetDescHeading,
-    setDescContent: FsetDescContent,
-    createDescContent: FcreateDescContent,
-    setFrom: FsetFrom,
     setTo: FsetTo,
-    setLocation: FsetLocation,
   },
 });
 
