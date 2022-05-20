@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import { useAppDispatch, useAppSelector } from '../../store/store';
-import { BlurEvent, LongSection } from '../../vite-env';
+import { BlurEvent, LongSection } from '../../../vite-env';
 import Editable from '../customs/Editable';
 import { setFocused } from '../../store/editor';
 import useSection from '../../hooks/useSection';

@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { ProfileState } from '../../vite-env';
+import { ProfileState } from '../../../vite-env';
 
 const profileSlice = createSlice({
   name: 'profile',

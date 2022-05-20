@@ -1,5 +1,5 @@
 import { useAppDispatch, useAppSelector } from '../../store/store';
-import { BlurEvent } from '../../vite-env';
+import { BlurEvent } from '../../../vite-env';
 import Editable from '../customs/Editable';
 import { LongSection } from './LongDetail';
 import experiences from '../../store/resume/long-details/experiences';

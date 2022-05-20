@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { LongDetailState } from '../../../vite-env';
+import { LongDetailState } from '../../../../vite-env';
 import {
   Fcreate,
   Fdelete,

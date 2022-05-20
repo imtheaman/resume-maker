@@ -1,6 +1,6 @@
 import { Fragment } from 'react';
 import { useAppDispatch, useAppSelector } from '../../../store/store';
-import { BlurEvent } from '../../../vite-env';
+import { BlurEvent } from '../../../../vite-env';
 import Editable from '../../customs/Editable';
 import SectionHeading from '../SectionHeading';
 import references from '../../../store/resume/short-details/references';
@@ -13,7 +13,7 @@ const References: React.FC = () => {
     <div>
       <SectionHeading placeholder='References' section='references' />
       {Object.entries(data).map(([id, { type, value }]) => (
-        <Fragment>
+        <Fragment key={id}>
           <Editable
             as='h4'
             content={type}

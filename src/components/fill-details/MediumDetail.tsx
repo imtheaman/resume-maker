@@ -1,5 +1,5 @@
 import { useAppDispatch, useAppSelector } from '../../store/store';
-import { BlurEvent, MediumSection } from '../../vite-env';
+import { BlurEvent, MediumSection } from '../../../vite-env';
 import Editable from '../customs/Editable';
 import { setFocused } from '../../store/editor';
 import useSection from '../../hooks/useSection';

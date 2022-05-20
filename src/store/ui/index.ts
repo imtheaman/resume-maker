@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { FontFamily, FontSize, Screen, Ui } from '../../vite-env';
+import { FontFamily, FontSize, Screen, Ui } from '../../../vite-env';
 const uiSlice = createSlice({
   name: 'ui',
   initialState: {

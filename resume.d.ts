@@ -54,7 +54,7 @@ export interface Resume {
   languages: [
     {
       language_name: string;
-      rating: number; //max 5
+      rating: number; // max 5
     }
   ];
   skills: [

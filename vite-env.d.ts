@@ -98,9 +98,12 @@ interface ShortDeatilState extends State {
       value: string;
     };
   };
-  //* new addable
-  style: 'short-section-fill-dark';
   order: [string];
+  //* more addable
+  style?:
+    | 'short-section-fill-dark'
+    | 'short-section-fill-light'
+    | 'short-section-border';
 }
 
 interface ProfileState {

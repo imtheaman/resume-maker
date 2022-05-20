@@ -17,14 +17,21 @@ const Tools: React.FC = () => {
     ui.screen,
   ]);
   const managementHandler = (event: 'add' | 'up' | 'down' | 'delete') => {
-    const { create, deleteEl, setOrderUp, setOrderDown } =
+    const { createEl, deleteEl, setOrderUp, setOrderDown } =
       focused?.section && useSection(focused?.section);
     switch (event) {
       case 'add':
-        dispatch(create())
+        dispatch(createEl({ id: focused?.id, descId: focused?.descId }));
+        return;
       case 'up':
+        dispatch(setOrderUp({ id: focused?.id }));
+        return;
       case 'down':
+        dispatch(setOrderDown({ id: focused?.id }));
+        return;
       case 'delete':
+        dispatch(deleteEl({ id: focused?.id, descId: focused?.descId }));
+        return;
     }
   };
   const styleHandler = () => {};
@@ -35,15 +42,15 @@ const Tools: React.FC = () => {
           <div className='flex flex-col items-center space-y-5 skew-y-12'>
             <button
               className='rounded-btn-10'
-              disabled={typeof focused?.descId === 'number'}
+              disabled={!focused || !!focused?.descId}
               onClick={() => managementHandler('up')}
             >
               <FontAwesomeIcon icon={faArrowUp} width={20} height={20} />
             </button>
-            <button className='rounded-btn-10' onClick={styleHandler}>
+            <button className='rounded-btn-10' disabled={!focused} onClick={styleHandler}>
               <FontAwesomeIcon icon={faBrush} width={20} height={20} />
             </button>
-            <button className='rounded-btn-10'>
+            <button className='rounded-btn-10' disabled={!focused}>
               <FontAwesomeIcon
                 icon={faAdd}
                 width={20}
@@ -51,7 +58,7 @@ const Tools: React.FC = () => {
                 onClick={() => managementHandler('add')}
               />
             </button>
-            <button className='rounded-btn-10'>
+            <button className='rounded-btn-10' disabled={!focused}>
               <FontAwesomeIcon
                 icon={faTrash}
                 width={20}
@@ -59,9 +66,9 @@ const Tools: React.FC = () => {
                 onClick={() => managementHandler('delete')}
               />
             </button>
-            disabled={typeof focused?.descId === 'number'}
             <button
               className='rounded-btn-10'
+              disabled={!focused || !!focused?.descId}
               onClick={() => managementHandler('down')}
             >
               <FontAwesomeIcon icon={faArrowDown} width={20} height={20} />

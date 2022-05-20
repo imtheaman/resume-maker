@@ -1,26 +1,38 @@
+import achievements from '../store/resume/medium-details/achievements';
+import awards from '../store/resume/medium-details/awards';
+import educations from '../store/resume/long-details/educations';
+import experiences from '../store/resume/long-details/experiences';
+import interests from '../store/resume/short-details/interests';
+import languages from '../store/resume/short-details/languages';
+import organizations from '../store/resume/long-details/organizations';
+import publications from '../store/resume/medium-details/publications';
+import references from '../store/resume/short-details/references';
+import skills from '../store/resume/short-details/skills';
+import volunteers from '../store/resume/long-details/volunteers';
+import projects from '../store/resume/long-details/projects';
 const useSection = (section: string) => {
   return section === 'achievements'
-    ? require('../store/resume/long-details/achievements').default()
+    ? achievements
     : section === 'awards'
-    ? require('../store/resume/long-details/awards').default()
+    ? awards
     : section === 'educations'
-    ? require('../store/resume/long-details/educations').default()
+    ? educations
     : section === 'experiences'
-    ? require('../store/resume/long-details/experiences').default()
+    ? experiences
     : section === 'interests'
-    ? require('../store/resume/long-details/interests').default()
+    ? interests
     : section === 'languages'
-    ? require('../store/resume/long-details/languages').default()
+    ? languages
     : section === 'organizations'
-    ? require('../store/resume/long-details/organizations').default()
+    ? organizations
     : section === 'publications'
-    ? require('../store/resume/long-details/publications').default()
+    ? publications
     : section === 'references'
-    ? require('../store/resume/long-details/references').default()
+    ? references
     : section === 'skills'
-    ? require('../store/resume/long-details/skills').default()
+    ? skills
     : section === 'volunteers'
-    ? require('../store/resume/long-details/volunteers').default()
-    : require('../store/resume/long-details/projects').default()
+    ? volunteers
+    : projects;
 };
 export default useSection;
