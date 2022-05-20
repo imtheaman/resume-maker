@@ -45,13 +45,13 @@
     @apply w-10 h-10 bg-white flex justify-center items-center text-gray-800 duration-75 shadow rounded-full hover:shadow-md active:scale-95 disabled:cursor-not-allowed disabled:opacity-50;
   }
   .h2 {
-    @apply text-2xl font-semibold uppercase my-2;
+    @apply text-2xl font-semibold uppercase;
   }
   .input-primary {
-    @apply outline-none empty:border-b focus:border-b text-xl text-gray-800;
+    @apply outline-none font-semibold empty:border-b focus:border-b text-xl text-gray-800;
   }
   .input-secondary {
-    @apply outline-none empty:border-b focus:border-b text-xl text-gray-700;
+    @apply outline-none empty:border-b focus:border-b text-xl text-gray-600;
   }
   .input-tertiary {
     @apply outline-none empty:border-b focus:border-b text-lg text-gray-700;

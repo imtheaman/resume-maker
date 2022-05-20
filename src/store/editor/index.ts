@@ -3,9 +3,7 @@ import { AllActions, EditorState } from '../../../vite-env';
 
 const editorSlice = createSlice({
   name: 'editor',
-  initialState: {
-    listStyle: 'before:content-["📌"]',
-  } as EditorState,
+  initialState: {} as EditorState,
   reducers: {
     setFocused: (
       state: EditorState,
@@ -16,13 +14,10 @@ const editorSlice = createSlice({
       } | null>
     ) => {
       state.focused = action.payload;
-    },
-    setListStyle: (state: EditorState, action: PayloadAction<string>) => {
-      state.listStyle = action.payload;
-    },
-  },
+    }
+  }
 });
 
 const { actions, reducer: editorReducer } = editorSlice;
-export const { setFocused, setListStyle } = actions;
+export const { setFocused } = actions;
 export default editorReducer;

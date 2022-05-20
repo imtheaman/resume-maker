@@ -1,5 +1,5 @@
 import { ReactElement, useState } from 'react';
-import { setName, setProfilePic } from '../../../store/profile';
+import { setIntro, setName, setProfilePic } from '../../../store/profile';
 import { useAppDispatch, useAppSelector } from '../../../store/store';
 import { BlurEvent } from '../../../../vite-env';
 import Editable from '../../customs/Editable';
@@ -10,7 +10,17 @@ const Profile = () => {
   const [modal, setModal] = useState<ReactElement | false>(false);
   const theme = useAppSelector(({ ui }) => ui.theme);
   const dispatch = useAppDispatch();
-  const { profilePic, name } = useAppSelector(({ profile }) => profile);
+  const { profilePic, name, intro, socials } = useAppSelector(
+    ({ profile }) => profile
+  );
+  const capitalize = (value: string) => {
+    const words = value.trim().split(' ');
+    const capitalized: string[] = [];
+    words.forEach((el) => {
+      capitalized.push(el[0].toUpperCase()+el.slice(1, el.length));
+    });
+    return capitalized.join(' ');
+  };
   return (
     <div className='col-span-2'>
       <div className='flex w-full items-center'>
@@ -46,7 +56,9 @@ const Profile = () => {
               placeholder='Full Name'
               className='flex-grow text-4xl font-semibold'
               content={name}
-              onBlur={(e: BlurEvent) => dispatch(setName(e.target.innerText))}
+              onBlur={(e: BlurEvent) =>
+                dispatch(setName(capitalize(e.target.innerText)))
+              }
             />
             <button
               className={`-skew-x-12 inline-block text-white py-1 px-4 ${theme}`}
@@ -59,8 +71,11 @@ const Profile = () => {
           <Editable
             as='h3'
             placeholder='Your short intro'
-            className='input-primary'
-            content=''
+            className='text-2xl'
+            content={intro}
+            onBlur={(e: BlurEvent) =>
+              dispatch(setIntro(capitalize(e.target.innerText)))
+            }
           />
         </div>
       </div>

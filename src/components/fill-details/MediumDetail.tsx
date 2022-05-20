@@ -18,7 +18,8 @@ const MediumDetail: React.FC<Props> = ({ id, section, placeholder }) => {
   const [{ primary, description, when }, listStyle] = useAppSelector(
     ({ resume, editor }) => [resume[section].data[id], editor.listStyle]
   );
-  const { setWhen, setPrimary, setDesc } = useSection(section)
+  //@ts-ignore
+  const { setWhen, setPrimary, setDesc } = useSection(section);
   return (
     <div
       className='space-y-4'
@@ -43,7 +44,7 @@ const MediumDetail: React.FC<Props> = ({ id, section, placeholder }) => {
           value={when}
           className='ml-3 date border-b'
           onChange={(e: BlurEvent) =>
-            dispatch(setWhen({ id, content: e.target.innerText }))
+            dispatch(setWhen({ id, content: e.target.value }))
           }
         />
       </div>

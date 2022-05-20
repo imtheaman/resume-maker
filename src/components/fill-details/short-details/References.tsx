@@ -1,22 +1,26 @@
-import { Fragment } from 'react';
 import { useAppDispatch, useAppSelector } from '../../../store/store';
 import { BlurEvent } from '../../../../vite-env';
 import Editable from '../../customs/Editable';
 import SectionHeading from '../SectionHeading';
 import references from '../../../store/resume/short-details/references';
+import { setFocused } from '../../../store/editor';
 
 const References: React.FC = () => {
-  const data = useAppSelector(({ resume }) => resume.references.data);
+  const { order, data } = useAppSelector(({ resume }) => resume.references);
   const { setType, setValue } = references;
   const dispatch = useAppDispatch();
   return (
-    <div>
+    <div className='space-y-8'>
       <SectionHeading placeholder='References' section='references' />
-      {Object.entries(data).map(([id, { type, value }]) => (
-        <Fragment key={id}>
+      {order.map((id) => (
+        <div
+          className='space-y-4'
+          key={id}
+          onFocus={() => dispatch(setFocused({ id, section: 'references' }))}
+        >
           <Editable
             as='h4'
-            content={type}
+            content={data[id].type}
             placeholder='Person Name'
             className='input-primary'
             onBlur={(e: BlurEvent) =>
@@ -33,7 +37,7 @@ const References: React.FC = () => {
             <Editable
               as='p'
               className='border-b flex-grow'
-              content={value}
+              content={data[id].value}
               placeholder='Email/Phone'
               onBlur={(e: BlurEvent) =>
                 dispatch(
@@ -45,7 +49,7 @@ const References: React.FC = () => {
               }
             />
           </div>
-        </Fragment>
+        </div>
       ))}
     </div>
   );

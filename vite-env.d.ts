@@ -91,7 +91,7 @@ interface MediumDetailState extends State {
   order: [string];
 }
 
-interface ShortDeatilState extends State {
+interface ShortDetailState extends State {
   data: {
     [id: string]: {
       type: string;
@@ -99,11 +99,6 @@ interface ShortDeatilState extends State {
     };
   };
   order: [string];
-  //* more addable
-  style?:
-    | 'short-section-fill-dark'
-    | 'short-section-fill-light'
-    | 'short-section-border';
 }
 
 interface ProfileState {
@@ -123,10 +118,21 @@ interface ProfileState {
 }
 
 interface EditorState {
-  listStyle: string;
   focused: {
     section: AllActions;
     id: string;
     descId?: string;
   } | null;
+}
+
+type style =
+  | 'short-section-fill-dark'
+  | 'short-section-fill-light'
+  | 'short-section-border';
+interface StylesState {
+  listStyle: string;
+  contentStyle: string;
+  skillStyle: style;
+  languageStyle: style;
+  interestStyle: style;
 }

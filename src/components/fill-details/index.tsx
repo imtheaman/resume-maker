@@ -8,7 +8,7 @@ import Organizations from './long-details/Organizations';
 import Profile from './profile/Profile';
 import Projects from './long-details/Projects';
 import Publications from './medium-details/Publications';
-import Reference from './short-details/Reference';
+import Reference from './short-details/References';
 import Skills from './short-details/Skills';
 import Volunteers from './long-details/Volunteers';
 import Achievements from './medium-details/Achievements';
@@ -25,7 +25,7 @@ const FillDetails = () => {
           <span className='inline-block skew-x-12'>Your resume details</span>
         </span>
       </h1>
-      <div className='grid grid-cols-2 gap-x-12 gap-y-4'>
+      <div className='grid grid-cols-2 gap-x-12 gap-y-8'>
         <Profile />
         <Experience />
         <Projects />

@@ -33,6 +33,8 @@ const useSection = (section: string) => {
     ? skills
     : section === 'volunteers'
     ? volunteers
-    : projects;
+    // : section === 'projects'
+    : projects
+    // : undefined;
 };
 export default useSection;

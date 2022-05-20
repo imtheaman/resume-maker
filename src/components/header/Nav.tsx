@@ -58,7 +58,11 @@ const Nav = () => {
         />
         Templates
       </button>
-      <button className='btn' onClick={() => setModal(<Layout />)}>
+      <button
+        className='btn'
+        disabled={screen !== 'resume' && screen !== 'edit'}
+        onClick={() => setModal(<Layout />)}
+      >
         <FontAwesomeIcon
           icon={faGear}
           width={18}

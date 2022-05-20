@@ -3,7 +3,7 @@ import {
   DescContentAction,
   LongDetailState,
   MediumDetailState,
-  ShortDeatilState,
+  ShortDetailState,
   StringValueAction,
 } from '../../../../vite-env';
 import { v4 as uuid } from 'uuid';
@@ -12,6 +12,7 @@ export const FsetOrderDown = (
   action: PayloadAction<{ id: string }>
 ) => {
   const indextoMove = state.order.indexOf(action.payload.id);
+  if (indextoMove === (state.order.length - 1)) return;
   const valueOfIndexAfter = state.order[indextoMove + 1];
   state.order[indextoMove] = valueOfIndexAfter;
   state.order[indextoMove + 1] = action.payload.id;
@@ -37,6 +38,7 @@ export const FsetOrderUp = (
   action: PayloadAction<{ id: string }>
 ) => {
   const indextoMove = state.order.indexOf(action.payload.id);
+  if (indextoMove === 0) return;
   const valueOfIndexBefore = state.order[indextoMove - 1];
   state.order[indextoMove] = valueOfIndexBefore;
   state.order[indextoMove - 1] = action.payload.id;
@@ -118,7 +120,7 @@ export const Fcreate = (
   init_value: (
     | LongDetailState
     | MediumDetailState
-    | ShortDeatilState
+    | ShortDetailState
   )['data'][string]
 ) => {
   return (

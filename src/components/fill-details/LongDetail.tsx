@@ -21,13 +21,9 @@ const LongDetail: React.FC<Props> = ({
   placeholder,
   Fromtolocation,
 }) => {
-  const {
-    setPrimary,
-    setSecondary,
-    createEl,
-    setDescContent,
-    setDescHeading,
-  } = useSection(section);
+  //@ts-ignore
+  const { setPrimary, setSecondary, createEl, setDescContent, setDescHeading } =
+    useSection(section);
 
   const dispatch = useAppDispatch();
   const [{ primary, secondary, description }, listStyle] = useAppSelector(
@@ -51,7 +47,7 @@ const LongDetail: React.FC<Props> = ({
       {typeof secondary === 'string' && (
         <Editable
           as='h3'
-          className='input-primary'
+          className='input-secondary'
           placeholder={placeholder.secondary}
           content={secondary}
           onBlur={(e: BlurEvent) =>

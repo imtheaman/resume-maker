@@ -16,21 +16,23 @@ const Tools: React.FC = () => {
     editor.focused,
     ui.screen,
   ]);
+  //@ts-ignore
+  const { createEl, deleteEl, setOrderUp, setOrderDown } = useSection(
+    focused?.section
+  );
   const managementHandler = (event: 'add' | 'up' | 'down' | 'delete') => {
-    const { createEl, deleteEl, setOrderUp, setOrderDown } =
-      focused?.section && useSection(focused?.section);
     switch (event) {
       case 'add':
-        dispatch(createEl({ id: focused?.id, descId: focused?.descId }));
+        dispatch(createEl({ id: focused?.id!, descId: focused?.descId }));
         return;
       case 'up':
-        dispatch(setOrderUp({ id: focused?.id }));
+        setOrderUp && dispatch(setOrderUp({ id: focused?.id }));
         return;
       case 'down':
-        dispatch(setOrderDown({ id: focused?.id }));
+        setOrderDown && dispatch(setOrderDown({ id: focused?.id }));
         return;
       case 'delete':
-        dispatch(deleteEl({ id: focused?.id, descId: focused?.descId }));
+        dispatch(deleteEl({ id: focused?.id!, descId: focused?.descId }));
         return;
     }
   };
@@ -42,33 +44,35 @@ const Tools: React.FC = () => {
           <div className='flex flex-col items-center space-y-5 skew-y-12'>
             <button
               className='rounded-btn-10'
-              disabled={!focused || !!focused?.descId}
+              disabled={!focused || !setOrderUp}
               onClick={() => managementHandler('up')}
             >
               <FontAwesomeIcon icon={faArrowUp} width={20} height={20} />
             </button>
-            <button className='rounded-btn-10' disabled={!focused} onClick={styleHandler}>
+            <button
+              className='rounded-btn-10'
+              disabled={!focused}
+              onClick={styleHandler}
+            >
               <FontAwesomeIcon icon={faBrush} width={20} height={20} />
-            </button>
-            <button className='rounded-btn-10' disabled={!focused}>
-              <FontAwesomeIcon
-                icon={faAdd}
-                width={20}
-                height={20}
-                onClick={() => managementHandler('add')}
-              />
-            </button>
-            <button className='rounded-btn-10' disabled={!focused}>
-              <FontAwesomeIcon
-                icon={faTrash}
-                width={20}
-                height={20}
-                onClick={() => managementHandler('delete')}
-              />
             </button>
             <button
               className='rounded-btn-10'
-              disabled={!focused || !!focused?.descId}
+              disabled={!focused}
+              onClick={() => managementHandler('add')}
+            >
+              <FontAwesomeIcon icon={faAdd} width={20} height={20} />
+            </button>
+            <button
+              className='rounded-btn-10'
+              disabled={!focused}
+              onClick={() => managementHandler('delete')}
+            >
+              <FontAwesomeIcon icon={faTrash} width={20} height={20} />
+            </button>
+            <button
+              className='rounded-btn-10'
+              disabled={!focused || !setOrderDown}
               onClick={() => managementHandler('down')}
             >
               <FontAwesomeIcon icon={faArrowDown} width={20} height={20} />

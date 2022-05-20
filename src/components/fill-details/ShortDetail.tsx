@@ -15,6 +15,7 @@ interface Props {
 }
 
 const ShortDetail: React.FC<Props> = ({ id, section, style, placeholder }) => {
+  //@ts-ignore
   const { setType, setValue, create } = useSection(section);
 
   const dispatch = useAppDispatch();

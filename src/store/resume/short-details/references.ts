@@ -1,10 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { ShortDeatilState } from '../../../../vite-env';
+import { ShortDetailState } from '../../../../vite-env';
 import {
   Fcreate,
   Fdelete,
   FsetBeingUsed,
   FsetHeading,
+  FsetOrderDown,
+  FsetOrderUp,
   FsetType,
   FsetValue,
 } from '../functions';
@@ -19,13 +21,15 @@ const referencesSlice = createSlice({
       '25cc658a-0a87-4196-8579-354d8ab33df8': init,
     },
     order: ['25cc658a-0a87-4196-8579-354d8ab33df8'],
-  } as ShortDeatilState,
+  } as ShortDetailState,
   reducers: {
     setBeingUsed: FsetBeingUsed,
     setHeading: FsetHeading,
     setType: FsetType,
     setValue: FsetValue,
     createEl: Fcreate(init),
+    setOrderUp: FsetOrderUp,
+    setOrderDown: FsetOrderDown,
     deleteEl: Fdelete,
   },
 });
