@@ -5,8 +5,7 @@ const uiSlice = createSlice({
   initialState: {
     theme: 'bg-green-600',
     spellCheck: true,
-    screen: 'resume',
-    fontSize: 'medium',
+    screen: 'resume'
   } as Ui,
   reducers: {
     setTheme: (state: Ui, action: PayloadAction<string>) => {
@@ -17,22 +16,10 @@ const uiSlice = createSlice({
     },
     setScreen: (state: Ui, action: PayloadAction<Screen>) => {
       state.screen = action.payload;
-    },
-    setFontSize: (state: Ui, action: PayloadAction<FontSize>) => {
-      state.fontSize = action.payload;
-    },
-    setFontFamily: (state: Ui, action: PayloadAction<FontFamily>) => {
-      state.fontFamily = action.payload;
-    },
-  },
+    }
+  }
 });
 
 const { reducer: uiReducer, actions } = uiSlice;
-export const {
-  setSpellCheck,
-  setTheme,
-  setScreen,
-  setFontFamily,
-  setFontSize,
-} = actions;
+export const { setSpellCheck, setTheme, setScreen } = actions;
 export default uiReducer;

@@ -1,6 +1,6 @@
 import { useAppDispatch, useAppSelector } from '../../store/store';
 import { AllActions, BlurEvent } from '../../../vite-env';
-import Editable from '../customs/Editable';
+import Editable from '../customs/Editable.polymorphic';
 import SwitchCheckbox from '../customs/SwitchCheckbox';
 import useSection from '../../hooks/useSection';
 

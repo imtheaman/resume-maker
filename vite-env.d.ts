@@ -2,6 +2,26 @@
 import { ActionCreatorWithPayload, AnyAction } from '@reduxjs/toolkit';
 import { FocusEvent, ReactNode } from 'react';
 
+type UnionToIntersection<U> = (U extends any ? (k: U) => void : never) extends (
+  k: infer I
+) => void
+  ? I
+  : never;
+
+// Converts union to overloaded function
+type UnionToOvlds<U> = UnionToIntersection<
+  U extends any ? (f: U) => void : never
+>;
+
+type PopUnion<U> = UnionToOvlds<U> extends (a: infer A) => void ? A : never;
+
+type IsUnion<T> = [T] extends [UnionToIntersection<T>] ? false : true;
+
+// Finally me)
+type UnionToArray<T, A extends unknown[] = []> = IsUnion<T> extends true
+  ? UnionToArray<Exclude<T, PopUnion<T>>, [PopUnion<T>, ...A]>
+  : [T, ...A];
+
 export type ShortSection = 'interests' | 'languages' | 'skills' | 'references';
 export type MediumSection = 'achievements' | 'awards' | 'publications';
 export type LongSection =
@@ -12,6 +32,7 @@ export type LongSection =
   | 'organizations';
 type BlurEvent = FocusEvent<HTMLInputElement>;
 type AllActions = LongSection | MediumSection | ShortSection;
+type Sections = UnionToArray<AllActions>
 
 interface Desc {
   heading?: string;
@@ -33,7 +54,7 @@ interface DescContentAction {
 }
 // <actions />
 
-type FontFamily = 'raleway' | 'open sans' | 'inter' | 'ubuntu';
+type FontFamily = 'default' | 'raleway' | 'open sans' | 'inter' | 'ubuntu';
 type Screen = 'resume' | 'templates' | 'edit';
 type FontSize = 'medium' | 'small' | 'large';
 
@@ -41,8 +62,6 @@ interface Ui {
   theme: string;
   spellCheck: boolean;
   screen: Screen;
-  fontSize: FontSize;
-  fontFamily: FontFamily;
 }
 
 interface State {
@@ -129,10 +148,14 @@ type style =
   | 'short-section-fill-dark'
   | 'short-section-fill-light'
   | 'short-section-border';
+
 interface StylesState {
   listStyle: string;
   contentStyle: string;
   skillStyle: style;
   languageStyle: style;
   interestStyle: style;
+  fontSize: FontSize;
+  fontFamily: FontFamily;
+  layout: Sections;
 }

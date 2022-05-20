@@ -1,5 +1,4 @@
 import {
-  faFont,
   faPalette,
   faPenToSquare,
   faCheckCircle,
@@ -10,6 +9,7 @@ import {
   faLink,
   faGear,
   faSwatchbook,
+  faPaintRoller
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ThemeBtn from '../customs/ThemeBtn';
@@ -19,6 +19,7 @@ import { setScreen } from '../../store/ui';
 import Modal from '../modal/Modal';
 import SaveOnline from '../save-online/SaveOnline';
 import Layout from '../layout';
+import Styles from '../styling/Styles';
 
 const Nav = () => {
   const [showThemes, setShowThemes] = useState(false);
@@ -73,12 +74,13 @@ const Nav = () => {
       </button>
       <button className='btn'>
         <FontAwesomeIcon
-          icon={faFont}
+          icon={faPaintRoller}
           width={18}
           height={18}
           className='mr-2'
+          onClick={() => setModal(<Styles />)}
         />
-        Font Size
+        Styling
       </button>
       <button
         className={`custom-btn relative z-[9] ${theme + ' text-white'}`}

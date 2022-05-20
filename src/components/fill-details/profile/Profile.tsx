@@ -2,9 +2,10 @@ import { ReactElement, useState } from 'react';
 import { setIntro, setName, setProfilePic } from '../../../store/profile';
 import { useAppDispatch, useAppSelector } from '../../../store/store';
 import { BlurEvent } from '../../../../vite-env';
-import Editable from '../../customs/Editable';
+import Editable from '../../customs/Editable.polymorphic';
 import Modal from '../../modal/Modal';
 import Socials from './Socials';
+import Skewed from '../../customs/Skewed.polymorphic';
 
 const Profile = () => {
   const [modal, setModal] = useState<ReactElement | false>(false);
@@ -17,7 +18,7 @@ const Profile = () => {
     const words = value.trim().split(' ');
     const capitalized: string[] = [];
     words.forEach((el) => {
-      capitalized.push(el[0].toUpperCase()+el.slice(1, el.length));
+      capitalized.push(el[0].toUpperCase() + el.slice(1, el.length));
     });
     return capitalized.join(' ');
   };
@@ -60,12 +61,12 @@ const Profile = () => {
                 dispatch(setName(capitalize(e.target.innerText)))
               }
             />
-            <button
-              className={`-skew-x-12 inline-block text-white py-1 px-4 ${theme}`}
+            <Skewed
+              as='button'
+              content='Socials'
+              //@ts-ignore
               onClick={() => setModal(<Socials />)}
-            >
-              <div className='skew-x-12'>Socials</div>
-            </button>
+            />
             {modal && <Modal modal={modal} setModal={setModal} />}
           </div>
           <Editable

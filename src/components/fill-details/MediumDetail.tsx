@@ -1,6 +1,6 @@
 import { useAppDispatch, useAppSelector } from '../../store/store';
 import { BlurEvent, MediumSection } from '../../../vite-env';
-import Editable from '../customs/Editable';
+import Editable from '../customs/Editable.polymorphic';
 import { setFocused } from '../../store/editor';
 import useSection from '../../hooks/useSection';
 
@@ -16,7 +16,7 @@ interface Props {
 const MediumDetail: React.FC<Props> = ({ id, section, placeholder }) => {
   const dispatch = useAppDispatch();
   const [{ primary, description, when }, listStyle] = useAppSelector(
-    ({ resume, editor }) => [resume[section].data[id], editor.listStyle]
+    ({ resume, styles }) => [resume[section].data[id], styles.listStyle]
   );
   //@ts-ignore
   const { setWhen, setPrimary, setDesc } = useSection(section);
@@ -48,8 +48,7 @@ const MediumDetail: React.FC<Props> = ({ id, section, placeholder }) => {
           }
         />
       </div>
-      <div className='flex'>
-        <span className={`${listStyle} mr-2`} />
+      <div className={`flex items-center ${listStyle}`}>
         <Editable
           as='p'
           content={description}

@@ -1,6 +1,6 @@
 import { useAppDispatch, useAppSelector } from '../../store/store';
 import { BlurEvent, ShortSection } from '../../../vite-env';
-import Editable from '../customs/Editable';
+import Editable from '../customs/Editable.polymorphic';
 import interests from '../../store/resume/short-details/interests';
 import languages from '../../store/resume/short-details/languages';
 import skills from '../../store/resume/short-details/skills';

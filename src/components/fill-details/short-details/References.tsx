@@ -1,6 +1,6 @@
 import { useAppDispatch, useAppSelector } from '../../../store/store';
 import { BlurEvent } from '../../../../vite-env';
-import Editable from '../../customs/Editable';
+import Editable from '../../customs/Editable.polymorphic';
 import SectionHeading from '../SectionHeading';
 import references from '../../../store/resume/short-details/references';
 import { setFocused } from '../../../store/editor';

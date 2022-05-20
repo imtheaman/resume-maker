@@ -1,4 +1,5 @@
-import { ElementType } from 'react';
+import { ElementType, ReactNode } from 'react';
+import parse from 'html-react-parser'
 
 const Editable: React.FC<{
   as: ElementType;
@@ -15,6 +16,8 @@ const Editable: React.FC<{
   onKeyDownCapture,
   ...otherProps
 }) => {
+  if (!content) content = ''
+  console.log(content)
   return (
     <As
       contentEditable
@@ -28,7 +31,7 @@ const Editable: React.FC<{
       }
       {...otherProps}
     >
-      {content}
+      {parse(content)}
     </As>
   );
 };
