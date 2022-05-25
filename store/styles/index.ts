@@ -38,13 +38,13 @@ const stylesSlice = createSlice({
     setContentStyle: (state: StylesState, action: PayloadAction<string>) => {
       state.contentStyle = action.payload;
     },
-    setIterestStyle: (state: StylesState, action: PayloadAction<style>) => {
+    setInterestStyle: (state: StylesState, action: PayloadAction<style>) => {
       state.interestStyle = action.payload;
     },
-    setLanguageState: (state: StylesState, action: PayloadAction<style>) => {
+    setLanguageStyle: (state: StylesState, action: PayloadAction<style>) => {
       state.languageStyle = action.payload;
     },
-    setSkillState: (state: StylesState, action: PayloadAction<style>) => {
+    setSkillStyle: (state: StylesState, action: PayloadAction<style>) => {
       state.skillStyle = action.payload;
     },
     setFontSize: (state: StylesState, action: PayloadAction<FontSize>) => {
@@ -63,10 +63,10 @@ const { actions, reducer: stylesReducer } = stylesSlice;
 export const {
   setListStyle,
   setContentStyle,
-  setIterestStyle,
+  setInterestStyle,
   setLayout,
-  setLanguageState,
-  setSkillState,
+  setLanguageStyle,
+  setSkillStyle,
   setFontFamily,
   setFontSize
 } = actions;

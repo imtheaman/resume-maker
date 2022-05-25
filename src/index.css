@@ -107,28 +107,55 @@
   }
   /* * content style * */
   .content-style-square-border::before {
-    @apply content-[''] border-[2.4px] mt-2 mr-2 bg-black outline-black outline outline-2 border-white p-1;
+    @apply flex flex-start content-[''] border-[2.4px] mt-2 mr-2 bg-black outline-black outline outline-2 border-white p-1;
   }
   .content-style-circle-border::before {
-    @apply content-[''] border-[2.4px] rounded-full mt-2 mr-2 bg-black outline-black outline outline-1 border-white p-1;
+    @apply flex flex-start content-[''] border-[2.4px] rounded-full mt-2 mr-2 bg-black outline-black outline outline-1 border-white p-1;
   }
   .layout-item {
     @apply text-white text-xl capitalize py-4 cursor-grab select-none overflow-hidden font-semibold flex items-center justify-center rounded-xl;
   }
   /* * list style * */
   .list-style-circle-border::before {
-    @apply content-[''] border-[2px] rounded-full mr-2 bg-black outline-black outline outline-1 border-white p-1;
+    @apply flex items-center content-[''] border-[2px] w-1 h-1 rounded-full mr-2 bg-black outline-black outline outline-1 border-white p-1;
   }
   .list-style-square-border::before {
-    @apply content-[''] border-[2px] mr-2 bg-black outline-black outline outline-1 border-white p-1;
+    @apply flex items-center content-[''] border-[2px] w-1 h-1 mr-2 bg-black outline-black outline outline-1 border-white p-1;
   }
   .list-style-circle::before {
-    @apply content-[''] rounded-full mr-2 bg-black p-1;
+    @apply flex items-center content-[''] rounded-full mr-2 bg-black p-1;
   }
   .list-style-square::before {
-    @apply content-[''] mr-2 bg-black p-1;
+    @apply flex items-center content-[''] mr-2 bg-black p-1;
   }
   .list-style-dash::before {
-    @apply content-['']
+    @apply flex items-center content-['']
+  }
+  .custom-list-style-arrow::before {
+    @apply content-["»"] flex items-center mr-2;
+  }
+  .custom-list-style-dash::before {
+    @apply content-["—"] flex items-center mr-2;
+  }
+  .custom-list-style-orange-square-s::before {
+    @apply content-["🔸"] flex items-center mr-2;
+  }
+  .custom-list-style-100::before {
+    @apply content-["💯"] flex items-center mr-2;
+  }
+  .custom-list-style-star::before {
+    @apply content-["✨"] flex items-center mr-2;
+  }
+  .custom-list-style-medal-gold::before {
+    @apply content-["🏅"] flex items-center mr-2;
+  }
+  .custom-list-style-pin::before {
+    @apply content-["🎯"] flex items-center mr-2;
+  }
+  .custom-list-style-medal-military::before {
+    @apply content-["🥇"] flex items-center mr-2;
+  }
+  .custom-list-style-medal-military::before {
+    @apply content-[""] flex items-center mr-2;
   }
 }

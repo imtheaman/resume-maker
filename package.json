@@ -8,13 +8,16 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emoji-mart/data": "^1.0.1",
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
     "@fortawesome/free-brands-svg-icons": "^6.1.1",
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "@fortawesome/react-fontawesome": "^0.1.18",
     "@reduxjs/toolkit": "^1.8.1",
+    "@types/emoji-mart": "^3.0.9",
     "@types/react-date-range": "^1.4.3",
     "autoprefixer": "^10.4.5",
+    "emoji-mart": "^5.0.0",
     "eslintrc": "^1.0.6",
     "global": "^4.4.0",
     "html-react-parser": "^1.4.12",

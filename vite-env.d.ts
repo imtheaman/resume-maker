@@ -161,3 +161,5 @@ interface StylesState {
   fontFamily: FontFamily;
   layout: string[];
 }
+
+type Styles = ['interestStyle','languageStyle','listStyle', 'contentStyle', 'skillStyle']
