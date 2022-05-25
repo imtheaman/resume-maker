@@ -13,8 +13,8 @@ const Profile = () => {
   const { profilePic, name, intro, socials } = useAppSelector(
     ({ profile }) => profile
   );
-  const capitalize = (value: string) => {
-    if (!value) return;
+  const capitalize = (value: string | undefined) => {
+    if (!value) return '';
     const words = value.trim().split(' ');
     const capitalized: string[] = [];
     words.forEach((el) => {
