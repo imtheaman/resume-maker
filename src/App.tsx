@@ -1,20 +1,20 @@
 import { useRef } from 'react';
-import { useAppSelector } from './store/store';
-import Screen from './components/Resume/Screen';
-import Header from './components/header/Header';
-import Nav from './components/header/Nav';
+import { useAppSelector } from '../store/store';
+import Screen from './Resume/Screen';
+import Header from './header/Header';
+import Nav from './header/Nav';
 import ReactToPrint, { PrintContextConsumer } from 'react-to-print';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDownload } from '@fortawesome/free-solid-svg-icons';
-import useIntersectionObserver from './hooks/useIntersectionObserver';
-import Tools from './components/fill-details/Tools';
+import useIntersectionObserver from '../hooks/useIntersectionObserver';
+import Tools from './fill-details/Tools';
 
 const Home: React.FC = () => {
   const { spellCheck, screen } = useAppSelector(({ ui }) => ui);
   const printRef = useRef<HTMLDivElement>();
   const { ref: elementRef, value: intersected } = useIntersectionObserver({
     root: null,
-    threshold: 1,
+    threshold: 1
   });
   return (
     <div>

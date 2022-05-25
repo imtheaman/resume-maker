@@ -23,6 +23,25 @@
   [placeholder]:empty:focus::before {
     content: '';
   }
+  ::-webkit-scrollbar-track {
+    /* -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); */
+    /* box-shadow: inset 0 0 6px rgba(0,0,0,0.3); */
+    border-radius: 10px;
+    background-color: transparent;
+  }
+
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 6px;
+    background-color: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: rgb(230, 230, 230);
+  }
 }
 
 @layer utilities {
@@ -95,6 +114,9 @@
   }
   .content-style-circle-border::before {
     @apply content-[''] border-[2.4px] rounded-full mt-2 mr-2 bg-black outline-black outline outline-1 border-white p-1;
+  }
+  .layout-item {
+    @apply text-white text-xl capitalize py-4 cursor-grab select-none overflow-hidden font-semibold flex items-center justify-center rounded-xl;
   }
   /* * list style * */
   .list-style-circle-border::before {

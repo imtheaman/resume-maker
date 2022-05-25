@@ -20,6 +20,7 @@
     "html-react-parser": "^1.4.12",
     "postcss": "^8.4.13",
     "react": "^18.0.0",
+    "react-beautiful-dnd": "^13.1.0",
     "react-dom": "^18.0.0",
     "react-redux": "^8.0.1",
     "react-to-print": "^2.14.7",
@@ -32,6 +33,7 @@
   "devDependencies": {
     "@types/node": "17.0.30",
     "@types/react": "^18.0.0",
+    "@types/react-beautiful-dnd": "^13.1.2",
     "@types/react-dom": "^18.0.0",
     "@types/redux-logger": "^3.0.9",
     "@types/uuid": "^8.3.4",
