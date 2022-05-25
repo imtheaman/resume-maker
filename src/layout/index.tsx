@@ -28,12 +28,13 @@ const Layout = () => {
   return (
     <DragDropContext onDragEnd={HandleDrag}>
       <div className='w-[30rem] h-[100vh] bg-white p-8'>
+        <h3 className='text-2xl mb-6 text-center '>Set Layout</h3>
         <Droppable droppableId='layout'>
           {(provided) => (
             <ul
               {...provided.droppableProps}
               ref={provided.innerRef}
-              className='mt-4 space-y-7 px-5 overflow-y-scroll w-full h-full'
+              className='mt-4 space-y-7 px-5 pb-20 overflow-y-scroll w-full h-full'
             >
               {layout.map((el, index) => (
                 <Draggable draggableId={el} key={el} index={index}>

@@ -5,7 +5,7 @@ import {
   MediumDetailState,
   ShortDetailState,
   StringValueAction,
-} from '../../../../vite-env';
+} from '../../../vite-env';
 import { v4 as uuid } from 'uuid';
 export const FsetOrderDown = (
   state: any,

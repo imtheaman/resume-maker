@@ -125,16 +125,18 @@ interface ProfileState {
   name: string;
   intro: string;
   socials: {
-    github: `https://github.com/${string}`;
-    linkedin: `https://linkedin.com/in/${string}`;
-    stackoverflow: `https://stackoverflow.com/users/${string}`;
-    medium: `https://medium.com/@${string}`;
-    reddit: `https://reddit.com/user/${string}`;
+    github: string;
+    linkedin: string;
+    stackoverflow: string
+    medium: string
+    reddit: string
     connect: string;
     email: string;
     phone: string;
   };
 }
+
+type Social = keyof ProfileState['socials']
 
 interface EditorState {
   focused: {

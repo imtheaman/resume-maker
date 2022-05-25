@@ -8,8 +8,7 @@
   right: 0;
   width: 100%;
   display: flex;
-  z-index: 999;
-  justify-content: start;
+  z-index: 30;
   align-items: center;
   cursor: pointer;
 }
@@ -23,5 +22,10 @@
   position: absolute;
   top: 16px;
   right: 16px;
-  width: 2rem;
+  width: 2.4rem;
+  color: gray;
+}
+
+.modalBtn:hover {
+  color: rgb(67, 67, 67);
 }

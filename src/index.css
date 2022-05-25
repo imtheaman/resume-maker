@@ -17,9 +17,6 @@
   .delay-after::after {
     animation-delay: 0.5s;
   }
-  ul {
-    list-style-type: square;
-  }
   [placeholder]:empty:focus::before {
     content: '';
   }

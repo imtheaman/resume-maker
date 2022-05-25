@@ -2,7 +2,6 @@ import {
   faAdd,
   faArrowDown,
   faArrowUp,
-  faBrush,
   faTrash
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -18,6 +17,7 @@ const Tools: React.FC = () => {
   ]);
   //@ts-ignore
   const { createEl, deleteEl, setOrderUp, setOrderDown } = useSection(
+    //@ts-ignore
     focused?.section
   );
   const managementHandler = (event: 'add' | 'up' | 'down' | 'delete') => {

@@ -1,13 +1,13 @@
 import { useRef } from 'react';
 import { useAppSelector } from '../store/store';
-import Screen from './Resume/Screen';
+import Screen from './screen';
 import Header from './header/Header';
 import Nav from './header/Nav';
 import ReactToPrint, { PrintContextConsumer } from 'react-to-print';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDownload } from '@fortawesome/free-solid-svg-icons';
 import useIntersectionObserver from '../hooks/useIntersectionObserver';
-import Tools from './fill-details/Tools';
+import Tools from './edit/Tools';
 
 const Home: React.FC = () => {
   const { spellCheck, screen } = useAppSelector(({ ui }) => ui);

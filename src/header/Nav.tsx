@@ -17,15 +17,17 @@ import { ReactElement, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../store/store';
 import { setScreen } from '../../store/ui';
 import Modal from '../modal/Modal';
-import SaveOnline from '../save-online/SaveOnline';
+import SaveOnline from '../save-online';
 import Layout from '../layout';
-import Styles from '../styling/Styles';
+import Styles from '../styling';
 
 const Nav = () => {
   const [showThemes, setShowThemes] = useState(false);
   const dispatch = useAppDispatch();
   const [modal, setModal] = useState<ReactElement | false>(false);
   const { screen, theme } = useAppSelector(({ ui }) => ui);
+  const [layout, setLayout] = useState(false);
+
   return (
     <div className='flex space-x-6'>
       <div className='text-black flex'>
@@ -62,7 +64,10 @@ const Nav = () => {
       <button
         className='btn'
         disabled={screen !== 'resume' && screen !== 'edit'}
-        onClick={() => setModal(<Layout />)}
+        onClick={() => {
+          setModal(<Layout />);
+          setLayout(true);
+        }}
       >
         <FontAwesomeIcon
           icon={faGear}
@@ -72,13 +77,12 @@ const Nav = () => {
         />
         Layout
       </button>
-      <button className='btn'>
+      <button className='btn' onClick={() => setModal(<Styles />)}>
         <FontAwesomeIcon
           icon={faPaintRoller}
           width={18}
           height={18}
           className='mr-2'
-          onClick={() => setModal(<Styles />)}
         />
         Styling
       </button>
@@ -119,7 +123,15 @@ const Nav = () => {
         />
         Save Online
       </button>
-      {modal && <Modal setModal={setModal} modal={modal} />}
+      {modal && (
+        <Modal
+          exitButton={!layout}
+          extraFunction={() => setLayout(false)}
+          position={layout ? 'left' : 'center'}
+          setModal={setModal}
+          modal={modal}
+        />
+      )}
       {!showThemes && (
         <>
           <button disabled={screen !== 'edit'} className='rounded-btn-10'>

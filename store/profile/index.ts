@@ -1,9 +1,20 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { ProfileState } from '../../../vite-env';
+import { ProfileState } from '../../vite-env';
 
 const profileSlice = createSlice({
   name: 'profile',
-  initialState: {} as ProfileState,
+  initialState: {
+    socials: {
+      connect: '',
+      email: '',
+      github: '',
+      linkedin: '',
+      medium: '',
+      phone :'',
+      reddit: '',
+      stackoverflow: ''
+    }
+  } as ProfileState,
   reducers: {
     setProfilePic: (state: ProfileState, action: PayloadAction<string>) => {
       state.profilePic = action.payload;
@@ -15,25 +26,25 @@ const profileSlice = createSlice({
       state.intro = action.payload;
     },
     setGithub: (state: ProfileState, action: PayloadAction<string>) => {
-      state.socials.github = `https://github.com/${action.payload}`;
+      state.socials.github = action.payload;
     },
     setEmail: (state: ProfileState, action: PayloadAction<string>) => {
       state.socials.email = action.payload;
     },
     setStackOverflow: (state: ProfileState, action: PayloadAction<string>) => {
-      state.socials.stackoverflow = `https://stackoverflow.com/users/${action.payload}`;
+      state.socials.stackoverflow = action.payload;
     },
     setLinkedin: (state: ProfileState, action: PayloadAction<string>) => {
-      state.socials.linkedin = `https://linkedin.com/in/${action.payload}`;
+      state.socials.linkedin = action.payload;
     },
     setPhone: (state: ProfileState, action: PayloadAction<string>) => {
       state.socials.phone = action.payload;
     },
     setReddit: (state: ProfileState, action: PayloadAction<string>) => {
-      state.socials.reddit = `https://reddit.com/user/${action.payload}`;
+      state.socials.reddit = action.payload;
     },
     setMedium: (state: ProfileState, action: PayloadAction<string>) => {
-      state.socials.medium = `https://medium.com/@${action.payload}`;
+      state.socials.medium = action.payload;
     },
     setConnect: (state: ProfileState, action: PayloadAction<string>) => {
       state.socials.connect = action.payload;

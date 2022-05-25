@@ -1,8 +1,8 @@
 import { forwardRef } from 'react';
 import { useAppSelector } from '../../store/store';
-import FillDetails from '../fill-details';
-import Layout from '../../templates/Templates';
-import Resume from '.';
+import Edit from './Edit';
+import Resume from './Resume';
+import Templates from './Templates';
 
 const Screen = forwardRef<HTMLDivElement>((props, ref) => {
   const [screen, { ...resume }] = useAppSelector(({ ui, resume }) => [
@@ -12,9 +12,9 @@ const Screen = forwardRef<HTMLDivElement>((props, ref) => {
   return (
     <div ref={ref} className='w-[1200px] min-h-[1682px] bg-white'>
       {screen === 'edit' ? (
-        <FillDetails />
+        <Edit />
       ) : screen === 'templates' ? (
-        <Layout />
+        <Templates />
       ) : (
         <>
           {Object.keys(resume).some((el) => {

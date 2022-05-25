@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { AllActions, EditorState } from '../../../vite-env';
+import { AllActions, EditorState } from '../../vite-env';
 
 const editorSlice = createSlice({
   name: 'editor',

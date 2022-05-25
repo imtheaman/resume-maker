@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { MediumDetailState } from '../../../../vite-env';
+import { MediumDetailState } from '../../../vite-env';
 import {
   Fcreate,
   Fdelete,

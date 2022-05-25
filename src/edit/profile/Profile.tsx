@@ -9,12 +9,12 @@ import Skewed from '../../customs/Skewed.polymorphic';
 
 const Profile = () => {
   const [modal, setModal] = useState<ReactElement | false>(false);
-  const theme = useAppSelector(({ ui }) => ui.theme);
   const dispatch = useAppDispatch();
   const { profilePic, name, intro, socials } = useAppSelector(
     ({ profile }) => profile
   );
   const capitalize = (value: string) => {
+    if (!value) return;
     const words = value.trim().split(' ');
     const capitalized: string[] = [];
     words.forEach((el) => {
