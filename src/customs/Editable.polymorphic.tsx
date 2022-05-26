@@ -1,5 +1,6 @@
 import { ElementType } from 'react';
-import parse from 'html-react-parser'
+import parse from 'html-react-parser';
+import { useAppSelector } from '../../store/store';
 
 const Editable: React.FC<{
   as: ElementType;
@@ -16,11 +17,11 @@ const Editable: React.FC<{
   onKeyDownCapture,
   ...otherProps
 }) => {
-  if (!content) content = ''
-  console.log(content)
+  if (!content) content = '';
+  const screen = useAppSelector(({ ui }) => ui.screen);
   return (
     <As
-      contentEditable
+      contentEditable={screen === 'edit'}
       className={`content-editable ${className && className}`}
       placeholder={placeholder}
       suppressContentEditableWarning

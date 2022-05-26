@@ -15,9 +15,10 @@ const SectionHeading: React.FC<Props> = ({
   className
 }) => {
   const dispatch = useAppDispatch();
-  const { heading, beingUsed } = useAppSelector(
-    ({ resume }) => resume[section]
-  );
+  const [{ heading, beingUsed }, screen] = useAppSelector(({ resume, ui }) => [
+    resume[section],
+    ui.screen
+  ]);
   // @ts-ignore
   const { setHeading, setBeingUsed } = useSection(section);
 
@@ -34,10 +35,12 @@ const SectionHeading: React.FC<Props> = ({
         content={heading}
         onBlur={(e: BlurEvent) => dispatch(setHeading(e.target.innerText))}
       />
-      <SwitchCheckbox
-        defaultChecked={beingUsed}
-        onChange={() => dispatch(setBeingUsed(!beingUsed))}
-      />
+      {screen === 'edit' && (
+        <SwitchCheckbox
+          defaultChecked={beingUsed}
+          onChange={() => dispatch(setBeingUsed(!beingUsed))}
+        />
+      )}
     </div>
   );
 };

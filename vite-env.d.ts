@@ -30,8 +30,8 @@ export type LongSection =
   | 'educations'
   | 'volunteers'
   | 'organizations';
-type BlurEvent = FocusEvent<HTMLInputElement>;
-type AllActions = LongSection | MediumSection | ShortSection;
+export type BlurEvent = FocusEvent<HTMLInputElement>;
+export type AllActions = LongSection | MediumSection | ShortSection;
 // type Sections = UnionToArray<AllActions>
 
 interface Desc {

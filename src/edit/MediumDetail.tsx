@@ -3,6 +3,7 @@ import { BlurEvent, MediumSection } from '../../vite-env';
 import Editable from '../customs/Editable.polymorphic';
 import { setFocused } from '../../store/editor';
 import useSection from '../../hooks/useSection';
+import { HandleContentstyle } from './list-style';
 
 interface Props {
   id: string;
@@ -21,15 +22,12 @@ const MediumDetail: React.FC<Props> = ({ id, section, placeholder }) => {
   //@ts-ignore
   const { setWhen, setPrimary, setDesc } = useSection(section);
 
-  const HandleContentstyle = (): string => {
-    return contentStyle.includes('border')
-      ? 'before:mt-2'
-      : contentStyle.startsWith('list-style')
-      ? 'before:mt-[0.65rem]'
-      : '';
-  };
   return (
-    <div className={`flex items-start ${HandleContentstyle()} ${contentStyle}`}>
+    <div
+      className={`flex items-start ${HandleContentstyle(
+        contentStyle
+      )} ${contentStyle}`}
+    >
       <div
         className='space-y-3'
         onFocus={() => dispatch(setFocused({ id, section }))}

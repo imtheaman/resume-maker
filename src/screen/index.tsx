@@ -17,11 +17,9 @@ const Screen = forwardRef<HTMLDivElement>((props, ref) => {
         <Templates />
       ) : (
         <>
-          {Object.keys(resume).some((el) => {
-            // @ts-ignore
-            return resume[el].beingUsed;
-          }) ? (
-            <Resume />
+          {/* @ts-ignore */}
+          {Object.keys(resume).some((el) => resume[el].beingUsed) ? (
+            <Edit />
           ) : (
             <div className='flex flex-col justify-center items-center pt-20'>
               <p className='text-2xl font-thin'>

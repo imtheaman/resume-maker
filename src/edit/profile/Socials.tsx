@@ -6,8 +6,8 @@ import {
   faStackOverflow
 } from '@fortawesome/free-brands-svg-icons';
 import {
-  faAt,
   faC,
+  faEnvelope,
   faMobileScreenButton
 } from '@fortawesome/free-solid-svg-icons';
 import {
@@ -64,7 +64,7 @@ const Socials = () => {
           dispatchEvent={setConnect}
         />
         <SocialItem
-          icon={faAt}
+          icon={faEnvelope}
           placeholder='Email'
           social='email'
           dispatchEvent={setEmail}

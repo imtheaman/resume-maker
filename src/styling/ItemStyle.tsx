@@ -12,7 +12,7 @@ const ItemStyle: React.FC<{
   const styleValue = useAppSelector(({ styles }) => styles[style]);
   const dispatch = useAppDispatch();
   const HandleEmoji = (e: ChangeEvent<HTMLInputElement>) =>
-    dispatch(setStyle(`before:['${e.target.value}']`));
+    dispatch(setStyle(`${'before:' + e.target.value}`));
   return (
     <>
       <div className='max-w-xl w-full flex items-center pb-6 border-b justify-between'>
@@ -78,7 +78,7 @@ const ItemStyle: React.FC<{
             type='text'
             placeholder='custom emoji'
             // before:content-["💯"]
-            defaultValue={
+            value={
               styleValue && styleValue.startsWith('before:')
                 ? styleValue.slice(17, -2)
                 : ''

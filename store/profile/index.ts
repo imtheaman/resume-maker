@@ -13,7 +13,10 @@ const profileSlice = createSlice({
       phone :'',
       reddit: '',
       stackoverflow: ''
-    }
+    }, 
+    intro: '',
+    name: '',
+    profilePic: ''
   } as ProfileState,
   reducers: {
     setProfilePic: (state: ProfileState, action: PayloadAction<string>) => {

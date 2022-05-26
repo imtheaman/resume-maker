@@ -4,6 +4,7 @@ import { BlurEvent, LongSection } from '../../vite-env';
 import Editable from '../customs/Editable.polymorphic';
 import { setFocused } from '../../store/editor';
 import useSection from '../../hooks/useSection';
+import { HandleContentstyle } from './list-style';
 
 interface Props {
   id: string;
@@ -33,15 +34,8 @@ const LongDetail: React.FC<Props> = ({
       styles.contentStyle
     ]);
 
-  const HandleContentstyle = (): string => {
-    return contentStyle.includes('border')
-      ? 'before:mt-2'
-      : contentStyle.startsWith('list-style')
-      ? 'before:mt-[0.65rem]'
-      : '';
-  };
   return (
-    <div className={`flex items-start ${HandleContentstyle()} ${contentStyle}`}>
+    <div className={`flex items-start ${HandleContentstyle(contentStyle)}`}>
       <div
         className='space-y-3'
         data-id={id}

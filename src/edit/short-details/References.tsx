@@ -4,6 +4,7 @@ import Editable from '../../customs/Editable.polymorphic';
 import SectionHeading from '../SectionHeading';
 import references from '../../../store/resume/short-details/references';
 import { setFocused } from '../../../store/editor';
+import { HandleContentstyle } from '../list-style';
 
 const References: React.FC = () => {
   const [{ order, data }, contentStyle] = useAppSelector(
@@ -19,7 +20,7 @@ const References: React.FC = () => {
         section='references'
       />
       {order.map((id) => (
-        <div className={`flex items-start ${contentStyle}`}>
+        <div className={`flex items-start ${HandleContentstyle(contentStyle)}`}>
           <div
             className='space-y-3'
             key={id}

@@ -1,7 +1,7 @@
-const Resume = () => {
-  return (
-    <div>Resume</div>
-  )
-}
+import Template1 from '../templates/template 1';
 
-export default Resume
+const Resume = () => {
+  return <Template1 />;
+};
+
+export default Resume;
