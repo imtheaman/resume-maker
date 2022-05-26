@@ -22,7 +22,7 @@ const FillDetails = () => {
         {screen === 'edit' ? <ProfileEdit /> : <Profile />}
         {screen === 'resume' && <Social />}
       </div>
-      <div className='grid py-8 px-14 grid-cols-2 gap-x-12 gap-y-8'>
+      <div id='resume' className='grid py-8 px-14 border-t grid-cols-2 gap-x-12 gap-y-8'>
         <>
           {layout
             .filter((el) =>
