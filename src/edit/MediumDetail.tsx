@@ -29,7 +29,7 @@ const MediumDetail: React.FC<Props> = ({ id, section, placeholder }) => {
       )} ${contentStyle}`}
     >
       <div
-        className='space-y-3'
+        className='space-y-3 w-full'
         onFocus={() => dispatch(setFocused({ id, section }))}
       >
         <Editable
@@ -45,12 +45,12 @@ const MediumDetail: React.FC<Props> = ({ id, section, placeholder }) => {
           <label htmlFor='when' className='desc-heading'>
             {placeholder.desc} -
           </label>
-          <input
-            type='text'
-            name='when'
-            value={when}
-            className='ml-3 date border-b text-gray-700'
-            onChange={(e: BlurEvent) =>
+          <Editable
+            as='div'
+            content={when}
+            placeholder='DD-MM-YYYY'
+            className='ml-2 min-w-[7rem] focus:border-b text-gray-700'
+            onBlur={(e: BlurEvent) =>
               dispatch(setWhen({ id, content: e.target.value }))
             }
           />
@@ -59,7 +59,7 @@ const MediumDetail: React.FC<Props> = ({ id, section, placeholder }) => {
           <Editable
             as='p'
             content={description}
-            className='desc-content'
+            className='desc-content leading-3'
             onBlur={(e: BlurEvent) =>
               dispatch(setDesc({ id, content: e.target.innerText }))
             }

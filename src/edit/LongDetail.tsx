@@ -37,7 +37,7 @@ const LongDetail: React.FC<Props> = ({
   return (
     <div className={`flex items-start ${HandleContentstyle(contentStyle)}`}>
       <div
-        className='space-y-3'
+        className='space-y-3 w-full'
         data-id={id}
         onFocus={() => dispatch(setFocused({ id, section }))}
       >

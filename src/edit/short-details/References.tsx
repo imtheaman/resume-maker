@@ -13,7 +13,7 @@ const References: React.FC = () => {
   const { setType, setValue } = references;
   const dispatch = useAppDispatch();
   return (
-    <div className='space-y-4'>
+    <div>
       <SectionHeading
         className='mb-4'
         placeholder='References'

@@ -13,7 +13,7 @@ const FillDetails = () => {
   ]);
   return (
     <>
-      <div className={`${screen === 'edit' && 'py-8 px-14'}`}>
+      <div className={`${screen === 'edit' && 'py-8 px-16'}`}>
         {screen === 'edit' && (
           <h1 className='text-2xl mb-5 font-thin capitalize text-center'>
             <Skewed as='span' content='Your resume details' />

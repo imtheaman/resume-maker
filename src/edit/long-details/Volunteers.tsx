@@ -6,7 +6,7 @@ import SectionHeading from '../SectionHeading';
 const Volunteer: React.FC = () => {
   const order = useAppSelector(({ resume }) => resume.volunteers.order);
   return (
-    <div className='space-y-8'>
+    <div>
       <SectionHeading placeholder='VOLUNTEER' section='volunteers' />
       {order.map((id) => (
         <LongDetail
@@ -17,7 +17,7 @@ const Volunteer: React.FC = () => {
           placeholder={{
             primary: 'Title/Position',
             secondary: 'Organization Name',
-            desc: 'Tasks',
+            desc: 'Tasks'
           }}
         />
       ))}

@@ -25,22 +25,22 @@ const Social = () => {
     stackoverflow
   } = useAppSelector(({ profile }) => profile.socials);
   return (
-    <div className='px-12 py-6 grid grid-cols-4 border-b gap-y-6 text-xl'>
+    <div className='px-16 py-6 grid grid-cols-4 gap-y-6 text-lg'>
       {email && (
         <div className='flex items-center '>
-          <FontAwesomeIcon className='w-6 h-6 mr-2' icon={faEnvelope} />
+          <FontAwesomeIcon className='w-5 h-5 mr-2' icon={faEnvelope} />
           <a href={`mailto:${email}`}>{email}</a>
         </div>
       )}
       {github && (
         <div className='flex items-center '>
-          <FontAwesomeIcon className='w-6 h-6 mr-2' icon={faGithub} />
+          <FontAwesomeIcon className='w-5 h-5 mr-2' icon={faGithub} />
           <a href={`https://github.com/${github}`}>{github}</a>
         </div>
       )}
       {linkedin && (
         <div className='flex items-center '>
-          <FontAwesomeIcon className='w-6 h-6 mr-2' icon={faLinkedin} />
+          <FontAwesomeIcon className='w-5 h-5 mr-2' icon={faLinkedin} />
           <a href={`https://linkedin.com/in/${linkedin}`}>
             {linkedin ? linkedin : 'linkedin'}
           </a>
@@ -48,7 +48,7 @@ const Social = () => {
       )}
       {stackoverflow && (
         <div className='flex items-center '>
-          <FontAwesomeIcon className='w-6 h-6 mr-2' icon={faStackOverflow} />
+          <FontAwesomeIcon className='w-5 h-5 mr-2' icon={faStackOverflow} />
           <a href={`https://stackoverflow.com/${stackoverflow}`}>
             {stackoverflow ? stackoverflow : 'stackoverflow'}
           </a>
@@ -56,7 +56,7 @@ const Social = () => {
       )}
       {medium && (
         <div className='flex items-center '>
-          <FontAwesomeIcon className='w-6 h-6 mr-2' icon={faMedium} />
+          <FontAwesomeIcon className='w-5 h-5 mr-2' icon={faMedium} />
           <a href={`https://medium.com/@${medium}`}>
             {medium ? medium : 'medium'}
           </a>
@@ -64,7 +64,7 @@ const Social = () => {
       )}
       {reddit && (
         <div className='flex items-center '>
-          <FontAwesomeIcon className='w-6 h-6 mr-2' icon={faReddit} />
+          <FontAwesomeIcon className='w-5 h-5 mr-2' icon={faReddit} />
           <a href={`https://reddit.com/user/${reddit}`}>
             {reddit ? reddit : 'reddit'}
           </a>
@@ -72,7 +72,7 @@ const Social = () => {
       )}
       {connect && (
         <div className='flex items-center '>
-          <FontAwesomeIcon className='w-6 h-6 mr-2' icon={faC} />
+          <FontAwesomeIcon className='w-5 h-5 mr-2' icon={faC} />
           <a href={`https://connect-urtheaman.vercel.app/${connect}`}>
             {connect ? connect : 'connect'}
           </a>
@@ -81,7 +81,7 @@ const Social = () => {
       {phone && (
         <div className='flex items-center '>
           <FontAwesomeIcon
-            className='w-6 h-6 mr-2'
+            className='w-5 h-5 mr-2'
             icon={faMobileScreenButton}
           />
           <a href={`tel:${phone}`}>{phone ? phone : 'phone'}</a>

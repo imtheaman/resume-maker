@@ -31,18 +31,17 @@ const FromToLocation: React.FC<Props> = ({ id, section }) => {
   return (
     <>
       <div className='flex justify-between whitespace-nowrap items-center '>
-        <div className='flex items-center '>
+        <div className='flex items-center'>
           <label htmlFor='from' className='desc-heading'>
             From -
           </label>
-          <input
-            type='text'
-            name='from'
-            className='date'
+          <Editable
+            as='div'
+            className='min-w-[7rem] focus:border-b text-gray-700 ml-2'
             placeholder='DD-MM-YYYY'
-            value={from}
-            onChange={(e: BlurEvent) =>
-              dispatch(setFrom({ id, content: e.target.value }))
+            content={from}
+            onBlur={(e: BlurEvent) =>
+              dispatch(setFrom({ id, content: e.target.innerText }))
             }
           />
         </div>
@@ -50,12 +49,11 @@ const FromToLocation: React.FC<Props> = ({ id, section }) => {
           <label htmlFor='to' className='desc-heading'>
             To -
           </label>
-          <input
-            type='text'
-            name='to'
-            value={to}
+          <Editable
+            as='div'
+            content={to}
             placeholder='DD-MM-YYYY'
-            className='date'
+            className={`min-w-[7rem] focus:border-b text-gray-700 ml-2`}
             onChange={(e: BlurEvent) =>
               dispatch(setTo({ id, content: e.target.value }))
             }

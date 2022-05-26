@@ -9,6 +9,9 @@
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
       Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   }
+  #resume > div {
+      @apply space-y-4 overflow-hidden;
+  }
   [placeholder]:empty::before {
     content: attr(placeholder);
     color: rgb(156 163 175);
@@ -67,7 +70,7 @@
     @apply outline-none font-semibold empty:border-b focus:border-b text-xl text-gray-800;
   }
   .input-secondary {
-    @apply outline-none empty:border-b empty:pb-2 leading-3 focus:border-b focus:pb-2 text-xl text-gray-600;
+    @apply outline-none empty:border-b empty:pb-2 leading-4 focus:border-b focus:pb-2 text-xl text-gray-600;
   }
   .input-tertiary {
     @apply outline-none empty:border-b focus:border-b text-lg text-gray-700;
@@ -85,7 +88,7 @@
     @apply ml-3 text-gray-700 outline-none border-none;
   }
   .desc-heading {
-    @apply italic text-gray-500 self-start;
+    @apply italic text-gray-500 self-start focus:border-b;
   }
   .desc-content {
     @apply text-gray-700 w-full border-dashed empty:border-b;

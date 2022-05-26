@@ -6,7 +6,7 @@ import SectionHeading from '../SectionHeading';
 const Education: React.FC = () => {
   const order = useAppSelector(({ resume }) => resume.educations.order);
   return (
-    <div className='space-y-8'>
+    <div>
       <SectionHeading placeholder='EDUCATION' section='educations' />
       {order.map((id) => (
         <LongDetail

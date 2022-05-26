@@ -7,6 +7,8 @@ import {
   StringValueAction,
 } from '../../../vite-env';
 import { v4 as uuid } from 'uuid';
+import { useDispatch } from 'react-redux';
+import { setFocused } from '../../editor';
 export const FsetOrderDown = (
   state: any,
   action: PayloadAction<{ id: string }>
@@ -130,6 +132,7 @@ export const Fcreate = (
     const id = uuid();
     if (action.payload.descId) {
       state.data[action.payload.id].description.contents[id] = '';
+      // todo : focus the newly created element
     } else {
       state.order.push(id);
       state.data[id] = init_value;

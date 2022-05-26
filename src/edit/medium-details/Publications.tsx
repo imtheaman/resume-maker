@@ -5,7 +5,7 @@ import SectionHeading from '../SectionHeading';
 const Publications: React.FC = () => {
   const order = useAppSelector(({ resume }) => resume.publications.order);
   return (
-    <div className='space-y-8'>
+    <div>
       <SectionHeading placeholder='PUBLICATIONS' section='publications' />
       {order.map((id: string) => (
         <MediumDetail

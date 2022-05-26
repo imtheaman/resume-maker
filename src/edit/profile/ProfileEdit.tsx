@@ -27,10 +27,10 @@ const ProfileEdit = () => {
       <div className='relative rounded-full'>
         <img
           src={profilePic}
-          alt='image invalid, reupload'
+          alt='image invalidated, reupload'
           className={`absolute ${
             !profilePic && 'bg-gray-100'
-          } z-0 top-0 w-36 h-36 object-cover rounded-full`}
+          } z-0 top-0 w-36 h-36 object-cover border rounded-full`}
         />
         {!profilePic && (
           <span className='absolute top-1/2 -translate-y-1/2 left-11'>
