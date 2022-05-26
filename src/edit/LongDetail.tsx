@@ -32,10 +32,18 @@ const LongDetail: React.FC<Props> = ({
       styles.listStyle,
       styles.contentStyle
     ]);
+
+  const HandleContentstyle = (): string => {
+    return contentStyle.includes('border')
+      ? 'before:mt-2'
+      : contentStyle.startsWith('list-style')
+      ? 'before:mt-[0.65rem]'
+      : '';
+  };
   return (
-    <div className={`flex items-start before:mt-2 ${contentStyle}`}>
+    <div className={`flex items-start ${HandleContentstyle()} ${contentStyle}`}>
       <div
-        className='space-y-4'
+        className='space-y-3'
         data-id={id}
         onFocus={() => dispatch(setFocused({ id, section }))}
       >

@@ -67,7 +67,7 @@
     @apply outline-none font-semibold empty:border-b focus:border-b text-xl text-gray-800;
   }
   .input-secondary {
-    @apply outline-none empty:border-b focus:border-b text-xl text-gray-600;
+    @apply outline-none empty:border-b empty:pb-2 leading-3 focus:border-b focus:pb-2 text-xl text-gray-600;
   }
   .input-tertiary {
     @apply outline-none empty:border-b focus:border-b text-lg text-gray-700;
@@ -82,7 +82,7 @@
     @apply outline-none empty:border-b focus:border-b text-xs text-gray-500;
   }
   .date {
-    @apply outline-none;
+    @apply ml-3 text-gray-700 outline-none border-none;
   }
   .desc-heading {
     @apply italic text-gray-500 self-start;
@@ -123,7 +123,7 @@
     @apply flex items-center content-[''] mr-2 bg-black p-1;
   }
   .list-style-dash::before {
-    @apply flex items-center content-['']
+    @apply flex mt-2 items-center content-['']
   }
   .custom-list-style-arrow::before {
     @apply content-["»"] flex items-center mr-2;

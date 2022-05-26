@@ -7,8 +7,13 @@ import useSection from '../../hooks/useSection';
 interface Props {
   section: AllActions;
   placeholder: string;
+  className?: string;
 }
-const SectionHeading: React.FC<Props> = ({ section, placeholder }) => {
+const SectionHeading: React.FC<Props> = ({
+  section,
+  placeholder,
+  className
+}) => {
   const dispatch = useAppDispatch();
   const { heading, beingUsed } = useAppSelector(
     ({ resume }) => resume[section]
@@ -17,7 +22,11 @@ const SectionHeading: React.FC<Props> = ({ section, placeholder }) => {
   const { setHeading, setBeingUsed } = useSection(section);
 
   return (
-    <div className='flex justify-between items-center'>
+    <div
+      className={`flex justify-between items-center first-letter ${
+        className && className
+      }`}
+    >
       <Editable
         placeholder={placeholder}
         as='h2'

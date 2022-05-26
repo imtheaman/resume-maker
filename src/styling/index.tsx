@@ -34,12 +34,12 @@ const Styles = () => {
         <ItemStyle
           setStyle={setContentStyle}
           style='contentStyle'
-          styleType='Heading Style'
+          styleType='Content List Style'
         />
         <ItemStyle
           style='listStyle'
           setStyle={setListStyle}
-          styleType='List Style'
+          styleType='Desc List Style'
         />
       </div>
     </div>

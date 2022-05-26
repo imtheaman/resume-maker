@@ -30,15 +30,16 @@ const FromToLocation: React.FC<Props> = ({ id, section }) => {
 
   return (
     <>
-      <div className='flex justify-between whitespace-nowrap items-center'>
-        <div className='flex items-center'>
+      <div className='flex justify-between whitespace-nowrap items-center '>
+        <div className='flex items-center '>
           <label htmlFor='from' className='desc-heading'>
             From -
           </label>
           <input
             type='text'
             name='from'
-            className='ml-3 date border-b'
+            className='date'
+            placeholder='DD-MM-YYYY'
             value={from}
             onChange={(e: BlurEvent) =>
               dispatch(setFrom({ id, content: e.target.value }))
@@ -46,12 +47,15 @@ const FromToLocation: React.FC<Props> = ({ id, section }) => {
           />
         </div>
         <div className='flex items-center'>
-          <label htmlFor='to' className='desc-heading'>To -</label>
+          <label htmlFor='to' className='desc-heading'>
+            To -
+          </label>
           <input
             type='text'
             name='to'
             value={to}
-            className='ml-3 date border-b'
+            placeholder='DD-MM-YYYY'
+            className='date'
             onChange={(e: BlurEvent) =>
               dispatch(setTo({ id, content: e.target.value }))
             }
@@ -59,10 +63,10 @@ const FromToLocation: React.FC<Props> = ({ id, section }) => {
         </div>
       </div>
       {typeof location === 'string' && (
-        <div className='flex justify-between'>
+        <div className='flex justify-between leading-3'>
           <span className='desc-heading'>Location - </span>
           <Editable
-            className='flex-grow ml-4 empty:border-b'
+            className='flex-grow ml-4 empty:pb-1 focus:pb-1 text-gray-700 empty:border-b'
             as='div'
             placeholder='Location'
             content={location}

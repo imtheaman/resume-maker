@@ -3,7 +3,10 @@ import SectionHeading from '../SectionHeading';
 import ShortDetail from '../ShortDetail';
 
 const Interests: React.FC = () => {
-  const order = useAppSelector(({ resume }) => resume.interests.order);
+  const [order, style] = useAppSelector(({ resume, styles }) => [
+    resume.interests.order,
+    styles.interestStyle
+  ]);
   return (
     <div>
       <SectionHeading placeholder='INTERESTS' section='interests' />
@@ -11,7 +14,7 @@ const Interests: React.FC = () => {
         {order.map((id) => (
           <ShortDetail
             key={id}
-            style={'short-section-border'}
+            style={style}
             placeholder='interest'
             section='interests'
             id={id}

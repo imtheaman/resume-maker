@@ -3,13 +3,13 @@ import SectionHeading from '../SectionHeading';
 import ShortDetail from '../ShortDetail';
 
 const Languages: React.FC = () => {
-  const order = useAppSelector(({ resume }) => resume.languages.order);
+  const [order, style] = useAppSelector(({ resume, styles }) => [resume.languages.order, styles.languageStyle]);
   return (
     <div>
       <SectionHeading placeholder='LANGUAGES' section='languages' />
       {order.map((id) => (
         <ShortDetail
-          style={'short-section-fill-dark'}
+          style={style}
           key={id}
           placeholder='language'
           section='languages'

@@ -32,7 +32,7 @@ export type LongSection =
   | 'organizations';
 type BlurEvent = FocusEvent<HTMLInputElement>;
 type AllActions = LongSection | MediumSection | ShortSection;
-// type Sections = UnionToArray<AllActions>;
+// type Sections = UnionToArray<AllActions>
 
 interface Desc {
   heading?: string;
