@@ -105,13 +105,7 @@
   .short-section-fill-light {
     @apply short-section bg-gray-200 text-black;
   }
-  /* * content style * */
-  .content-style-square-border::before {
-    @apply flex flex-start content-[''] border-[2.4px] mt-2 mr-2 bg-black outline-black outline outline-2 border-white p-1;
-  }
-  .content-style-circle-border::before {
-    @apply flex flex-start content-[''] border-[2.4px] rounded-full mt-2 mr-2 bg-black outline-black outline outline-1 border-white p-1;
-  }
+
   .layout-item {
     @apply text-white text-xl capitalize py-4 cursor-grab select-none overflow-hidden font-semibold flex items-center justify-center rounded-xl;
   }

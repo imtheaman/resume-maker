@@ -54,9 +54,9 @@ interface DescContentAction {
 }
 // <actions />
 
-type FontFamily = 'default' | 'raleway' | 'open sans' | 'inter' | 'ubuntu';
+type FontFamily = 'default' | 'raleway' | 'open sans' | 'inter' | 'ubuntu'|'fira sans'|'roboto';
 type Screen = 'resume' | 'templates' | 'edit';
-type FontSize = 'medium' | 'small' | 'large';
+type FontSize = 'regular' | 'medium' | 'small' | 'large';
 
 interface Ui {
   theme: string;

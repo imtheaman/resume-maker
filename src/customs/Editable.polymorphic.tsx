@@ -1,4 +1,4 @@
-import { ElementType, ReactNode } from 'react';
+import { ElementType } from 'react';
 import parse from 'html-react-parser'
 
 const Editable: React.FC<{

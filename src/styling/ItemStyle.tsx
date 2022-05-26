@@ -11,9 +11,8 @@ const ItemStyle: React.FC<{
 }> = ({ styleType, setStyle, style }) => {
   const styleValue = useAppSelector(({ styles }) => styles[style]);
   const dispatch = useAppDispatch();
-  const HandleEmoji = (e: ChangeEvent<HTMLInputElement>) => {
-    e.target.value;
-  };
+  const HandleEmoji = (e: ChangeEvent<HTMLInputElement>) =>
+    dispatch(setStyle(`before:['${e.target.value}']`));
   return (
     <>
       <div className='max-w-xl w-full flex items-center pb-6 border-b justify-between'>
@@ -22,7 +21,7 @@ const ItemStyle: React.FC<{
           <div className=''>
             <li className='flex flex-col items-end list-style-square'></li>
             <input
-              name='list-style'
+              name={style}
               checked={styleValue === 'list-style-square'}
               type='radio'
               onChange={() => dispatch(setStyle('list-style-square'))}
@@ -31,42 +30,46 @@ const ItemStyle: React.FC<{
           <div>
             <li className='flex flex-col items-end list-style-square-border'></li>
             <input
-              name='list-style'
+              name={style}
               checked={styleValue === 'list-style-square-border'}
               type='radio'
-              onChange={(e) => console.log(e)}
+              onChange={() => dispatch(setStyle('list-style-square-border'))}
             />
           </div>
           <div>
             <li className='flex flex-col items-end list-style-circle'></li>
             <input
-              name='list-style'
+              name={style}
               checked={styleValue === 'list-style-circle'}
               type='radio'
+              onChange={() => dispatch(setStyle('list-style-circle'))}
             />
           </div>
           <div>
             <li className='flex flex-col items-end list-style-circle-border'></li>
             <input
-              name='list-style'
+              name={style}
               checked={styleValue === 'list-style-circle-border'}
               type='radio'
+              onChange={() => dispatch(setStyle('list-style-circle-border'))}
             />
           </div>
           <div>
             <li className='flex flex-col items-end custom-list-style-arrow'></li>
             <input
-              name='list-style'
+              name={style}
               checked={styleValue === 'custom-list-style-arrow'}
               type='radio'
+              onChange={() => dispatch(setStyle('custom-list-style-arrow'))}
             />
           </div>
           <div>
             <li className='flex flex-col items-end  custom-list-style-dash'></li>
             <input
-              name='list-style'
+              name={style}
               checked={styleValue === 'custom-list-style-dash'}
               type='radio'
+              onChange={() => dispatch(setStyle('custom-list-style-dash'))}
             />
           </div>
         </ul>

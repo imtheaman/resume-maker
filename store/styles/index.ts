@@ -10,11 +10,11 @@ const stylesSlice = createSlice({
   name: 'styles',
   initialState: {
     interestStyle: 'short-section-border',
-    contentStyle: 'content-style-circle-border',
+    contentStyle: 'list-style-circle-border',
     languageStyle: 'short-section-fill-light',
     listStyle: 'list-style-circle',
     skillStyle: 'short-section-fill-dark',
-    fontSize: 'medium',
+    fontSize: 'regular',
     fontFamily: 'default',
     layout: [
       'experiences',

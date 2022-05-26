@@ -33,7 +33,7 @@ const LongDetail: React.FC<Props> = ({
       styles.contentStyle
     ]);
   return (
-    <div className={`flex items-start ${contentStyle}`}>
+    <div className={`flex items-start before:mt-2 ${contentStyle}`}>
       <div
         className='space-y-4'
         data-id={id}
@@ -63,7 +63,7 @@ const LongDetail: React.FC<Props> = ({
         <div className='flex flex-col space-y-2'>
           <Editable
             as='h4'
-            className='desc-heading'
+            className='desc-heading border-b'
             placeholder={placeholder.desc}
             content={description.heading}
             onBlur={(e: BlurEvent) =>
