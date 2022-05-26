@@ -13,6 +13,7 @@ const SectionHeading: React.FC<Props> = ({ section, placeholder }) => {
   const { heading, beingUsed } = useAppSelector(
     ({ resume }) => resume[section]
   );
+  // @ts-ignore
   const { setHeading, setBeingUsed } = useSection(section);
 
   return (

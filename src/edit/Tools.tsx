@@ -15,12 +15,12 @@ const Tools: React.FC = () => {
     editor.focused,
     ui.screen
   ]);
-  //@ts-ignore
-  const { createEl, deleteEl, setOrderUp, setOrderDown } = useSection(
-    //@ts-ignore
-    focused?.section
-  );
+  // @ts-ignore
+  const section = useSection(focused?.section);
+
   const managementHandler = (event: 'add' | 'up' | 'down' | 'delete') => {
+    // @ts-ignore
+    const { createEl, deleteEl, setOrderUp, setOrderDown } = section;
     switch (event) {
       case 'add':
         dispatch(createEl({ id: focused?.id!, descId: focused?.descId }));
@@ -44,7 +44,8 @@ const Tools: React.FC = () => {
           <div className='flex flex-col items-center space-y-8 skew-y-12'>
             <button
               className='rounded-btn-10'
-              disabled={!focused || !setOrderUp}
+              // @ts-ignore
+              disabled={!focused || !section.setOrderUp}
               onClick={() => managementHandler('up')}
             >
               <FontAwesomeIcon icon={faArrowUp} width={20} height={20} />
@@ -65,7 +66,8 @@ const Tools: React.FC = () => {
             </button>
             <button
               className='rounded-btn-10'
-              disabled={!focused || !setOrderDown}
+              // @ts-ignore
+              disabled={!focused || !section.setOrderDown}
               onClick={() => managementHandler('down')}
             >
               <FontAwesomeIcon icon={faArrowDown} width={20} height={20} />
