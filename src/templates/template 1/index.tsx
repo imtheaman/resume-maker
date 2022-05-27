@@ -7,33 +7,6 @@ import Profile from './profile';
 import Social from './social';
 
 const Template1 = () => {
-  const [
-    { intro, socials, name, profilePic },
-    {
-      achievements,
-      awards,
-      educations,
-      experiences,
-      interests,
-      languages,
-      organizations,
-      projects,
-      publications,
-      references,
-      skills,
-      volunteers
-    }
-  ] = useAppSelector(({ resume, profile }) => [profile, resume]);
-  const {
-    connect,
-    email,
-    github,
-    linkedin,
-    medium,
-    phone,
-    reddit,
-    stackoverflow
-  } = socials;
   return (
     <div>
       <Profile />
