@@ -3,7 +3,10 @@ import SectionHeading from '../SectionHeading';
 import ShortDetail from '../ShortDetail';
 
 const Skills: React.FC = () => {
-  const order = useAppSelector(({ resume }) => resume.skills.order);
+  const [order, style] = useAppSelector(({ resume, styles }) => [
+    resume.skills.order,
+    styles.skillStyle
+  ]);
   return (
     <div>
       <SectionHeading placeholder='SKILLS' section='skills' />
@@ -11,7 +14,7 @@ const Skills: React.FC = () => {
         {order.map((id) => (
           <ShortDetail
             key={id}
-            style={'short-section-fill-light'}
+            style={style}
             placeholder='skill'
             section='skills'
             id={id}
