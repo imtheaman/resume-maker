@@ -5,7 +5,7 @@ const profileSlice = createSlice({
   name: 'profile',
   initialState: {
     socials: {
-      connect: '',
+      portfolio: '',
       email: '',
       github: '',
       linkedin: '',
@@ -49,8 +49,8 @@ const profileSlice = createSlice({
     setMedium: (state: ProfileState, action: PayloadAction<string>) => {
       state.socials.medium = action.payload;
     },
-    setConnect: (state: ProfileState, action: PayloadAction<string>) => {
-      state.socials.connect = action.payload;
+    setPortfolio: (state: ProfileState, action: PayloadAction<string>) => {
+      state.socials.portfolio = action.payload;
     },
   },
 });
@@ -59,7 +59,7 @@ const { actions, reducer: profileReducer } = profileSlice;
 export const {
   setProfilePic,
   setName,
-  setConnect,
+  setPortfolio,
   setEmail,
   setGithub,
   setIntro,

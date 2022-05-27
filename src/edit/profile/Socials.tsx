@@ -6,17 +6,17 @@ import {
   faStackOverflow
 } from '@fortawesome/free-brands-svg-icons';
 import {
-  faC,
+  faArrowPointer,
   faEnvelope,
   faMobileScreenButton
 } from '@fortawesome/free-solid-svg-icons';
 import {
-  setConnect,
   setEmail,
   setGithub,
   setLinkedin,
   setMedium,
   setPhone,
+  setPortfolio,
   setReddit,
   setStackOverflow
 } from '../../../store/profile';
@@ -58,10 +58,10 @@ const Socials = () => {
           dispatchEvent={setMedium}
         />
         <SocialItem
-          icon={faC}
-          placeholder='Connect Username'
-          social='connect'
-          dispatchEvent={setConnect}
+          icon={faArrowPointer}
+          placeholder='Portfolio Link'
+          social='portfolio'
+          dispatchEvent={setPortfolio}
         />
         <SocialItem
           icon={faEnvelope}

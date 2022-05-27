@@ -3,7 +3,7 @@ import { useAppSelector } from '../../../../store/store';
 const Profile = () => {
   const { intro, name, profilePic } = useAppSelector(({ profile }) => profile);
   return (
-    <div className='flex items-center px-16 py-4 border-b'>
+    <div className='flex items-center px-16 py-10 border-b'>
       {profilePic ? (
         <img
           src={profilePic}
@@ -11,7 +11,7 @@ const Profile = () => {
           className='z-0 top-0 w-28 h-28 object-cover border rounded-full'
         />
       ) : null}
-      <div className='p-12'>
+      <div>
         <h1
           className={`${
             name ? 'text-gray-800' : 'text-gray-500'

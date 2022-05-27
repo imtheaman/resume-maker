@@ -130,7 +130,7 @@ interface ProfileState {
     stackoverflow: string
     medium: string
     reddit: string
-    connect: string;
+    portfolio: string;
     email: string;
     phone: string;
   };
