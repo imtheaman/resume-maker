@@ -6,11 +6,8 @@
     * your data is safe cuz it's encrypted.
 
 
-todo:
-
-    make bold/underline/link btns functional
-        * create it myself
-        * or use contenteditable library
+    todo:
+        * put switch on the layout
         * some optimizations
 
     make authentication functional and send and get data from api
