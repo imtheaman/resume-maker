@@ -30,7 +30,9 @@ const Social = () => {
       {portfolio && (
         <div className='flex items-center '>
           <FontAwesomeIcon className='w-5 h-5 mr-2' icon={faArrowPointer} />
-          <a href={portfolio}>{portfolio ? portfolio : 'connect'}</a>
+          <a href={portfolio}>
+            {portfolio.replace('https://', '').replace('http://', '')}
+          </a>
         </div>
       )}
       {email && (
