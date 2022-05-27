@@ -74,7 +74,7 @@ const LongDetail: React.FC<Props> = ({
           />
           {Object.entries(description.contents).map(([descId, el]) => (
             <div
-              className={`flex ${listStyle} items-center`}
+              className={`flex ${listStyle} items-start`}
               key={descId}
               onFocus={(e) => {
                 e.stopPropagation();
