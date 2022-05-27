@@ -22,15 +22,29 @@ const FillDetails = () => {
         {screen === 'edit' ? <ProfileEdit /> : <Profile />}
         {screen === 'resume' && <Social />}
       </div>
-      <div id='resume' className='grid py-8 px-14 border-t grid-cols-2 gap-x-12 gap-y-8'>
-        <>
-          {layout
-            .filter((el) =>
-              // @ts-ignore
-              screen === 'edit' ? true : resume[el].beingUsed
-            )
-            .map((el) => layoutElement(el))}
-        </>
+      <div className='grid grid-cols-2 border-t'>
+        <div id='resume' className='flex py-8 px-14 space-y-6 flex-col'>
+          <>
+            {layout
+              .slice(0, 5)
+              .filter((el) =>
+                // @ts-ignore
+                screen === 'edit' ? true : resume[el].beingUsed
+              )
+              .map((el) => layoutElement(el))}
+          </>
+        </div>
+        <div id='resume' className='flex py-8 px-14 space-y-6 flex-col'>
+          <>
+            {layout
+              .slice(5, -1)
+              .filter((el) =>
+                // @ts-ignore
+                screen === 'edit' ? true : resume[el].beingUsed
+              )
+              .map((el) => layoutElement(el))}
+          </>
+        </div>
       </div>
     </>
   );
