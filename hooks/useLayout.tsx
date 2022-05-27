@@ -13,29 +13,29 @@ import Skills from '../src/edit/short-details/Skills';
 
 const layoutElement = (el: string) => {
   return el === 'experiences' ? (
-    <Experience />
+    <Experience key='experiences' />
   ) : el === 'projects' ? (
-    <Projects />
+    <Projects key='projects' />
   ) : el === 'educations' ? (
-    <Education />
+    <Education key='educations' />
   ) : el === 'volunteers' ? (
-    <Volunteer />
+    <Volunteer key='volunteers' />
   ) : el === 'organizations' ? (
-    <Organization />
+    <Organization key='organizations' />
   ) : el === 'achievements' ? (
-    <Achievements />
+    <Achievements key='achievements' />
   ) : el === 'awards' ? (
-    <Awards />
+    <Awards key='awards' />
   ) : el === 'publications' ? (
-    <Publications />
+    <Publications key='publications' />
   ) : el === 'interests' ? (
-    <Interests />
+    <Interests key='interests' />
   ) : el === 'languages' ? (
-    <Languages />
+    <Languages key='languages' />
   ) : el === 'skills' ? (
-    <Skills />
+    <Skills key='skills' />
   ) : el === 'references' ? (
-    <References />
+    <References key='references' />
   ) : null;
 };
 

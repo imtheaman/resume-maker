@@ -20,7 +20,7 @@ const References: React.FC = () => {
         section='references'
       />
       {order.map((id) => (
-        <div className={`flex items-start ${HandleContentstyle(contentStyle)}`}>
+        <div key={id} className={`flex items-start ${HandleContentstyle(contentStyle)}`}>
           <div
             className='space-y-3'
             key={id}

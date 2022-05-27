@@ -55,7 +55,7 @@ const FromToLocation: React.FC<Props> = ({ id, section }) => {
             placeholder='DD-MM-YYYY'
             className={`min-w-[7rem] focus:border-b text-gray-700 ml-2`}
             onBlur={(e: BlurEvent) =>
-              dispatch(setTo({ id, content: e.target.value }))
+              dispatch(setTo({ id, content: e.target.innerText }))
             }
           />
         </div>
