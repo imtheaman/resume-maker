@@ -13,7 +13,7 @@ interface Props {
 
 const ShortDetail: React.FC<Props> = ({ id, section, style, placeholder }) => {
   //@ts-ignore
-  const { setType, setValue, create } = useSection(section);
+  const { setType, setValue, createEl } = useSection(section);
 
   const dispatch = useAppDispatch();
   const { type, value } = useAppSelector(
@@ -32,7 +32,7 @@ const ShortDetail: React.FC<Props> = ({ id, section, style, placeholder }) => {
         onKeyDownCapture={(e: any) => {
           if (e.key === 'Enter') {
             e.preventDefault();
-            dispatch(create());
+            dispatch(createEl({ id }));
           }
         }}
       />
