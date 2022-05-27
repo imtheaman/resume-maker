@@ -93,6 +93,9 @@
   .desc-content {
     @apply text-gray-700 w-full border-dashed empty:border-b;
   }
+  .desc-content a {
+    @apply text-blue-800 underline;
+  }
   .tiny-heading {
     @apply italic border-b self-start text-gray-600;
   }
