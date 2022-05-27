@@ -48,6 +48,9 @@
   .content-editable {
     @apply outline-none focus:border-b;
   }
+  .content-editable a {
+    @apply underline text-blue-800;
+  }
   .content-editable-dashed {
     @apply outline-none focus:border-b focus:border-dashed;
   }
@@ -92,9 +95,6 @@
   }
   .desc-content {
     @apply text-gray-700 w-full border-dashed empty:border-b;
-  }
-  .desc-content a {
-    @apply text-blue-800 underline;
   }
   .tiny-heading {
     @apply italic border-b self-start text-gray-600;
