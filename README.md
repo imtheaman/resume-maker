@@ -18,3 +18,6 @@
         * create delete/ endpoint
 
 | users can create their resume and download it, rest functionality i will implement when will get some time
+
+example - 
+<img src="./Aman's Resume.jpg"/>
