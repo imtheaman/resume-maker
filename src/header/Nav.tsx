@@ -17,7 +17,7 @@ import { ReactElement, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../store/store';
 import { setScreen } from '../../store/ui';
 import Modal from '../modal/Modal';
-import SaveOnline from '../save-online';
+import SaveOnline from '../auth';
 import Layout from '../layout';
 import Styles from '../styling';
 
