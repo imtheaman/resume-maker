@@ -29,3 +29,15 @@
 .modalBtn:hover {
   color: rgb(67, 67, 67);
 }
+
+.sideModal {
+  position: absolute;
+  background-color: white;
+  -webkit-box-shadow: 1px 6px 20px -14px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 1px 6px 20px -14px rgba(0, 0, 0, 0.75);
+  box-shadow: 1px 6px 20px -14px rgba(0, 0, 0, 0.75);
+  padding: 1rem;
+  top: 120%;
+  right: 0;
+  border-radius: 1rem;
+}

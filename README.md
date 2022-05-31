@@ -6,10 +6,6 @@
     * your data is safe cuz it's encrypted.
 
 
-    todo:
-        * put switch on the layout
-        * some optimizations
-
     make authentication functional and send and get data from api
         * create auth/check endpoint
         * create auth/create endpoint

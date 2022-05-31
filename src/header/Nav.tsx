@@ -20,6 +20,7 @@ import Modal from '../modal/Modal';
 import SaveOnline from '../auth';
 import Layout from '../layout';
 import Styles from '../styling';
+import SideModal from '../modal/SideModal';
 
 const Nav = () => {
   const [showThemes, setShowThemes] = useState(false);
@@ -27,6 +28,35 @@ const Nav = () => {
   const [modal, setModal] = useState<ReactElement | false>(false);
   const { screen, theme } = useAppSelector(({ ui }) => ui);
   const [layout, setLayout] = useState(false);
+  const [showSideModal, setShowSideModal] = useState(false);
+  const [linkText, setLinkText] = useState('');
+
+  const HandleTextStyle = (type: 'bold' | 'italic' | 'underline' | 'link') => {
+    const range = window.getSelection()?.getRangeAt(0);
+    const text = range?.extractContents();
+    if (!text) return;
+    switch (type) {
+      case 'bold':
+        const b = document.createElement('b');
+        b.appendChild(text);
+        range?.insertNode(b);
+        return;
+      case 'italic':
+        const i = document.createElement('i');
+        i.appendChild(text);
+        range?.insertNode(i);
+        return;
+      case 'underline':
+        const u = document.createElement('u');
+        u.appendChild(text);
+        u;
+        return;
+      case 'link':
+        setLinkText(text + '');
+    }
+  };
+
+  
 
   return (
     <div className='flex space-x-6'>
@@ -134,18 +164,57 @@ const Nav = () => {
       )}
       {!showThemes && (
         <>
-          <button disabled={screen !== 'edit'} className='rounded-btn-10'>
+          <button
+            disabled={screen !== 'edit'}
+            className='rounded-btn-10'
+            onClick={(e) => HandleTextStyle('bold')}
+          >
             <FontAwesomeIcon icon={faBold} />
           </button>
-          <button disabled={screen !== 'edit'} className='rounded-btn-10'>
+          <button
+            disabled={screen !== 'edit'}
+            className='rounded-btn-10'
+            onClick={(e) => HandleTextStyle('underline')}
+          >
             <FontAwesomeIcon icon={faUnderline} />
           </button>
-          <button disabled={screen !== 'edit'} className='rounded-btn-10'>
+          <button
+            disabled={screen !== 'edit'}
+            className='rounded-btn-10'
+            onClick={(e) => HandleTextStyle('italic')}
+          >
             <FontAwesomeIcon icon={faItalic} />
           </button>
-          <button disabled={screen !== 'edit'} className='rounded-btn-10'>
-            <FontAwesomeIcon icon={faLink} />
-          </button>
+          <div className='relative'>
+            <button
+              disabled={screen !== 'edit'}
+              className='rounded-btn-10'
+              onClick={() => setShowSideModal((prev) => !prev)}
+            >
+              <FontAwesomeIcon icon={faLink} />
+            </button>
+            {showSideModal && (
+              <SideModal className='w-[20rem]'>
+                <input
+                  className='outline-none w-full border rounded-lg p-2 mb-6'
+                  type='text'
+                  placeholder='Enter the url'
+                />
+                <div className='flex justify-between'>
+                  <button
+                    className={`custom-btn text-red-500 border border-red-500 hover:bg-red-500 hover:text-white`}
+                  >
+                    Remove
+                  </button>
+                  <button
+                    className={`custom-btn min-w-[6rem] ${theme} text-white`}
+                  >
+                    Add
+                  </button>
+                </div>
+              </SideModal>
+            )}
+          </div>
         </>
       )}
     </div>
