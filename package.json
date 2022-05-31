@@ -14,8 +14,6 @@
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "@fortawesome/react-fontawesome": "^0.1.18",
     "@reduxjs/toolkit": "^1.8.1",
-    "@types/emoji-mart": "^3.0.9",
-    "@types/react-date-range": "^1.4.3",
     "autoprefixer": "^10.4.5",
     "emoji-mart": "^5.0.0",
     "eslintrc": "^1.0.6",

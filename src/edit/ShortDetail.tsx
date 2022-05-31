@@ -3,6 +3,7 @@ import { BlurEvent, ShortSection } from '../../vite-env';
 import Editable from '../customs/Editable.polymorphic';
 import { setFocused } from '../../store/editor';
 import useSection from '../../hooks/useSection';
+import parse from 'html-react-parser';
 
 interface Props {
   id: string;
@@ -13,6 +14,7 @@ interface Props {
 
 const ShortDetail: React.FC<Props> = ({ id, section, style, placeholder }) => {
   //@ts-ignore
+  // todo: we'll create rating of the skill, setValue can be b/w 1 to 5
   const { setType, setValue, createEl } = useSection(section);
 
   const dispatch = useAppDispatch();
@@ -25,7 +27,7 @@ const ShortDetail: React.FC<Props> = ({ id, section, style, placeholder }) => {
         as='span'
         placeholder={placeholder}
         className={style}
-        content={type}
+        content={parse(type)}
         onBlur={(e: BlurEvent) =>
           dispatch(setType({ id, content: e.target.innerText }))
         }

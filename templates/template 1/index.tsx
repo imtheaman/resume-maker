@@ -1,7 +1,7 @@
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faAt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useAppSelector } from '../../../store/store';
+import { useAppSelector } from '../../store/store';
 import Experience from './long-detail/Experience';
 import Profile from './profile';
 import Social from './social';

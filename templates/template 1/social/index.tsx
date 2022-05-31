@@ -12,7 +12,7 @@ import {
   faMobileScreenButton
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useAppSelector } from '../../../../store/store';
+import { useAppSelector } from '../../../store/store';
 
 const Social = () => {
   const {

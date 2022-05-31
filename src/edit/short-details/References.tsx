@@ -5,6 +5,7 @@ import SectionHeading from '../SectionHeading';
 import references from '../../../store/resume/short-details/references';
 import { setFocused } from '../../../store/editor';
 import { HandleContentstyle } from '../list-style';
+import parse from 'html-react-parser';
 
 const References: React.FC = () => {
   const [{ order, data }, contentStyle] = useAppSelector(
@@ -20,7 +21,10 @@ const References: React.FC = () => {
         section='references'
       />
       {order.map((id) => (
-        <div key={id} className={`flex items-start ${HandleContentstyle(contentStyle)}`}>
+        <div
+          key={id}
+          className={`flex items-start ${HandleContentstyle(contentStyle)}`}
+        >
           <div
             className='space-y-3'
             key={id}
@@ -28,7 +32,7 @@ const References: React.FC = () => {
           >
             <Editable
               as='h4'
-              content={data[id].type}
+              content={parse(data[id].type)}
               placeholder='Person Name'
               className='input-primary'
               onBlur={(e: BlurEvent) =>
@@ -45,7 +49,7 @@ const References: React.FC = () => {
               <Editable
                 as='p'
                 className='border-b flex-grow'
-                content={data[id].value}
+                content={parse(data[id].value)}
                 placeholder='Email/Phone'
                 onBlur={(e: BlurEvent) =>
                   dispatch(

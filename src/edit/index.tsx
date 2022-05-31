@@ -1,8 +1,8 @@
 import layoutElement from '../../hooks/useLayout';
 import { useAppSelector } from '../../store/store';
 import Skewed from '../customs/Skewed.polymorphic';
-import Profile from '../templates/template 1/profile';
-import Social from '../templates/template 1/social';
+import Profile from '../../templates/template 1/profile';
+import Social from '../../templates/template 1/social';
 import ProfileEdit from './profile/ProfileEdit';
 
 const FillDetails = () => {

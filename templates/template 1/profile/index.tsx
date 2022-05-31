@@ -1,4 +1,4 @@
-import { useAppSelector } from '../../../../store/store';
+import { useAppSelector } from '../../../store/store';
 
 const Profile = () => {
   const { intro, name, profilePic } = useAppSelector(({ profile }) => profile);

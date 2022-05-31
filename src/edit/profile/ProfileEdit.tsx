@@ -6,6 +6,7 @@ import Editable from '../../customs/Editable.polymorphic';
 import Modal from '../../modal/Modal';
 import Socials from './Socials';
 import Skewed from '../../customs/Skewed.polymorphic';
+import parse from 'html-react-parser'
 
 const ProfileEdit = () => {
   const [modal, setModal] = useState<ReactElement | false>(false);
@@ -56,7 +57,7 @@ const ProfileEdit = () => {
             as='h3'
             placeholder='Full Name'
             className='flex-grow text-4xl font-semibold'
-            content={name}
+            content={parse(name)}
             onBlur={(e: BlurEvent) =>
               dispatch(setName(capitalize(e.target.innerText)))
             }
@@ -73,7 +74,7 @@ const ProfileEdit = () => {
           as='h3'
           placeholder='Your short intro'
           className='text-2xl'
-          content={intro}
+          content={parse(intro)}
           onBlur={(e: BlurEvent) =>
             dispatch(setIntro(capitalize(e.target.innerText)))
           }

@@ -3,6 +3,7 @@ import { AllActions, BlurEvent } from '../../vite-env';
 import Editable from '../customs/Editable.polymorphic';
 import SwitchCheckbox from '../customs/SwitchCheckbox';
 import useSection from '../../hooks/useSection';
+import parse from 'html-react-parser'
 
 interface Props {
   section: AllActions;
@@ -32,7 +33,7 @@ const SectionHeading: React.FC<Props> = ({
         placeholder={placeholder}
         as='h2'
         className='h2 flex-grow'
-        content={heading}
+        content={parse(heading)}
         onBlur={(e: BlurEvent) => dispatch(setHeading(e.target.innerText))}
       />
       {screen === 'edit' && (

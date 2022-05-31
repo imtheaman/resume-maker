@@ -5,6 +5,7 @@ import Editable from '../customs/Editable.polymorphic';
 import { setFocused } from '../../store/editor';
 import useSection from '../../hooks/useSection';
 import { HandleContentstyle } from './list-style';
+import parse from 'html-react-parser';
 
 interface Props {
   id: string;
@@ -45,7 +46,7 @@ const LongDetail: React.FC<Props> = ({
           as='h3'
           className='input-primary'
           placeholder={placeholder.primary}
-          content={primary}
+          content={parse(primary)}
           onBlur={(e: BlurEvent) =>
             dispatch(setPrimary({ id, content: e.target.innerText }))
           }
@@ -55,7 +56,7 @@ const LongDetail: React.FC<Props> = ({
             as='h3'
             className='input-secondary'
             placeholder={placeholder.secondary}
-            content={secondary}
+            content={parse(secondary)}
             onBlur={(e: BlurEvent) =>
               dispatch(setSecondary({ id, content: e.target.innerText }))
             }
@@ -67,7 +68,7 @@ const LongDetail: React.FC<Props> = ({
             as='h4'
             className='desc-heading border-b'
             placeholder={placeholder.desc}
-            content={description.heading}
+            content={parse(description.heading)}
             onBlur={(e: BlurEvent) =>
               dispatch(setDescHeading({ id, content: e.target.innerText }))
             }
@@ -84,7 +85,7 @@ const LongDetail: React.FC<Props> = ({
               <Editable
                 as='p'
                 className='desc-content'
-                content={el}
+                content={parse(el)}
                 onBlur={(e: BlurEvent) =>
                   dispatch(
                     setDescContent({

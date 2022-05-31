@@ -1,10 +1,9 @@
 import { ElementType } from 'react';
-import parse from 'html-react-parser';
 import { useAppSelector } from '../../store/store';
 
 const Editable: React.FC<{
   as: ElementType;
-  content: string;
+  content: string | JSX.Element | JSX.Element[];
   placeholder?: string;
   className?: string;
   onKeyDownCapture?: Function;
@@ -32,7 +31,7 @@ const Editable: React.FC<{
       }
       {...otherProps}
     >
-      {parse(content)}
+      {content}
     </As>
   );
 };

@@ -6,6 +6,7 @@ import educations from '../../store/resume/long-details/educations';
 import projects from '../../store/resume/long-details/projects';
 import volunteers from '../../store/resume/long-details/volunteers';
 import organizations from '../../store/resume/long-details/organizations';
+import parse from 'html-react-parser'
 
 interface Props {
   id: string;
@@ -39,7 +40,7 @@ const FromToLocation: React.FC<Props> = ({ id, section }) => {
             as='div'
             className='min-w-[7rem] focus:border-b text-gray-700 ml-2'
             placeholder='DD-MM-YYYY'
-            content={from}
+            content={parse(from)}
             onBlur={(e: BlurEvent) =>
               dispatch(setFrom({ id, content: e.target.innerText }))
             }
@@ -51,7 +52,7 @@ const FromToLocation: React.FC<Props> = ({ id, section }) => {
           </label>
           <Editable
             as='div'
-            content={to}
+            content={parse(to)}
             placeholder='DD-MM-YYYY'
             className={`min-w-[7rem] focus:border-b text-gray-700 ml-2`}
             onBlur={(e: BlurEvent) =>
@@ -67,7 +68,7 @@ const FromToLocation: React.FC<Props> = ({ id, section }) => {
             className='flex-grow ml-4 empty:pb-1 focus:pb-1 text-gray-700 empty:border-b'
             as='div'
             placeholder='Location'
-            content={location}
+            content={parse(location)}
             onBlur={(e: BlurEvent) =>
               dispatch(setLocation({ id, content: e.target.innerText }))
             }

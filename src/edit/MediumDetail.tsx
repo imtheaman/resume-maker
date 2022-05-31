@@ -4,6 +4,7 @@ import Editable from '../customs/Editable.polymorphic';
 import { setFocused } from '../../store/editor';
 import useSection from '../../hooks/useSection';
 import { HandleContentstyle } from './list-style';
+import parse from 'html-react-parser';
 
 interface Props {
   id: string;
@@ -39,7 +40,7 @@ const MediumDetail: React.FC<Props> = ({ id, section, placeholder }) => {
           onBlur={(e: BlurEvent) =>
             dispatch(setPrimary({ id, content: e.target.innerText }))
           }
-          content={primary}
+          content={parse(primary)}
         />
         <div className='flex items-center'>
           <label htmlFor='when' className='desc-heading'>
@@ -47,7 +48,7 @@ const MediumDetail: React.FC<Props> = ({ id, section, placeholder }) => {
           </label>
           <Editable
             as='div'
-            content={when}
+            content={parse(when)}
             placeholder='DD-MM-YYYY'
             className='ml-2 min-w-[7rem] focus:border-b text-gray-700'
             onBlur={(e: BlurEvent) =>
@@ -58,7 +59,7 @@ const MediumDetail: React.FC<Props> = ({ id, section, placeholder }) => {
         <div className={`flex items-center italic`}>
           <Editable
             as='p'
-            content={description}
+            content={parse(description)}
             className='desc-content leading-3'
             onBlur={(e: BlurEvent) =>
               dispatch(setDesc({ id, content: e.target.innerText }))
