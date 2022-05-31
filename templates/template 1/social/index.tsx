@@ -26,7 +26,7 @@ const Social = () => {
     stackoverflow
   } = useAppSelector(({ profile }) => profile.socials);
   return (
-    <div className='px-16 py-6 grid grid-cols-4 gap-y-6 text-lg'>
+    <div className='px-16 py-6 flex justify-between flex-wrap text-lg'>
       {portfolio && (
         <div className='flex items-center '>
           <FontAwesomeIcon className='w-5 h-5 mr-2' icon={faArrowPointer} />
