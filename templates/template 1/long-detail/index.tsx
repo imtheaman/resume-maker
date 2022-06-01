@@ -1,5 +1,5 @@
-import { useAppSelector } from '../../../../store/store';
-import { LongSection } from '../../../../vite-env';
+import { useAppSelector } from '../../../store/store';
+import { LongSection } from '../../../vite-env';
 
 const LongDetail: React.FC<{ section: LongSection; id: string }> = ({
   section, id
