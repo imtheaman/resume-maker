@@ -3,7 +3,7 @@ import { Screen, Ui } from '../../vite-env';
 const uiSlice = createSlice({
   name: 'ui',
   initialState: {
-    theme: 'bg-blue-600',
+    theme: 'bg-green-600',
     spellCheck: true,
     screen: 'resume'
   } as Ui,
