@@ -41,8 +41,7 @@ const Layout = () => {
                 ref={provided.innerRef}
                 className='mt-4 space-y-7 px-5 pb-20 overflow-y-scroll w-full h-full'
                 >
-                <li className={`bg-gray-600 cursor-text  layout-item`}>Profile</li>
-                {layout.slice(0, 5).map((el, index) => (
+                {layout.slice(0, 6).map((el, index) => (
                   <Draggable draggableId={el} key={el} index={index}>
                     {(provided, snapshot) => (
                       <li
@@ -72,7 +71,7 @@ const Layout = () => {
                 ref={provided.innerRef}
                 className='mt-4 space-y-7 px-5 pb-20 overflow-y-scroll w-full h-full'
               >
-                {layout.slice(5, -1).map((el, index) => (
+                {layout.slice(5).map((el, index) => (
                   <Draggable draggableId={el} key={el} index={5 + index}>
                     {(provided, snapshot) => (
                       <li
