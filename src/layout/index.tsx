@@ -71,7 +71,7 @@ const Layout = () => {
                 ref={provided.innerRef}
                 className='mt-4 space-y-7 px-5 pb-20 overflow-y-scroll w-full h-full'
               >
-                {layout.slice(5).map((el, index) => (
+                {layout.slice(6).map((el, index) => (
                   <Draggable draggableId={el} key={el} index={5 + index}>
                     {(provided, snapshot) => (
                       <li
